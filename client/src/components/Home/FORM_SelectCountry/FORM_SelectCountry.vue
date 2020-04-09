@@ -81,7 +81,7 @@ export default {
           this.countryDataLoading = false;
           this.countryDataErro = true;
         });
-      console.log("teste: " + this.FORM_SelectCountryEmit.countrySelected);
+        
       // Emitindo dados
       this.$emit("resCountryData", this.FORM_SelectCountryEmit);
     }

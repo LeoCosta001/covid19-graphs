@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="data in countryData.countryData" :key="data">
+          <tr v-for="(data, index) in countryData.countryData" :key="index">
             <td>{{ data.date }}</td>
             <td>{{ data.confirmed }}</td>
             <td>{{ data.deaths }}</td>
@@ -31,7 +31,7 @@ export default {
       type: Object,
       required: true,
       default: () => {
-        return false;
+        return {};
       }
     }
   }
