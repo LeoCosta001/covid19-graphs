@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <div v-if="FORM_SelectCountryEmit.countryData">
+    <div v-if="countryData.countryData">
       <table>
         <thead>
           <tr>
@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="data in FORM_SelectCountryEmit.countryData" :key="data">
+          <tr v-for="data in countryData.countryData" :key="data">
             <td>{{ data.date }}</td>
             <td>{{ data.confirmed }}</td>
             <td>{{ data.deaths }}</td>

@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     // Dados para serem emitidos para outros componentes
-    FORM_SelectCountryEmit: () => {
+    FORM_SelectCountryEmit() {
       return {
         countrySelected: this.countrySelected,
         countryData: this.countryData,
@@ -81,7 +81,7 @@ export default {
           this.countryDataLoading = false;
           this.countryDataErro = true;
         });
-      console.log("teste: " + this.FORM_SelectCountryEmit.countryData);
+      console.log("teste: " + this.FORM_SelectCountryEmit.countrySelected);
       // Emitindo dados
       this.$emit("resCountryData", this.FORM_SelectCountryEmit);
     }

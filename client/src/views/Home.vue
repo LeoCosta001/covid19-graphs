@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     countryData(req) {
-      console.log(req.cuntryData)
       this.resCountryData = req;
     }
   }
