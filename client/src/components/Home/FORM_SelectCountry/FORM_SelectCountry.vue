@@ -26,7 +26,7 @@ export default {
       // Variaveis
       countrySelected: "undefined",
       countryList: false,
-      countryData: undefined,
+      countryData: [],
       countryDataLoading: false,
       countryDataErro: false,
 

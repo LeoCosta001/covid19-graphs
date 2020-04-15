@@ -10,7 +10,6 @@ module.exports = {
         let firstDay = myJSON.findIndex(i => i.date == indexMinQnt);
         let lastDay = myJSON.findIndex(i => i.date == indexMaxQnt);
         let filterIndexQnt = myJSON.filter((value, index) => index <= firstDay && index >= lastDay);
-        console.log(firstDay, lastDay, filterIndexQnt)
         //let filterIndexQnt = myJSON.filter((value, index) => index >= parseInt(indexMinQnt) && index < parseInt(indexMaxQnt));
         return filterIndexQnt;
     }

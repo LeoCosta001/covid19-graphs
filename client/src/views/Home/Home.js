@@ -49,9 +49,6 @@ export default {
                 min: req.selectDataNumber.min
               };
             }
-            console.log(
-              `Req: ${req.selectDataNumber.max}, final: ${this.selectTableDataNumber.max}`
-            );
             return changeData.showIndex(
               mapCountryData,
               req.selectDataNumber.min,
