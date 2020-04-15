@@ -29,6 +29,7 @@
   & .data__select {
     display: flex;
     height: 80px;
+    
     & div {
       display: flex;
       align-items: center;
@@ -51,6 +52,7 @@
     height: 60px;
     width: 100%;
     border: solid 1px $flatLightRed;
+    background-color: $flatRed25;
     border-radius: 5px;
 
     & p {
