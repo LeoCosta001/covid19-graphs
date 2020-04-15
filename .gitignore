@@ -1,4 +1,4 @@
-.DS_Store
+/client/.DS_Store
 node_modules
 /client/node_modules
 /client/dist
@@ -13,8 +13,8 @@ node_modules
 /client/yarn-error.log*
 
 # Editor directories and files
-.idea
-.vscode
+/client/.idea
+/client/.vscode
 *.suo
 *.ntvs*
 *.njsproj

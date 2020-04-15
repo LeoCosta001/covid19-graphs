@@ -8,11 +8,13 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
+    "animated-vue": "^0.5.3",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "jquery": "^3.4.1",
     "node-fetch": "^2.6.0",
     "vue": "^2.6.11",
+    "vue-functional-calendar": "^2.8.69",
     "vue-router": "^3.1.6"
   },
   "devDependencies": {

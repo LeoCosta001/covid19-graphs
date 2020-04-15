@@ -1,10 +1,5 @@
 <template>
   <div class="localContainer">
-    <div v-if="countryDataLoading">Carregando...</div>
-    <div v-if="countryDataErro">
-      ERRO! Não foi possivel carregar os dados.
-      <br />Tente novamente mais tarde.
-    </div>
     <form>
       <select
         v-if="countryList"
@@ -14,7 +9,7 @@
         id="countrySelect"
       >
         <option value="undefined" disabled selected>Selecione um País</option>
-        <option :value="country" v-for="(country) in countryList" :key="country">{{ country }}</option>
+        <option :value="country" v-for="(country, index) in countryList" :key="index">{{ country }}</option>
       </select>
     </form>
   </div>
@@ -52,16 +47,18 @@ export default {
       };
     }
   },
-  props: {
-    msg: String
-  },
   methods: {
+    // Emitir dados que estiverem no data "FORM_SelectCountryEmit" 
+    localEmit() {
+      this.$emit("resCountryData", this.FORM_SelectCountryEmit);
+    },
+
     // Método acionado quando é selecionado um novo país
     async casesData() {
       // Ativar variável de "Carregamento" e desativar variável de "Erro"
       this.countryDataLoading = true;
       this.countryDataErro = false;
-
+      this.localEmit();
       // Fazendo requisição
       await this.casesDataReq()
         .then(res => {
@@ -69,9 +66,11 @@ export default {
           if (res.data.resError) {
             this.countryDataLoading = false;
             this.countryDataErro = true;
+            this.localEmit();
           } else {
             this.countryDataLoading = false;
             this.countryData = res.data.countryCases;
+            this.localEmit();
           }
         })
         .catch(err => {
@@ -80,10 +79,10 @@ export default {
           // Desativando variável de "Carregamento" e ativando variável de "Erro"
           this.countryDataLoading = false;
           this.countryDataErro = true;
+          this.localEmit();
         });
         
-      // Emitindo dados
-      this.$emit("resCountryData", this.FORM_SelectCountryEmit);
+      this.localEmit();
     }
   },
   mounted() {

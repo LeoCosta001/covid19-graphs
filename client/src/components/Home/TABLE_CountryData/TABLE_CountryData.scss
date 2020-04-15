@@ -1,0 +1,146 @@
+.localContainer {
+  background-color: $flatMidnightBlue;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  padding: 40px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+// Titulo
+.title {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 300;
+  margin-bottom: 0px;
+}
+
+// Seleção de data para exibição de dados
+.data__select__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+  width: 50vw;
+  height: 150px;
+
+  & .data__select {
+    display: flex;
+    height: 80px;
+    & div {
+      display: flex;
+      align-items: center;
+      height: 100px;
+
+      & p {
+        margin: 0px 15px 0px 15px;
+        font-size: 1.3em;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  // Mensagem de erro ao selecionar data inválida
+  & .data__error__msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    border: solid 1px $flatLightRed;
+    border-radius: 5px;
+
+    & p {
+      margin-bottom: 2px;
+    }
+
+    & .error__msg__title {
+      color: $flatLightRed;
+      font-size: 1.2em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Tabela principal
+.countryDataTable__main {
+  width: 90vw;
+
+  & .main__thead {
+    font-size: 1.3em;
+    background-color: $flatMidnightBlue;
+    color: $flatLightGreenSea;
+    & th {
+      border-bottom: solid 1px $flatGrey;
+      padding: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+  }
+
+  & .main__tbody {
+    font-size: 1.2em;
+
+    & .main__tr {
+      &:nth-child(odd) {
+        background-color: $flatLightMidnightBlue50;
+        border-top: solid 1px $flatGrey50;
+      }
+
+      &:nth-child(even) {
+        color: $flatLightSmoke;
+        font-size: 0.8em;
+      }
+
+      &:hover {
+        background-color: $flatGreenSea50;
+      }
+
+      & td {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+// Tabela interna
+.countryDataTable__internal {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  & thead {
+    font-size: 0.9em;
+    background-color: $flatMidnightBlue;
+    color: $flatLightGreenSea;
+    & th {
+      padding: 10px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    & tr {
+      border-bottom: solid 1px $flatGrey50;
+    }
+  }
+
+  & tbody {
+    color: $flatLightSmoke;
+    font-size: 0.8em;
+
+    & tr {
+      border-top: solid 1px $flatGrey25;
+      padding: 40px;
+    }
+
+    & td {
+      padding: 10px;
+    }
+  }
+}
