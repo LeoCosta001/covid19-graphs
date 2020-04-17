@@ -1,8 +1,7 @@
 <template>
   <div class="home">
-    <HeaderMenu @resCountryData="countryData" />
     <TABLECountryData
-      @selectTableDataNumber="tableShowDataNumber"
+      @selectTableDataNumber="showDataNumber"
       :country-data="resForTableCountryData"
     />
   </div>

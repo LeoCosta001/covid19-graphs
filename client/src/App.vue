@@ -1,10 +1,43 @@
 <template>
   <div id="app">
+    <HeaderMenu @resCountryData="countryData" />
     <!-- fix-bm-overlay é editado em @/sass/global/externalComponents/sideBar_vueBurgerMenu -->
     <div class="fix-bm-overlay"></div>
-    <router-view />
+    <router-view ref="childReqData" :reqCountryData="resCountryData"/>
   </div>
 </template>
+
+<script>
+// Métodos
+import mapData from "@/methods/changeData/mapData.js";
+
+// Componentes
+import HeaderMenu from "@/components/Header/Header_Menu/Header_Menu.vue";
+
+export default {
+  name: "Home",
+  components: {
+    HeaderMenu
+  },
+  data() {
+    return {
+      resCountryData: undefined
+    };
+  },
+  methods: {
+    countryData(req) {
+      this.resCountryData = {
+        countrySelected: req.countrySelected,
+        countryData: mapData.init(req.countryData),
+        countryDataLoading: req.countryDataLoading,
+        countryDataErro: req.countryDataErro
+      }
+      // Ativando o método do componente filho que receberá os dados
+      this.$refs.childReqData.showDataNumber()
+    },
+  }
+};
+</script>
 
 <style lang="scss">
 // Variáveis
