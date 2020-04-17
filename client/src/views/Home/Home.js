@@ -1,17 +1,16 @@
-
 // Métodos
 import _date from "@/methods/changeDate/dateIdentify.js";
 import changeData from "@/methods/changeData/changeData.js";
 import mapData from "@/methods/changeData/mapData.js";
 
 // Componentes
-import FORMSelectCountry from "@/components/Home/FORM_SelectCountry/FORM_SelectCountry.vue";
+import HeaderMenu from "@/components/Header/Header_Menu/Header_Menu.vue";
 import TABLECountryData from "@/components/Home/TABLE_CountryData/TABLE_CountryData.vue";
 
 export default {
   name: "Home",
   components: {
-    FORMSelectCountry,
+    HeaderMenu,
     TABLECountryData
   },
   data() {

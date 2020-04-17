@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <FORMSelectCountry @resCountryData="countryData" />
+    <HeaderMenu @resCountryData="countryData" />
     <TABLECountryData
       @selectTableDataNumber="tableShowDataNumber"
       :country-data="resForTableCountryData"

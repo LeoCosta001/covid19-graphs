@@ -36,13 +36,6 @@
         <p class="error__msg__content">A data de ínicio tem que ser menor que a data final.</p>
       </div>
     </div>
-    <!-- Mensagem informativa de requisição para o client -->
-    <div v-if="countryData.countryDataLoading">Carregando...</div>
-    <div v-if="countryData.countryDataErro">
-      ERRO! Não foi possivel carregar os dados.
-      <br />Tente novamente mais tarde.
-    </div>
-
     <!-- Tabela -->
     <div v-if="countryData.countryData">
       <table class="countryDataTable__main">

@@ -1,0 +1,83 @@
+/* Estas são as classes usadas nocomponente instalado pelo "vue-burger-menu".
+* OBS: Em toda alteração feita aqui deverá ser usado o "!important". */
+
+.bm-burger-button {
+  position: relative !important;
+  width: 30.6px !important;
+  height: 25.5px !important;
+  left: -10px !important;
+  top: 0.5px !important;
+  cursor: pointer;
+  z-index: 1000 !important;
+}
+// Icone que abre o menu
+.bm-burger-bars {
+  background-color: $flatGrey !important;
+}
+.line-style {
+  position: absolute;
+  height: 20%;
+  left: 0;
+  right: 0;
+}
+.cross-style {
+  position: absolute;
+  top: 12px;
+  right: 2px;
+  cursor: pointer;
+}
+.bm-cross {
+  background: #bdc3c7;
+}
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+// Aparência do Menu
+.bm-menu {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1001 !important; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: $flatLightMidnightBlue !important;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+  box-shadow: 10px 0px 5px rgba(0, 0, 0, 0.3) !important;
+}
+/* Classe aplicada ao elemento "body" quando é ativado o menu.
+* OBS: Era para deixar o fundo da página escura mas não está fincionando corretamente.
+* Para corrigir este problema foi adicionado o elemento "fix-bm-overlay" que é usado em uma div no componente "App.vue". */
+.bm-overlay {
+  background: $flatLightMidnightBlue !important;
+  & .fix-bm-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 998;
+    transition: 0.3s;
+  }
+}
+// Classe aplicada ao container de elementos dentro da lista.
+.bm-item-list {
+  color: #b8b7ad;
+  margin-left: 0px !important;
+  font-size: 20px;
+}
+// Classe aplicada aos elementos dentro da lista.
+.bm-item-list > * {
+  display: flex;
+  text-decoration: none !important; 
+  padding: 0em !important;
+}
+// Classe aplicada aos elementos "span" dentro da lista.
+.bm-item-list > * > span {
+  margin-left: 10px;
+  font-weight: 700;
+  color: $flatLightGrey !important;
+}

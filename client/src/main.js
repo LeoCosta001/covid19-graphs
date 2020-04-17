@@ -1,6 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+
+// Icones
+// OBS: A lista de icones está neste link "https://antonreshetov.github.io/vue-unicons/"
+import Unicon from 'vue-unicons'
+import { uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniHeartMedical, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar} from 'vue-unicons/src/icons'
+Unicon.add([uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniHeartMedical, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar])
+Vue.use(Unicon);
+
 // API de calendário
 import FunctionalCalendar from 'vue-functional-calendar';
 Vue.use(FunctionalCalendar, {
