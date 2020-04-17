@@ -1,0 +1,49 @@
+// Animação de rotação para o icone de "Loading"
+@keyframes __rotate__unicon__loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+// Animação de abrir o sub-menu de ".graphcs__list"
+@keyframes __open__graphcs__list {
+  0% {
+    height: $graphcs__list__height - $graphcs__list__height;
+  }
+  100% {
+    height: $graphcs__list__height;
+  }
+}
+
+// Animação de fechar o sub-menu de ".graphcs__list"
+@keyframes __close__graphcs__list {
+  0% {
+    height: $graphcs__list__height;
+  }
+  100% {
+    height: $graphcs__list__height - $graphcs__list__height;
+  }
+}
+
+// Animação de abrir o sub-menu de ".question__list"
+@keyframes __open__question__list {
+  0% {
+    height: $question__list__height - $question__list__height;
+  }
+  100% {
+    height: $question__list__height;
+  }
+}
+
+// Animação de fechar o sub-menu de ".question__list"
+@keyframes __close__question__list {
+  0% {
+    height: $question__list__height;
+  }
+  100% {
+    height: $question__list__height - $question__list__height;
+  }
+}
