@@ -11,10 +11,12 @@
     "animate.css": "^3.7.2",
     "animated-vue": "^0.5.3",
     "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
     "node-fetch": "^2.6.0",
     "vue": "^2.6.11",
     "vue-burger-menu": "^2.0.5",
+    "vue-chartjs": "^3.5.0",
     "vue-functional-calendar": "^2.8.69",
     "vue-router": "^3.1.6",
     "vue-unicons": "^2.1.0"

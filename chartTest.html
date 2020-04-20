@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart Testing</title>
+  </head>
+  <body>
+    <!-- Canvas: Chart -->
+    <canvas id="myChart"></canvas>
+
+    <!-- CDN: Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <!-- Meu JavaScript -->
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: "line",
+
+        // The data for our dataset
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ],
+          datasets: [
+            {
+              label: "Casos Confirmados",
+              borderWidth: 3,
+              backgroundColor: "transparent",
+              borderColor: "#F39C12",
+              data: [0, 10, 15, 22, 26, 30, 45],
+            },
+            {
+              label: "Mortos",
+              borderWidth: 3,
+              backgroundColor: "transparent",
+              borderColor: "#C0392B",
+              data: [0, 2, 4, 4, 6, 10, 12],
+            },
+            {
+              label: "Recuperados",
+              borderWidth: 3,
+              backgroundColor: "transparent",
+              borderColor: "#27AE60",
+              data: [0, 1, 2, 5, 5, 8, 11],
+            },
+          ],
+        },
+
+        // Configuration options go here
+        options: {},
+      });
+    </script>
+  </body>
+</html>

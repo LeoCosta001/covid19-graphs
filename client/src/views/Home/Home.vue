@@ -1,9 +1,6 @@
 <template>
   <div class="home">
-    <TABLECountryData
-      @selectTableDataNumber="showDataNumber"
-      :country-data="resForTableCountryData"
-    />
+    <span>Início</span>
   </div>
 </template>
 

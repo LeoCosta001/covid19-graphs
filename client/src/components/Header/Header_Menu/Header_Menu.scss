@@ -15,6 +15,7 @@ hr {
   left: 0px;
   display: flex;
   justify-content: space-between;
+  transition: 0.3s;
   z-index: 999;
 
   & div {
@@ -107,7 +108,7 @@ hr {
   }
 
   /*
-  * Animação para abrir e fechar os sub-menu
+  * Animação para abrir e fechar os sub-menu (Keyframes)
   */
   & #checkGraphcsList:checked ~ .graphcs__list {
     animation: __open__graphcs__list 0.2s linear 0s normal 1 forwards running;

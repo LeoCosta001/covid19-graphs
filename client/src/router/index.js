@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home/Home.vue";
+import DataTable from "../views/DataTable/DataTable.vue";
+import GraphSummary from "../views/GraphSummary/GraphSummary.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -8,6 +10,16 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/data-table",
+    name: "DataTable",
+    component: DataTable
+  },
+  {
+    path: "/graphs/graph-summary",
+    name: "GraphSummary",
+    component: GraphSummary
   }
 ];
 

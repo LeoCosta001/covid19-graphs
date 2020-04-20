@@ -1,0 +1,19 @@
+/* eslint-disable */
+module.exports = {
+  /* Método debounce do Loadesh, possibilita definir um tempo minimo para executar a mesma função novamente.
+   * OBS: Não alterar! */
+  use(func, wait, immediate) {
+    let timeout;
+    return function(...args) {
+      const context = this;
+      const later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
+};

@@ -15,7 +15,7 @@ import mapData from "@/methods/changeData/mapData.js";
 import HeaderMenu from "@/components/Header/Header_Menu/Header_Menu.vue";
 
 export default {
-  name: "Home",
+  name: "App",
   components: {
     HeaderMenu
   },
