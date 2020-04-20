@@ -29,7 +29,7 @@ hr {
   width: 450px;
   padding: 0px 60px 0px 60px;
   justify-content: flex-start;
-  
+
   & label {
     margin: 0px;
   }
@@ -44,10 +44,13 @@ hr {
   // Estilo dos elementos que estão dentro do menu
   & .menu__link__1 {
     padding: 10px 0px 10px 20px !important;
+    font-weight: 700;
+    color: $flatLightGrey;
   }
 
   & .menu__link__1,
   & .menu__link__2 {
+    width: 100%;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -63,6 +66,7 @@ hr {
     }
 
     & .link__title__1 {
+      margin-left: 10px !important;
       letter-spacing: 1px;
       transition: 0.1s;
     }
@@ -146,6 +150,7 @@ hr {
   }
 }
 
+// Status do carregamento dos dados
 .data__req__status {
   & .unicon__error {
     fill: $flatLightRed;

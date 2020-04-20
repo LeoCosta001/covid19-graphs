@@ -11,10 +11,12 @@
         </router-link>
         <hr />
         <!-- Link para Tabela de Dados -->
-        <router-link to="/data-table" class="menu__link__1">
-          <unicon class="unicon" name="list-ul" width="27.5px" height="27.5px" />
-          <span class="link__title__1">Tabela de Dados</span>
-        </router-link>
+        <div v-on:click="casesDataAtt()">
+          <router-link to="/data-table" class="menu__link__1">
+            <unicon class="unicon" name="list-ul" width="27.5px" height="27.5px" />
+            <span class="link__title__1">Tabela de Dados</span>
+          </router-link>
+        </div>
         <hr />
         <!-- Link para Gráficos -->
         <input type="checkbox" id="checkGraphcsList" />
@@ -25,18 +27,24 @@
         <hr />
         <!-- Sublinks de Gráficos -->
         <span class="graphcs__list">
+        <div v-on:click="casesDataAtt()">
           <router-link to="/graphs/graph-summary" class="menu__link__2">
             <unicon class="unicon" name="chart-line" width="23px" height="23px" />
             <span class="link__title__2">Resumo</span>
           </router-link>
+        </div>
+        <div v-on:click="casesDataAtt()">
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
             <span class="link__title__2">Taxa de Crescimento</span>
           </router-link>
+        </div>
+        <div v-on:click="casesDataAtt()">
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="chart-bar" width="23px" height="23px" />
             <span class="link__title__2">Comparar Países</span>
           </router-link>
+        </div>
         </span>
         <!-- Link para Dúvidas -->
         <input type="checkbox" id="checkQuestionList" />
@@ -74,7 +82,11 @@
 
     <!-- Seleção de países -->
     <div class="country__select">
-      <FORMSelectCountry class="country__select__input" @resCountryData="countryDataEmit" />
+      <FORMSelectCountry
+        class="country__select__input"
+        ref="casesDataReqAtt"
+        @resCountryData="countryDataEmit"
+      />
 
       <!-- Icone informativo de requisição para o client -->
       <div class="data__req__status">
@@ -121,15 +133,20 @@ export default {
     };
   },
   methods: {
+    casesDataAtt() {
+      console.log("teste");
+      this.$refs.casesDataReqAtt.casesData();
+    },
     // Evento ativado quando é movido o Scrollbar
     onScroll() {
       // Posição atual do Scrollbar
-      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
 
       // FIX: Não continuar caso o scroll de celular estiver menor que zero "0"
       if (currentScrollPosition < 0) {
         return;
-      };
+      }
 
       // Ativando a variável que exibirá o Headerbar caso a posição atual do scrollbar seja menor que a ultima posição
       this.showHeaderbar = currentScrollPosition < this.lastScrollPosition;

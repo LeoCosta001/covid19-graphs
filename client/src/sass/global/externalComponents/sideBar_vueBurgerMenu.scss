@@ -77,7 +77,7 @@
 }
 // Classe aplicada aos elementos "span" dentro da lista.
 .bm-item-list > * > span {
-  margin-left: 10px;
+  margin-left: 0px !important;
   font-weight: 700;
   color: $flatLightGrey !important;
 }
