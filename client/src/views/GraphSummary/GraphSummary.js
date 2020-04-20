@@ -67,6 +67,9 @@ export default {
           countryDataErro: this.reqCountryData.countryDataErro,
           totalDataNumber: this.reqCountryData.countryData.length,
         };
+
+        // Executar o filter do countryData antes de exporta-lo
+        this.resForTableCountryData.countryData();
       }
     },
   },

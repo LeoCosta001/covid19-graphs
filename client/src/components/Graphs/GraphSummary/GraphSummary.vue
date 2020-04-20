@@ -44,17 +44,9 @@
         <span class="select__country__msg">Selecione um País...</span>
       </div>
     </div>
-    
+
     <div class="graph__container">
       <GraphSummaryAppLine ref="graphSummaryAppLine" :country-data="countryData" />
-    </div>
-
-    <!-- Tabela -->
-    <div v-if="countryData.countryData">
-      <table class="countryDataTable__main">
-        <tbody v-for="(data, index) in countryData.countryData()" :key="index" class="main__tbody">
-        </tbody>
-      </table>
     </div>
   </div>
 </template>
