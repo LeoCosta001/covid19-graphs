@@ -38,6 +38,14 @@
       </div>
     </div>
 
+    <!-- Registro Total -->
+    <article class="about__graph">
+      <hr />
+      <h3>Registro Total</h3>
+      <p>Dados atualizados diariamente com a soma de todos os registros.</p>
+      <hr />
+    </article>
+
     <!-- Grafico em Linha -->
     <div v-if="!countryData.countryData">
       <div class="select__country__msg__container">
@@ -57,6 +65,10 @@
 <style lang="scss" scoped>
 // Variáveis
 @import "@/sass/variables/_flatUiColors";
+
+// Mixin
+@import "@/sass/mixin/titles/graphTitles";
+@import "@/sass/mixin/alerts/invalidDate";
 
 // SCSS deste componente
 @import "./GraphSummary";

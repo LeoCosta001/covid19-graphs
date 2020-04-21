@@ -1,0 +1,23 @@
+@mixin invalidDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  border: solid 1px $flatLightRed;
+  background-color: $flatRed25;
+  border-radius: 5px;
+
+  & p {
+    margin-bottom: 2px;
+  }
+
+  & .error__msg__title {
+    color: $flatLightRed;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: underline;
+  }
+}

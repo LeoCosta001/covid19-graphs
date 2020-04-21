@@ -3,12 +3,12 @@ import _date from "@/methods/changeDate/dateIdentify.js";
 import changeData from "@/methods/changeData/changeData.js";
 
 // Componentes
-import GraphSummary from "@/components/Graphs/GraphSummary/GraphSummary.vue";
+import GraphGrowthRate from "@/components/Graphs/GraphGrowthRate/GraphGrowthRate.vue";
 
 export default {
   name: "DataTable",
   components: {
-    GraphSummary,
+    GraphGrowthRate,
   },
   props: {
     reqCountryData: {

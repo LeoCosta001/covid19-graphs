@@ -27,24 +27,24 @@
         <hr />
         <!-- Sublinks de Gráficos -->
         <span class="graphcs__list">
-        <div v-on:click="casesDataAtt()">
-          <router-link to="/graphs/graph-summary" class="menu__link__2">
-            <unicon class="unicon" name="chart-line" width="23px" height="23px" />
-            <span class="link__title__2">Resumo</span>
-          </router-link>
-        </div>
-        <div v-on:click="casesDataAtt()">
-          <router-link to="#" class="menu__link__2">
-            <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
-            <span class="link__title__2">Taxa de Crescimento</span>
-          </router-link>
-        </div>
-        <div v-on:click="casesDataAtt()">
-          <router-link to="#" class="menu__link__2">
-            <unicon class="unicon" name="chart-bar" width="23px" height="23px" />
-            <span class="link__title__2">Comparar Países</span>
-          </router-link>
-        </div>
+          <div v-on:click="casesDataAtt()">
+            <router-link to="/graphs/graph-summary" class="menu__link__2">
+              <unicon class="unicon" name="chart-line" width="23px" height="23px" />
+              <span class="link__title__2">Resumo</span>
+            </router-link>
+          </div>
+          <div v-on:click="casesDataAtt()">
+            <router-link to="/graphs/graph-growth-rate" class="menu__link__2">
+              <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
+              <span class="link__title__2">Taxa de Crescimento</span>
+            </router-link>
+          </div>
+          <div v-on:click="casesDataAtt()">
+            <router-link to="#" class="menu__link__2">
+              <unicon class="unicon" name="chart-bar" width="23px" height="23px" />
+              <span class="link__title__2">Comparar Países</span>
+            </router-link>
+          </div>
         </span>
         <!-- Link para Dúvidas -->
         <input type="checkbox" id="checkQuestionList" />
@@ -134,7 +134,6 @@ export default {
   },
   methods: {
     casesDataAtt() {
-      console.log("teste");
       this.$refs.casesDataReqAtt.casesData();
     },
     // Evento ativado quando é movido o Scrollbar
@@ -148,11 +147,18 @@ export default {
         return;
       }
 
-      // Ativando a variável que exibirá o Headerbar caso a posição atual do scrollbar seja menor que a ultima posição
-      this.showHeaderbar = currentScrollPosition < this.lastScrollPosition;
+      // Esconder Headerbar apenas com scroll igual ou acima de 40
+      if (currentScrollPosition < 40) {
+        this.showHeaderbar = true;
+        this.lastScrollPosition = currentScrollPosition;
 
-      // Atualizar a ultima posição com a posição atual
-      this.lastScrollPosition = currentScrollPosition;
+      } else {
+        // Ativando a variável que exibirá o Headerbar caso a posição atual do scrollbar seja menor que a ultima posição
+        this.showHeaderbar = currentScrollPosition < this.lastScrollPosition;
+
+        // Atualizar a ultima posição com a posição atual
+        this.lastScrollPosition = currentScrollPosition;
+      }
     },
 
     // Emitir dados que foram recebidos pelo "FORMSelectCountry" e recolher dados de status do carregamento
@@ -163,12 +169,12 @@ export default {
     }
   },
   mounted() {
-    // Inicia o evento de scroll
-    window.addEventListener("scroll", _debounce.use(this.onScroll, 200));
+    // Inicia o evento de scroll (OBS: O 2º Param do _debounce.use() é o tempo de delay entre a execução das funções)
+    window.addEventListener("scroll", _debounce.use(this.onScroll, 50));
   },
   beforeDestroy() {
-    // Finaliza o evento de scroll
-    window.removeEventListener("scroll", _debounce.use(this.onScroll, 200));
+    // Inicia o evento de scroll (OBS: O 2º Param do _debounce.use() é o tempo de delay entre a execução das funções)
+    window.removeEventListener("scroll", _debounce.use(this.onScroll, 50));
   }
 };
 </script>

@@ -80,3 +80,69 @@
   width: 90vw;
   max-height: 500px;
 }
+
+// Tabela principal
+.countryDataTable__main {
+  width: 90vw;
+
+  & .main__tbody {
+    font-size: 1.2em;
+
+    & .main__tr {
+      &:nth-child(odd) {
+        background-color: $flatLightMidnightBlue50;
+        border-top: solid 1px $flatGrey50;
+      }
+
+      &:nth-child(even) {
+        color: $flatLightSmoke;
+        font-size: 0.8em;
+      }
+
+      &:hover {
+        background-color: $flatGreenSea50;
+      }
+
+      & td {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+// Tabela interna
+.countryDataTable__internal {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  & thead {
+    font-size: 0.9em;
+    background-color: $flatMidnightBlue;
+    color: $flatLightGreenSea;
+    & th {
+      padding: 10px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    & tr {
+      border-bottom: solid 1px $flatGrey50;
+    }
+  }
+
+  & tbody {
+    color: $flatLightSmoke;
+    font-size: 0.8em;
+
+    & tr {
+      border-top: solid 1px $flatGrey25;
+      padding: 40px;
+    }
+
+    & td {
+      padding: 10px;
+    }
+  }
+}
