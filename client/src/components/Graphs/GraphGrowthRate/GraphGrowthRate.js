@@ -13,7 +13,7 @@ export default {
   components: {
     FunctionalCalendar,
     GraphGrowthRateAppDoughnut,
-    GraphGrowthRateAppLine
+    GraphGrowthRateAppLine,
   },
   props: {
     countryData: {
@@ -21,14 +21,24 @@ export default {
       required: true,
       default: () => {
         return {};
-      }
-    }
+      },
+    },
   },
   data() {
     return {
       // Variáves
       maxSelectDataNumber: "7 ",
       minSelectDataNumber: "0",
+      graphDoughnutTable: {
+        confirmed: 0,
+        deaths: 0,
+        recovered: 0,
+        growthRate: {
+          confirmed: 0,
+          deaths: 0,
+          recovered: 0,
+        },
+      },
       // Controladores de display
       inputTableDataNumberInvalid: false,
       tableLineDetailStatus: undefined,
@@ -39,10 +49,10 @@ export default {
       minDayPlaceholder: _date.calcDate(-7, false),
       maxLimit: _date.calcDate(-1, false),
       calendarMaxDay: {
-        selectedDate: _date.calcDate(-1, false)
+        selectedDate: _date.calcDate(-1, false),
       },
       calendarMinDay: {
-        selectedDate: _date.calcDate(-7, false)
+        selectedDate: _date.calcDate(-7, false),
       },
     };
   },
@@ -52,12 +62,16 @@ export default {
       return {
         selectDataNumber: {
           min: this.minSelectDataNumber,
-          max: this.maxSelectDataNumber
-        }
+          max: this.maxSelectDataNumber,
+        },
       };
-    }
+    },
   },
   methods: {
+    // Método ativado quando o grafico de Doughnut é calculado
+    reqGraphDataEmit(req) {
+      this.graphDoughnutTable = req.graphData;
+    },
     // Emitir dados que estiverem no data "TABLE_CountryDataEmit"
     localEmit() {
       this.$emit("selectTableDataNumber", this.TABLE_CountryDataEmit);
@@ -66,7 +80,12 @@ export default {
     // Ativado quando é alterada as datas para a exibição de dados
     async attTableData() {
       // Verifica se a data Min é menor que o data Max
-      if (_date.compareDate(this.calendarMinDay.selectedDate, this.calendarMaxDay.selectedDate)) {
+      if (
+        _date.compareDate(
+          this.calendarMinDay.selectedDate,
+          this.calendarMaxDay.selectedDate
+        )
+      ) {
         // Desativando mensagem de data invalida
         this.inputTableDataNumberInvalid = false;
 
@@ -95,6 +114,6 @@ export default {
       } else {
         this.tableLineDetailStatus = index;
       }
-    }
-  }
+    },
+  },
 };

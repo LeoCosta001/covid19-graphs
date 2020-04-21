@@ -61,7 +61,7 @@
     <article class="about__graph">
       <hr />
       <h3>Soma dos Novos Registros</h3>
-      <p>Estas informações são baseadas nas datas selecionadas.</p>
+      <p>Soma de todos os novos registros entre as datas selecionadas.</p>
       <hr />
     </article>
 
@@ -72,8 +72,28 @@
       </div>
     </section>
 
-    <div class="graph__container">
-      <GraphGrowthRateAppDoughnut ref="graphGrowthRateAppDoughnut" :country-data="countryData" />
+    <div class="graph__doughnut__container">
+      <div class="graph__doughnut__content">
+        <table>
+          <tbody class="main__tbody">
+            <tr>
+              <td>Casos Confirmados:</td>
+              <td>{{ graphDoughnutTable.confirmed }} (+{{ graphDoughnutTable.growthRate.confirmed }}%)</td>
+            </tr>
+            <tr>
+              <td>Mortos:</td>
+              <td>{{ graphDoughnutTable.deaths }} (+{{ graphDoughnutTable.growthRate.deaths }}%)</td>
+            </tr>
+            <tr>
+              <td>Recuperados:</td>
+              <td>{{ graphDoughnutTable.recovered }} (+{{ graphDoughnutTable.growthRate.recovered }}%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="graph__doughnut">
+      <GraphGrowthRateAppDoughnut ref="graphGrowthRateAppDoughnut" @resGraphDataEmit="reqGraphDataEmit" :country-data="countryData" />
+      </div>
     </div>
 
     <!-- Informações Adicionais (Titulo) -->
@@ -180,4 +200,5 @@
 
 // SCSS deste componente
 @import "./GraphGrowthRate";
+@import "./GraphGrowthRate_Media";
 </style>

@@ -75,10 +75,53 @@
   }
 }
 
-// Gráfico
+// Gráfico Linear
 .graph__container {
   width: 90vw;
   max-height: 500px;
+}
+
+// Gráfico Doughnut
+.graph__doughnut__container {
+  width: 90vw;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .graph__doughnut__content {
+    min-width: 350px;
+
+    // Tabela do gráfico Doughnut
+    & table {
+      width: 450px;
+      & .main__tbody {
+        font-size: 1.1em;
+
+        & tr {
+          & td:first-child {
+            width: 240px;
+          }
+
+          & td:last-child {
+            width: 160px;
+          }
+
+          & ~ tr {
+            border-top: solid 1px $flatGrey50;
+          }
+        }
+
+        & td {
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  & .graph__doughnut {
+    width: calc(90vw - 450px);
+  }
 }
 
 // Tabela principal

@@ -1,0 +1,22 @@
+@media (max-width: 890px) {
+  // Gráfico Doughnut
+  .graph__doughnut__container {
+    flex-direction: column;
+
+
+    max-height: 500px;
+
+    & .graph__doughnut__content {
+      width: 100%;
+
+      // Tabela do gráfico Doughnut
+      & table {
+        width: 100%;
+      }
+    }
+
+    & .graph__doughnut {
+      width: 90vw;
+    }
+  }
+}

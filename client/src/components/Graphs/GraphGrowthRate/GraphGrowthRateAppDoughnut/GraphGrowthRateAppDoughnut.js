@@ -41,7 +41,19 @@ export default {
       },
     };
   },
+  computed: {
+    // Dados para serem emitidos para outros componentes
+    GraphDataEmit() {
+      return {
+        graphData: this.countryDataForGraph,
+      };
+    },
+  },
   methods: {
+    // Emitir dados que estiverem no data "FORM_SelectCountryEmit"
+    localEmit() {
+      this.$emit("resGraphDataEmit", this.GraphDataEmit);
+    },
     attGraph() {
       // Atualizar dados da variavel "countryDataForGraph"
       let reqCountryData = this.countryData.countryData();
@@ -67,6 +79,7 @@ export default {
         _graphDoughnut.option.default
       );
     },
+    // Método usado para atualizar os valores que seram exibidos no gráfico de Doughnut
     attVariable_CountryDataForGraph(data) {
       // Resetar valores antigos
       this.totalIndexNumber = 0;
@@ -105,21 +118,33 @@ export default {
           this.firstPosition.recovered = value.in24Hours.recovered;
         }
       });
-      console.log(this.firstPosition.confirmed);
 
-      // Somar valores
-      this.countryDataForGraph.confirmed =
-        this.countryDataForGraph.confirmed[this.totalIndexNumber - 1] -
-        this.countryDataForGraph.confirmed[0] +
-        this.firstPosition.confirmed;
-      this.countryDataForGraph.deaths =
-        this.countryDataForGraph.deaths[this.totalIndexNumber - 1] -
-        this.countryDataForGraph.deaths[0] +
-        this.firstPosition.deaths;
-      this.countryDataForGraph.recovered =
-        this.countryDataForGraph.recovered[this.totalIndexNumber - 1] -
-        this.countryDataForGraph.recovered[0] +
-        this.firstPosition.recovered;
+      // Encurtando Objetos
+      let localData = {
+        /* OBS: Nas propriedades que contém o valor da ultima posição é somado ao valor da primeira posição
+        * porque a primeira posição não esta no "this.countryDataForGraph.????[0]".
+        * OBS: Não esta sendo usado o método .reduce() porque ainda é necesário o valor da primeira e
+        * utima posição para calcular a taxa de crescimento em porcentagem. */
+        lastConfirmed: this.countryDataForGraph.confirmed[this.totalIndexNumber - 1] + this.firstPosition.confirmed,
+        firstConfirmed: this.countryDataForGraph.confirmed[0],
+        lastDeaths: this.countryDataForGraph.deaths[this.totalIndexNumber - 1] + this.firstPosition.deaths,
+        firstDeaths: this.countryDataForGraph.deaths[0],
+        lastRecovered: this.countryDataForGraph.recovered[this.totalIndexNumber - 1] + this.firstPosition.recovered,
+        firstRecovered: this.countryDataForGraph.recovered[0]
+      };
+
+      // Calculo para o gráfico de Doughnut (Soma de todos os novos registros)
+      this.countryDataForGraph.confirmed = localData.lastConfirmed - localData.firstConfirmed;
+      this.countryDataForGraph.deaths = localData.lastDeaths - localData.firstDeaths;
+      this.countryDataForGraph.recovered = localData.lastRecovered - localData.firstRecovered;
+
+      // Calcular Taxa de Crescimento (em %) em relação á primeira e ultima data selecionada
+      this.countryDataForGraph.growthRate.confirmed = (((localData.lastConfirmed - localData.firstConfirmed) / localData.firstConfirmed) * 100).toFixed(2);
+      this.countryDataForGraph.growthRate.deaths = (((localData.lastDeaths - localData.firstDeaths) / localData.firstDeaths) * 100).toFixed(2);
+      this.countryDataForGraph.growthRate.recovered = (((localData.lastRecovered - localData.firstRecovered) / localData.firstRecovered) * 100).toFixed(2);
+
+      // Emitir dados
+      this.localEmit();
     },
   },
   mounted() {
