@@ -38,7 +38,77 @@
       </div>
     </div>
 
-    <!-- Gráfico Linear (Título) -->
+    <!-- Título -->
+    <article class="about__graph">
+      <hr />
+      <h3>Taxa de Crescimento Total</h3>
+      <p>Cálculo da Taxa de Crescimento baseadas nas duas datas selecionadas.</p>
+      <hr />
+    </article>
+
+    <!-- Gráfico de Doughnut -->
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <article v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </article>
+
+      <!-- Conteúdo -->
+      <div class="graph__doughnut__container" :class="{'unselect--country': !countryData.countryData}">
+        <div class="graph__doughnut__content">
+          <!-- Tabela -->
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2">Total de novos registros</th>
+              </tr>
+            </thead>
+            <tbody class="main__tbody">
+              <tr>
+                <td>Casos Confirmados:</td>
+                <td>
+                  {{ graphDoughnutTable.confirmed }}
+                  <span
+                    v-if="graphDoughnutTable.growthRate.confirmed != undefined"
+                  >(+{{ graphDoughnutTable.growthRate.confirmed }}%)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Mortos:</td>
+                <td>
+                  {{ graphDoughnutTable.deaths }}
+                  <span
+                    v-if="graphDoughnutTable.growthRate.deaths != undefined"
+                  >(+{{ graphDoughnutTable.growthRate.deaths }}%)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Recuperados:</td>
+                <td>
+                  {{ graphDoughnutTable.recovered }}
+                  <span
+                    v-if="graphDoughnutTable.growthRate.recovered != undefined"
+                  >(+{{ graphDoughnutTable.growthRate.recovered }}%)</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Gráfico de Doughnut -->
+        <div class="graph__doughnut">
+          <GraphGrowthRateAppDoughnut
+            ref="graphGrowthRateAppDoughnut"
+            @resGraphDataEmit="reqGraphDataEmit"
+            :country-data="countryData"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Título -->
     <article class="about__graph">
       <hr />
       <h3>Novos Registros Diário</h3>
@@ -46,57 +116,21 @@
       <hr />
     </article>
 
-    <!-- Gráfico Linear -->
-    <section v-if="!countryData.countryData">
-      <div class="select__country__msg__container">
-        <span class="select__country__msg">Selecione um País...</span>
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <article v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </article>
+
+      <!-- Gráfico Linear -->
+      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
+        <GraphGrowthRateAppLine ref="graphGrowthRateAppLine" :country-data="countryData" />
       </div>
     </section>
 
-    <div class="graph__container">
-      <GraphGrowthRateAppLine ref="graphGrowthRateAppLine" :country-data="countryData" />
-    </div>
-
-    <!-- Gráfico de Doughnut (Título) -->
-    <article class="about__graph">
-      <hr />
-      <h3>Soma dos Novos Registros</h3>
-      <p>Soma de todos os novos registros entre as datas selecionadas.</p>
-      <hr />
-    </article>
-
-    <!-- Gráfico de Doughnut -->
-    <section v-if="!countryData.countryData">
-      <div class="select__country__msg__container">
-        <span class="select__country__msg">Selecione um País...</span>
-      </div>
-    </section>
-
-    <div class="graph__doughnut__container">
-      <div class="graph__doughnut__content">
-        <table>
-          <tbody class="main__tbody">
-            <tr>
-              <td>Casos Confirmados:</td>
-              <td>{{ graphDoughnutTable.confirmed }} (+{{ graphDoughnutTable.growthRate.confirmed }}%)</td>
-            </tr>
-            <tr>
-              <td>Mortos:</td>
-              <td>{{ graphDoughnutTable.deaths }} (+{{ graphDoughnutTable.growthRate.deaths }}%)</td>
-            </tr>
-            <tr>
-              <td>Recuperados:</td>
-              <td>{{ graphDoughnutTable.recovered }} (+{{ graphDoughnutTable.growthRate.recovered }}%)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="graph__doughnut">
-      <GraphGrowthRateAppDoughnut ref="graphGrowthRateAppDoughnut" @resGraphDataEmit="reqGraphDataEmit" :country-data="countryData" />
-      </div>
-    </div>
-
-    <!-- Informações Adicionais (Titulo) -->
+    <!-- Título -->
     <article class="about__graph">
       <hr />
       <h3>Informações Adicionais</h3>
@@ -105,9 +139,16 @@
     </article>
 
     <!-- Informações Adicionais (Conteúdo) -->
-    <section>
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <article v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </article>
+
       <!-- Tabela -->
-      <article>
+      <article :class="{'unselect--country': !countryData.countryData}">
         <table class="countryDataTable__main">
           <tbody class="main__tbody">
             <tr class="main__tr">
@@ -156,7 +197,6 @@
                 </table>
               </td>
             </tr>
-            
             <tr class="main__tr">
               <td colspan="3">Dia com o maior registro de "Recuperados"</td>
             </tr>
@@ -197,8 +237,10 @@
 // Mixin
 @import "@/sass/mixin/titles/graphTitles";
 @import "@/sass/mixin/alerts/invalidDate";
+@import "@/sass/mixin/alerts/unselectCountry";
 
 // SCSS deste componente
 @import "./GraphGrowthRate";
 @import "./GraphGrowthRate_Media";
+@import "./modifiers";
 </style>

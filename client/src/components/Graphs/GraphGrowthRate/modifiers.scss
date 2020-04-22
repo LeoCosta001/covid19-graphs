@@ -1,0 +1,8 @@
+// Classe usada para formatar a aparência de todos os elementos quando não houver nenhum país selecionado
+.unselect--country {
+  & *, & *:hover {
+    color: $flatLightMidnightBlue !important;
+    border-color: $flatLightMidnightBlue !important;
+    background-color: $flatMidnightBlue !important;
+  }
+}

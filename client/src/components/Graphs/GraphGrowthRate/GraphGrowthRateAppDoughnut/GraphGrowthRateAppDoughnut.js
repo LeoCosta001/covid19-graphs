@@ -139,9 +139,12 @@ export default {
       this.countryDataForGraph.recovered = localData.lastRecovered - localData.firstRecovered;
 
       // Calcular Taxa de Crescimento (em %) em relação á primeira e ultima data selecionada
-      this.countryDataForGraph.growthRate.confirmed = (((localData.lastConfirmed - localData.firstConfirmed) / localData.firstConfirmed) * 100).toFixed(2);
-      this.countryDataForGraph.growthRate.deaths = (((localData.lastDeaths - localData.firstDeaths) / localData.firstDeaths) * 100).toFixed(2);
-      this.countryDataForGraph.growthRate.recovered = (((localData.lastRecovered - localData.firstRecovered) / localData.firstRecovered) * 100).toFixed(2);
+      this.countryDataForGraph.growthRate.confirmed = localData.firstConfirmed == 0 ?
+      undefined : (((localData.lastConfirmed - localData.firstConfirmed) / localData.firstConfirmed) * 100).toFixed(2);
+      this.countryDataForGraph.growthRate.deaths = localData.firstDeaths == 0 ?
+      undefined : (((localData.lastDeaths - localData.firstDeaths) / localData.firstDeaths) * 100).toFixed(2);
+      this.countryDataForGraph.growthRate.recovered = localData.firstRecovered == 0 ?
+      undefined : (((localData.lastRecovered - localData.firstRecovered) / localData.firstRecovered) * 100).toFixed(2);
 
       // Emitir dados
       this.localEmit();
