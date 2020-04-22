@@ -69,7 +69,7 @@ export default {
             },
           ],
         },
-        _graphLine.option.default
+      _graphLine.option.default(true)
       );
     },
     attVariable_CountryDataForGraph(data) {
@@ -113,7 +113,7 @@ export default {
           },
         ],
       },
-      _graphLine.option.default
+      _graphLine.option.default(false)
     );
   },
 };

@@ -69,7 +69,7 @@ export default {
             },
           ],
         },
-        _graphLine.option.default
+        _graphLine.option.default(true)
       );
 
     },
@@ -114,7 +114,7 @@ export default {
           },
         ],
       },
-      _graphLine.option.default
+      _graphLine.option.default(false)
     );
   },
 };

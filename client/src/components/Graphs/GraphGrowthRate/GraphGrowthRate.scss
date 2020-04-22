@@ -49,6 +49,7 @@
   }
 }
 
+// Section que contém os gráficos
 .graph__content__container {
   position: relative;
 }
@@ -83,6 +84,16 @@
     // Tabela do gráfico Doughnut
     & table {
       width: 450px;
+
+      & thead th {
+        color: $flatLightGreenSea;
+        font-size: 1.2em;
+        text-align: center;
+        letter-spacing: 1px;
+        font-weight: 800;
+        padding: 10px;
+      }
+
       & .main__tbody {
         font-size: 1.1em;
 

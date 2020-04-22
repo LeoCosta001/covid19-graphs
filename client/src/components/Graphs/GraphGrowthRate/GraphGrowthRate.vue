@@ -62,7 +62,7 @@
           <table>
             <thead>
               <tr>
-                <th colspan="2">Total de novos registros</th>
+                <th colspan="2">Total de Novos Registros</th>
               </tr>
             </thead>
             <tbody class="main__tbody">
@@ -235,9 +235,11 @@
 @import "@/sass/variables/_flatUiColors";
 
 // Mixin
-@import "@/sass/mixin/titles/graphTitles";
 @import "@/sass/mixin/alerts/invalidDate";
 @import "@/sass/mixin/alerts/unselectCountry";
+@import "@/sass/mixin/titles/graphTitles";
+@import "@/sass/mixin/mediaQueries/dateSelection";
+@import "@/sass/mixin/modifiers/unselectCountry";
 
 // SCSS deste componente
 @import "./GraphGrowthRate";

@@ -49,6 +49,11 @@
   }
 }
 
+// Section que contém os gráficos
+.graph__content__container {
+  position: relative;
+}
+
 // Texto sobre o gráfico
 .about__graph {
   @include graphTitles;
@@ -56,23 +61,7 @@
 
 // Mensagem que será exibida caso nenhum país seja selecionado
 .select__country__msg__container {
-  position: absolute;
-  top: 425px;
-  left: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 70vw;
-  border: solid 1px $flatLightSmoke;
-  background-color: $flatSmoke25;
-  border-radius: 5px;
-
-  & .select__country__msg {
-    text-align: center;
-    font-size: 2em;
-    margin: 0px;
-  }
+  @include unselectCountry;
 }
 
 // Gráfico

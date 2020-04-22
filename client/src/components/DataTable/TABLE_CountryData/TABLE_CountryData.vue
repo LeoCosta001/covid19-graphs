@@ -36,55 +36,118 @@
         <p class="error__msg__content">A data de ínicio tem que ser menor que a data final.</p>
       </div>
     </div>
-    <!-- Tabela -->
-    <div v-if="countryData.countryData">
-      <table class="countryDataTable__main">
-        <thead class="main__thead">
-          <tr>
-            <th>Data</th>
-            <th>Casos confirmados</th>
-            <th>Mortos</th>
-            <th>Recuperados</th>
-          </tr>
-        </thead>
-        <tbody v-for="(data, index) in countryData.countryData()" :key="index" class="main__tbody">
-          <tr @click="tableLineDetail(index)" class="main__tr">
-            <td>{{ data.date }}</td>
-            <td>{{ data.confirmed }}</td>
-            <td>{{ data.deaths }}</td>
-            <td>{{ data.recovered }}</td>
-          </tr>
-          <tr v-if="tableLineDetailStatus == index">
-            <td colspan="4">
-              <table class="countryDataTable__internal">
-                <thead>
-                  <tr>
-                    <th>Informação</th>
-                    <th>Casos confirmados</th>
-                    <th>Mortos</th>
-                    <th>Recuperados</th>
-                  </tr>
-                </thead>
-                <tbody class="internal__tbody">
-                  <tr>
-                    <td>Novos registros deste dia:</td>
-                    <td>{{ data.in24Hours.confirmed }}</td>
-                    <td>{{ data.in24Hours.deaths }}</td>
-                    <td>{{ data.in24Hours.recovered }}</td>
-                  </tr>
-                  <tr>
-                    <td>Taxa de crescimento:</td>
-                    <td>{{ data.growthRate.confirmed }}%</td>
-                    <td>{{ data.growthRate.deaths }}%</td>
-                    <td>{{ data.growthRate.recovered }}%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
+    <!-- Registro Total -->
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <div v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </div>
+
+      <!-- Tabela -->
+      <article v-if="countryData.countryData">
+        <table class="countryDataTable__main">
+          <thead class="main__thead">
+            <tr>
+              <th>Data</th>
+              <th>Casos confirmados</th>
+              <th>Mortos</th>
+              <th>Recuperados</th>
+            </tr>
+          </thead>
+          <tbody
+            v-for="(data, index) in countryData.countryData()"
+            :key="index"
+            class="main__tbody"
+          >
+            <tr @click="tableLineDetail(index)" class="main__tr">
+              <td>{{ data.date }}</td>
+              <td>{{ data.confirmed }}</td>
+              <td>{{ data.deaths }}</td>
+              <td>{{ data.recovered }}</td>
+            </tr>
+            <tr v-if="tableLineDetailStatus == index">
+              <td colspan="4">
+                <table class="countryDataTable__internal">
+                  <thead>
+                    <tr>
+                      <th>Informação</th>
+                      <th>Casos confirmados</th>
+                      <th>Mortos</th>
+                      <th>Recuperados</th>
+                    </tr>
+                  </thead>
+                  <tbody class="internal__tbody">
+                    <tr>
+                      <td>Novos registros deste dia:</td>
+                      <td>{{ data.in24Hours.confirmed }}</td>
+                      <td>{{ data.in24Hours.deaths }}</td>
+                      <td>{{ data.in24Hours.recovered }}</td>
+                    </tr>
+                    <tr>
+                      <td>Taxa de crescimento:</td>
+                      <td>{{ data.growthRate.confirmed }}%</td>
+                      <td>{{ data.growthRate.deaths }}%</td>
+                      <td>{{ data.growthRate.recovered }}%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <article v-else :class="{'unselect--country': !countryData.countryData}">
+        <table class="countryDataTable__main">
+          <thead class="main__thead">
+            <tr>
+              <th>Data</th>
+              <th>Casos confirmados</th>
+              <th>Mortos</th>
+              <th>Recuperados</th>
+            </tr>
+          </thead>
+          <tbody class="main__tbody">
+            <tr class="main__tr">
+              <td>00/00/0000</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <table class="countryDataTable__internal">
+                  <thead>
+                    <tr>
+                      <th>Informação</th>
+                      <th>Casos confirmados</th>
+                      <th>Mortos</th>
+                      <th>Recuperados</th>
+                    </tr>
+                  </thead>
+                  <tbody class="internal__tbody">
+                    <tr>
+                      <td>Novos registros deste dia:</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>Taxa de crescimento:</td>
+                      <td>0%</td>
+                      <td>0%</td>
+                      <td>0%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
   </div>
 </template>
 
@@ -95,6 +158,14 @@
 // Variáveis
 @import "@/sass/variables/_flatUiColors";
 
+// Mixin
+@import "@/sass/mixin/alerts/invalidDate";
+@import "@/sass/mixin/alerts/unselectCountry";
+@import "@/sass/mixin/mediaQueries/dateSelection";
+@import "@/sass/mixin/modifiers/unselectCountry";
+
 // SCSS deste componente
 @import "./TABLE_CountryData";
+@import "./TABLE_CountryData_Media";
+@import "./modifiers";
 </style>

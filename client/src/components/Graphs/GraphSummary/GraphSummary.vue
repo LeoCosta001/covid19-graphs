@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <!-- Registro Total -->
+    <!-- Título -->
     <article class="about__graph">
       <hr />
       <h3>Registro Total</h3>
@@ -46,16 +46,20 @@
       <hr />
     </article>
 
-    <!-- Grafico em Linha -->
-    <div v-if="!countryData.countryData">
-      <div class="select__country__msg__container">
-        <span class="select__country__msg">Selecione um País...</span>
+    <!-- Registro Total -->
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <div v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
       </div>
-    </div>
 
-    <div class="graph__container">
-      <GraphSummaryAppLine ref="graphSummaryAppLine" :country-data="countryData" />
-    </div>
+      <!-- Grafico em Linha -->
+      <div class="graph__container">
+        <GraphSummaryAppLine ref="graphSummaryAppLine" :country-data="countryData" />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -67,9 +71,14 @@
 @import "@/sass/variables/_flatUiColors";
 
 // Mixin
-@import "@/sass/mixin/titles/graphTitles";
 @import "@/sass/mixin/alerts/invalidDate";
+@import "@/sass/mixin/alerts/unselectCountry";
+@import "@/sass/mixin/titles/graphTitles";
+@import "@/sass/mixin/mediaQueries/dateSelection";
+@import "@/sass/mixin/modifiers/unselectCountry";
 
 // SCSS deste componente
 @import "./GraphSummary";
+@import "./GraphSummary_Media";
+@import "./modifiers";
 </style>

@@ -57,12 +57,16 @@ export default {
               this.localEmit();
             }
           })
-          .catch((err) => {
-            console.log(err);
+          .catch(() => {
+            // Mantendo os dados apagados caso nenhum país seja selecionado
+            if (this.countryData.length == 0) {
+              this.countryData = false;
+            }
 
             // Desativando variável de "Carregamento" e ativando variável de "Erro"
             this.countryDataLoading = false;
             this.countryDataErro = true;
+
             this.localEmit();
           });
 
