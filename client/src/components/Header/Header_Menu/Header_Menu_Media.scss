@@ -1,0 +1,26 @@
+/*
+* OBS: Os "!important" servem para resolver o conflito dos estilos pré-definidos pelo "vue-burger-menu".
+*/
+@media (max-width: 860px) {
+  // Tirando o texto ao ladodo botão de abrir o Menu
+  .open__menu__title {
+    display: none;
+  }
+}
+
+@media (max-width: 785px) {
+  // Tirando o texto principal
+  .page__title {
+    display: none !important;
+  }
+
+  // Alterando margem do <select> dos países
+  .country__select {
+    padding: 0px 30px 0px 60px;
+  }
+
+  // Alterando margem do botão do Menu
+  .open__menu {
+    padding: 0px 0px 0px 30px;
+  }
+}

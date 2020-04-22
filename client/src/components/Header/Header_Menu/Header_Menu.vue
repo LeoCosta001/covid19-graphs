@@ -3,6 +3,10 @@
     <!-- Menu lateral -->
     <div class="open__menu">
       <Slide>
+        <!-- Titulo Principal -->
+        <span class="menu__page__title">
+          <span class="page__title">COVID-19</span>
+        </span>
         <hr />
         <!-- Link para Início -->
         <router-link to="/" class="menu__link__1">
@@ -74,7 +78,7 @@
         </span>
       </Slide>
       <!-- Texto ao lado do botão que abre o menu -->
-      <p class="open__menu__title">MENU</p>
+      <p class="open__menu__text">MENU</p>
     </div>
 
     <!-- Titulo principal da página -->
@@ -151,7 +155,6 @@ export default {
       if (currentScrollPosition < 40) {
         this.showHeaderbar = true;
         this.lastScrollPosition = currentScrollPosition;
-
       } else {
         // Ativando a variável que exibirá o Headerbar caso a posição atual do scrollbar seja menor que a ultima posição
         this.showHeaderbar = currentScrollPosition < this.lastScrollPosition;
@@ -189,6 +192,7 @@ $graphcs__list__height: 105px;
 
 // SCSS deste componente
 @import "./Header_Menu";
+@import "./Header_Menu_Media";
 @import "./keyframes";
 @import "./modifiers";
 </style>

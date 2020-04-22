@@ -18,6 +18,7 @@ hr {
   transition: 0.3s;
   z-index: 999;
 
+  // Separação entre os elementos que compõe o Header_Menu
   & div {
     align-items: center;
     white-space: nowrap;
@@ -34,13 +35,19 @@ hr {
     margin: 0px;
   }
 
-  & .open__menu__title {
+  & .open__menu__text {
+    user-select: none;
     justify-self: flex-end;
     margin-top: 15px;
     font-weight: 300;
     font-size: 1.5em;
     letter-spacing: 2px;
   }
+
+  & .menu__page__title {
+    margin: 0px 0px 20px 30px;
+  }
+
   // Estilo dos elementos que estão dentro do menu
   & .menu__link__1 {
     padding: 10px 0px 10px 20px !important;
@@ -133,7 +140,8 @@ hr {
 }
 
 .page__title {
-  font-weight: 300;
+    user-select: none;
+    font-weight: 300;
   font-size: 2.5em;
   letter-spacing: 2px;
   justify-content: center;
