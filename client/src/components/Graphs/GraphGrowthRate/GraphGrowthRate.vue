@@ -41,8 +41,8 @@
     <!-- Título -->
     <article class="about__graph">
       <hr />
-      <h3>Taxa de Crescimento Total</h3>
-      <p>Cálculo da Taxa de Crescimento baseadas nas duas datas selecionadas.</p>
+      <h3>Resumo</h3>
+      <p>Cálculo da Taxa de Crescimento e quantidade de Novos Registros relacionando apenas as duas datas selecionadas.</p>
       <hr />
     </article>
 
@@ -56,9 +56,12 @@
       </article>
 
       <!-- Conteúdo -->
-      <div class="graph__doughnut__container" :class="{'unselect--country': !countryData.countryData}">
+      <div
+        class="graph__doughnut__container"
+        :class="{'unselect--country': !countryData.countryData}"
+      >
         <div class="graph__doughnut__content">
-          <!-- Tabela -->
+          <!-- Tabela (Total de Novos Registros)-->
           <table>
             <thead>
               <tr>
@@ -68,29 +71,49 @@
             <tbody class="main__tbody">
               <tr>
                 <td>Casos Confirmados:</td>
+                <td>{{ graphDoughnutTable.confirmed }}</td>
+              </tr>
+              <tr>
+                <td>Mortos:</td>
+                <td>{{ graphDoughnutTable.deaths }}</td>
+              </tr>
+              <tr>
+                <td>Recuperados:</td>
+                <td>{{ graphDoughnutTable.recovered }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Tabela (Taxa de Crescimento Total)-->
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2">Taxa de Crescimento Total</th>
+              </tr>
+            </thead>
+            <tbody class="main__tbody">
+              <tr>
+                <td>Casos Confirmados:</td>
                 <td>
-                  {{ graphDoughnutTable.confirmed }}
                   <span
                     v-if="graphDoughnutTable.growthRate.confirmed != undefined"
-                  >(+{{ graphDoughnutTable.growthRate.confirmed }}%)</span>
+                  >+{{ graphDoughnutTable.growthRate.confirmed }}%</span>
                 </td>
               </tr>
               <tr>
                 <td>Mortos:</td>
                 <td>
-                  {{ graphDoughnutTable.deaths }}
                   <span
                     v-if="graphDoughnutTable.growthRate.deaths != undefined"
-                  >(+{{ graphDoughnutTable.growthRate.deaths }}%)</span>
+                  >+{{ graphDoughnutTable.growthRate.deaths }}%</span>
                 </td>
               </tr>
               <tr>
                 <td>Recuperados:</td>
                 <td>
-                  {{ graphDoughnutTable.recovered }}
                   <span
                     v-if="graphDoughnutTable.growthRate.recovered != undefined"
-                  >(+{{ graphDoughnutTable.growthRate.recovered }}%)</span>
+                  >+{{ graphDoughnutTable.growthRate.recovered }}%</span>
                 </td>
               </tr>
             </tbody>
@@ -111,8 +134,30 @@
     <!-- Título -->
     <article class="about__graph">
       <hr />
+      <h3>Taxa de Crescimento Diário</h3>
+      <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
+      <hr />
+    </article>
+
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <article v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </article>
+
+      <!-- Gráfico Linear -->
+      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
+        <GraphGrowthRateAppBar ref="GraphGrowthRateAppBar" :country-data="countryData" />
+      </div>
+    </section>
+
+    <!-- Título -->
+    <article class="about__graph">
+      <hr />
       <h3>Novos Registros Diário</h3>
-      <p>Dados atualizados com a quantidade dos novos registros de cada dia.</p>
+      <p>Dados com a quantidade de todos os novos registros diários.</p>
       <hr />
     </article>
 

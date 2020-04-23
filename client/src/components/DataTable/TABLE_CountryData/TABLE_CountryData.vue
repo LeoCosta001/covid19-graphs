@@ -47,7 +47,7 @@
       </div>
 
       <!-- Tabela -->
-      <article v-if="countryData.countryData">
+      <article class="table__container" v-if="countryData.countryData">
         <table class="countryDataTable__main">
           <thead class="main__thead">
             <tr>
@@ -99,7 +99,7 @@
           </tbody>
         </table>
       </article>
-      <article v-else :class="{'unselect--country': !countryData.countryData}">
+      <article v-else class="table__container" :class="{'unselect--country': !countryData.countryData}">
         <table class="countryDataTable__main">
           <thead class="main__thead">
             <tr>

@@ -21,4 +21,11 @@
     letter-spacing: 1px;
     text-decoration: underline;
   }
+
+  @media (max-width: 645px) {
+    // Alterar margem do alerta
+    & {
+      margin: 30px 0px -20px 0px;
+    }
+  }
 }

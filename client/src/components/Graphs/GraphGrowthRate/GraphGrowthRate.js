@@ -4,14 +4,16 @@ import { FunctionalCalendar } from "vue-functional-calendar";
 import _date from "@/methods/changeDate/dateIdentify.js";
 
 // Componentes
-import GraphGrowthRateAppLine from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppLine/GraphGrowthRateAppLine.js";
+import GraphGrowthRateAppBar from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppBar/GraphGrowthRateAppBar.js";
 import GraphGrowthRateAppDoughnut from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppDoughnut/GraphGrowthRateAppDoughnut.js";
+import GraphGrowthRateAppLine from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppLine/GraphGrowthRateAppLine.js";
 
 // Configurações do componente
 export default {
   name: "GraphGrowthRate",
   components: {
     FunctionalCalendar,
+    GraphGrowthRateAppBar,
     GraphGrowthRateAppDoughnut,
     GraphGrowthRateAppLine,
   },
@@ -100,8 +102,9 @@ export default {
         await this.localEmit();
 
         // Atualizando gráfico
-        this.$refs.graphGrowthRateAppLine.attGraph();
+        this.$refs.GraphGrowthRateAppBar.attGraph();
         this.$refs.graphGrowthRateAppDoughnut.attGraph();
+        this.$refs.graphGrowthRateAppLine.attGraph();
       } else {
         this.inputTableDataNumberInvalid = true;
       }

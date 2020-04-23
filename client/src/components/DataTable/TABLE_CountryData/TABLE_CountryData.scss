@@ -30,7 +30,7 @@
   & .data__select {
     display: flex;
     height: 80px;
-    
+
     & div {
       display: flex;
       align-items: center;
@@ -56,41 +56,46 @@
 }
 
 // Tabela principal
-.countryDataTable__main {
+.table__container {
+  max-width: 90vw;
+  overflow-x: auto;
+  
+  & .countryDataTable__main {
   width: 90vw;
 
-  & .main__thead {
-    font-size: 1.3em;
-    background-color: $flatMidnightBlue;
-    color: $flatLightGreenSea;
-    & th {
-      border-bottom: solid 1px $flatGrey;
-      padding: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-  }
-
-  & .main__tbody {
-    font-size: 1.2em;
-
-    & .main__tr {
-      &:nth-child(odd) {
-        background-color: $flatLightMidnightBlue50;
-        border-top: solid 1px $flatGrey50;
-      }
-
-      &:nth-child(even) {
-        color: $flatLightSmoke;
-        font-size: 0.8em;
-      }
-
-      &:hover {
-        background-color: $flatGreenSea50;
-      }
-
-      & td {
+    & .main__thead {
+      font-size: 1.3em;
+      background-color: $flatMidnightBlue;
+      color: $flatLightGreenSea;
+      & th {
+        border-bottom: solid 1px $flatGrey;
         padding: 10px;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+    }
+
+    & .main__tbody {
+      font-size: 1.2em;
+
+      & .main__tr {
+        &:nth-child(odd) {
+          background-color: $flatLightMidnightBlue50;
+          border-top: solid 1px $flatGrey50;
+        }
+
+        &:nth-child(even) {
+          color: $flatLightSmoke;
+          font-size: 0.8em;
+        }
+
+        &:hover {
+          background-color: $flatGreenSea50;
+        }
+
+        & td {
+          padding: 10px;
+        }
       }
     }
   }

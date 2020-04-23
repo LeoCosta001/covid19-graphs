@@ -66,8 +66,11 @@ export default {
           datasets: [
             {
               label: "Casos Confirmados",
-              borderColor: "transparent",
-              backgroundColor: ["#F1C40F", "#E74C3C", "#2ECC71"], //["rgba(241, 196, 15, 0.100)", "rgba(231, 77, 60, 0.100)", "rgba(46, 204, 112, 0.100)"],
+              borderColor: "#2C3E50",
+              hoverBorderColor: "#2C3E50",
+              borderWidth: 3,
+              backgroundColor: ["rgba(241, 196, 15, 0.750)", "rgba(231, 77, 60, 0.750)", "rgba(46, 204, 112, 0.750)"],
+              hoverBackgroundColor: ["#F1C40F", "#E74C3C", "#2ECC71"],
               data: [
                 this.countryDataForGraph.confirmed,
                 this.countryDataForGraph.deaths,
