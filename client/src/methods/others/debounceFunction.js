@@ -1,6 +1,6 @@
 /* eslint-disable */
 module.exports = {
-  /* Método debounce do Loadesh, possibilita definir um tempo minimo para executar a mesma função novamente.
+  /* Método debounce do Loadesh, possibilita definir um delay para que a mesma função seja executada novamente.
    * OBS: Não alterar! */
   use(func, wait, immediate) {
     let timeout;

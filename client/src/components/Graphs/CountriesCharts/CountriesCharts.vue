@@ -41,6 +41,74 @@
     <!-- Título -->
     <article class="about__graph">
       <hr />
+      <h3>Gráfico Resumido</h3>
+      <p>Grafico atualizado com a soma de todos os novos registros diários.</p>
+      <hr />
+    </article>
+
+    <!-- Gráfico Resumido -->
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <div v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </div>
+
+      <!-- Grafico em Linha -->
+      <div class="graph__container">
+        <GraphSummaryAppLine ref="graphSummaryAppLine" :country-data="countryData" />
+      </div>
+    </section>
+
+    <!-- Título -->
+    <article class="about__graph" id="growth-rate">
+      <hr />
+      <h3>Taxa de Crescimento Diário</h3>
+      <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
+      <hr />
+    </article>
+
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <article v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </article>
+
+      <!-- Gráfico Linear -->
+      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
+        <CountriesChartsAppBar ref="countriesChartsAppBar" :country-data="countryData" />
+      </div>
+    </section>
+
+    <!-- Título -->
+    <article class="about__graph" id="new-register">
+      <hr />
+      <h3>Novos Registros Diário</h3>
+      <p>Dados com a quantidade de todos os novos registros diários.</p>
+      <hr />
+    </article>
+
+    <section class="graph__content__container">
+      <!-- Mensagem de país não selecionado -->
+      <article v-if="!countryData.countryData">
+        <div class="select__country__msg__container">
+          <span class="select__country__msg">Selecione um País...</span>
+        </div>
+      </article>
+
+      <!-- Gráfico Linear -->
+      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
+        <CountriesChartsAppLine ref="countriesChartsAppLine" :country-data="countryData" />
+      </div>
+    </section>
+
+
+    <!-- Título -->
+    <article class="about__graph" id="summary">
+      <hr />
       <h3>Resumo</h3>
       <p>Cálculo da Taxa de Crescimento e quantidade de Novos Registros relacionando apenas as duas datas selecionadas.</p>
       <hr />
@@ -122,8 +190,8 @@
 
         <!-- Gráfico de Doughnut -->
         <div class="graph__doughnut">
-          <GraphGrowthRateAppDoughnut
-            ref="graphGrowthRateAppDoughnut"
+          <CountriesChartsAppDoughnut
+            ref="countriesChartsAppDoughnut"
             @resGraphDataEmit="reqGraphDataEmit"
             :country-data="countryData"
           />
@@ -132,51 +200,7 @@
     </section>
 
     <!-- Título -->
-    <article class="about__graph">
-      <hr />
-      <h3>Taxa de Crescimento Diário</h3>
-      <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
-      <hr />
-    </article>
-
-    <section class="graph__content__container">
-      <!-- Mensagem de país não selecionado -->
-      <article v-if="!countryData.countryData">
-        <div class="select__country__msg__container">
-          <span class="select__country__msg">Selecione um País...</span>
-        </div>
-      </article>
-
-      <!-- Gráfico Linear -->
-      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
-        <GraphGrowthRateAppBar ref="GraphGrowthRateAppBar" :country-data="countryData" />
-      </div>
-    </section>
-
-    <!-- Título -->
-    <article class="about__graph">
-      <hr />
-      <h3>Novos Registros Diário</h3>
-      <p>Dados com a quantidade de todos os novos registros diários.</p>
-      <hr />
-    </article>
-
-    <section class="graph__content__container">
-      <!-- Mensagem de país não selecionado -->
-      <article v-if="!countryData.countryData">
-        <div class="select__country__msg__container">
-          <span class="select__country__msg">Selecione um País...</span>
-        </div>
-      </article>
-
-      <!-- Gráfico Linear -->
-      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
-        <GraphGrowthRateAppLine ref="graphGrowthRateAppLine" :country-data="countryData" />
-      </div>
-    </section>
-
-    <!-- Título -->
-    <article class="about__graph">
+    <article class="about__graph" id="additional-information">
       <hr />
       <h3>Informações Adicionais</h3>
       <p>Estas informações são baseadas nas datas selecionadas.</p>
@@ -272,7 +296,7 @@
   </div>
 </template>
 
-<script src="./GraphGrowthRate.js">
+<script src="./CountriesCharts.js">
 </script>
 
 <style lang="scss" scoped>
@@ -287,7 +311,7 @@
 @import "@/sass/mixin/modifiers/unselectCountry";
 
 // SCSS deste componente
-@import "./GraphGrowthRate";
-@import "./GraphGrowthRate_Media";
+@import "./CountriesCharts";
+@import "./CountriesCharts_Media";
 @import "./modifiers";
 </style>

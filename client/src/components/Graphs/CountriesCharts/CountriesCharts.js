@@ -4,18 +4,20 @@ import { FunctionalCalendar } from "vue-functional-calendar";
 import _date from "@/methods/changeDate/dateIdentify.js";
 
 // Componentes
-import GraphGrowthRateAppBar from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppBar/GraphGrowthRateAppBar.js";
-import GraphGrowthRateAppDoughnut from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppDoughnut/GraphGrowthRateAppDoughnut.js";
-import GraphGrowthRateAppLine from "@/components/Graphs/GraphGrowthRate/GraphGrowthRateAppLine/GraphGrowthRateAppLine.js";
+import CountriesChartsAppBar from "@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js";
+import CountriesChartsAppDoughnut from "@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js";
+import CountriesChartsAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js";
+import GraphSummaryAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/GraphSummaryApp.js";
 
 // Configurações do componente
 export default {
-  name: "GraphGrowthRate",
+  name: "CountriesCharts",
   components: {
     FunctionalCalendar,
-    GraphGrowthRateAppBar,
-    GraphGrowthRateAppDoughnut,
-    GraphGrowthRateAppLine,
+    CountriesChartsAppBar,
+    CountriesChartsAppDoughnut,
+    CountriesChartsAppLine,
+    GraphSummaryAppLine
   },
   props: {
     countryData: {
@@ -102,9 +104,10 @@ export default {
         await this.localEmit();
 
         // Atualizando gráfico
-        this.$refs.GraphGrowthRateAppBar.attGraph();
-        this.$refs.graphGrowthRateAppDoughnut.attGraph();
-        this.$refs.graphGrowthRateAppLine.attGraph();
+        this.$refs.countriesChartsAppBar.attGraph();
+        this.$refs.countriesChartsAppDoughnut.attGraph();
+        this.$refs.countriesChartsAppLine.attGraph();
+        this.$refs.graphSummaryAppLine.attGraph();
       } else {
         this.inputTableDataNumberInvalid = true;
       }

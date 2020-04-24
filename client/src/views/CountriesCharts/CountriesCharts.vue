@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <GraphGrowthRate
+    <CountriesCharts
       ref="attGraphData"
       @selectTableDataNumber="showDataNumber"
       :country-data="resForTableCountryData"
@@ -8,5 +8,5 @@
   </div>
 </template>
 
-<script src="./GraphGrowthRate.js">
+<script src="./CountriesCharts.js">
 </script>

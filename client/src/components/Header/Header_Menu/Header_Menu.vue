@@ -8,12 +8,14 @@
           <span class="page__title">COVID-19</span>
         </span>
         <hr />
+
         <!-- Link para Início -->
         <router-link to="/" class="menu__link__1">
           <unicon class="unicon" name="home" width="27.5px" height="27.5px" />
           <span class="link__title__1">Início</span>
         </router-link>
         <hr />
+
         <!-- Link para Tabela de Dados -->
         <div v-on:click="casesDataAtt()">
           <router-link to="/data-table" class="menu__link__1">
@@ -22,6 +24,7 @@
           </router-link>
         </div>
         <hr />
+
         <!-- Link para Gráficos -->
         <input type="checkbox" id="checkGraphcsList" />
         <label class="menu__link__1" for="checkGraphcsList">
@@ -29,27 +32,54 @@
           <span class="link__title__1">Gráficos</span>
         </label>
         <hr />
+
         <!-- Sublinks de Gráficos -->
         <span class="graphcs__list">
-          <div v-on:click="casesDataAtt()">
-            <router-link to="/graphs/graph-summary" class="menu__link__2">
-              <unicon class="unicon" name="chart-line" width="23px" height="23px" />
-              <span class="link__title__2">Resumo</span>
-            </router-link>
-          </div>
-          <div v-on:click="casesDataAtt()">
-            <router-link to="/graphs/graph-growth-rate" class="menu__link__2">
-              <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
-              <span class="link__title__2">Taxa de Crescimento</span>
-            </router-link>
-          </div>
-          <div v-on:click="casesDataAtt()">
-            <router-link to="#" class="menu__link__2">
-              <unicon class="unicon" name="chart-bar" width="23px" height="23px" />
-              <span class="link__title__2">Comparar Países</span>
-            </router-link>
-          </div>
+          <router-link to="/graphs/countries-charts" class="menu__link__2">
+            <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
+            <span class="link__title__2">Gráfico Resumido</span>
+          </router-link>
+
+          <router-link
+            :to="{ path: '/graphs/countries-charts', hash: '#growth-rate'}"
+            class="menu__link__2"
+          >
+            <unicon class="unicon" name="chart-bar" width="23px" height="23px" />
+            <span class="link__title__2">Taxa de Crescimento</span>
+          </router-link>
+
+          <router-link
+            :to="{ path: '/graphs/countries-charts', hash: '#new-register'}"
+            class="menu__link__2"
+          >
+            <unicon class="unicon" name="chart-line" width="23px" height="23px" />
+            <span class="link__title__2">Novos Registros</span>
+          </router-link>
+
+          <router-link
+            :to="{ path: '/graphs/countries-charts', hash: '#summary'}"
+            class="menu__link__2"
+          >
+            <unicon class="unicon" name="chart-pie" width="23px" height="23px" />
+            <span class="link__title__2">Resumo</span>
+          </router-link>
+
+          <router-link
+            :to="{ path: '/graphs/countries-charts', hash: '#additional-information'}"
+            class="menu__link__2"
+          >
+            <unicon class="unicon" name="list-ul" width="27.5px" height="27.5px" />
+            <span class="link__title__2">Informações Adicionais</span>
+          </router-link>
         </span>
+
+        <!-- Link para Comparar Países -->
+        <router-link to="#" class="menu__link__1">
+          <unicon class="unicon" name="chart" width="23px" height="23px" />
+          <span class="link__title__1">Comparar Países</span>
+        </router-link>
+        <hr />
+
         <!-- Link para Dúvidas -->
         <input type="checkbox" id="checkQuestionList" />
         <label class="menu__link__1" for="checkQuestionList">
@@ -57,20 +87,24 @@
           <span class="link__title__1">Dúvidas</span>
         </label>
         <hr />
+
         <!-- Sublinks de Dúvidas -->
         <span class="question__list">
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="heart-medical" width="23px" height="23px" />
             <span class="link__title__2">Cuidados Pessoais</span>
           </router-link>
+
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="frown" width="23px" height="23px" />
             <span class="link__title__2">Sintomas</span>
           </router-link>
+
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="ambulance" width="23px" height="23px" />
             <span class="link__title__2">Emergência</span>
           </router-link>
+
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="cell" width="23px" height="23px" />
             <span class="link__title__2">Covid-19</span>
@@ -112,74 +146,7 @@
   </div>
 </template>
 
-<script>
-// Métodos
-import _debounce from "@/methods/others/debounceFunction.js";
-
-// APIs
-import { Slide } from "vue-burger-menu";
-// Componentes
-import FORMSelectCountry from "@/components/Header/FORM_SelectCountry/FORM_SelectCountry.vue";
-
-export default {
-  name: "HeaderMenu",
-  components: {
-    Slide,
-    FORMSelectCountry
-  },
-  data() {
-    return {
-      countryDataLoading: false,
-      countryDataErro: false,
-      // Posição do Scrollbar
-      showHeaderbar: true,
-      lastScrollPosition: 0
-    };
-  },
-  methods: {
-    casesDataAtt() {
-      this.$refs.casesDataReqAtt.casesData();
-    },
-    // Evento ativado quando é movido o Scrollbar
-    onScroll() {
-      // Posição atual do Scrollbar
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop;
-
-      // FIX: Não continuar caso o scroll de celular estiver menor que zero "0"
-      if (currentScrollPosition < 0) {
-        return;
-      }
-
-      // Esconder Headerbar apenas com scroll igual ou acima de 40
-      if (currentScrollPosition < 40) {
-        this.showHeaderbar = true;
-        this.lastScrollPosition = currentScrollPosition;
-      } else {
-        // Ativando a variável que exibirá o Headerbar caso a posição atual do scrollbar seja menor que a ultima posição
-        this.showHeaderbar = currentScrollPosition < this.lastScrollPosition;
-
-        // Atualizar a ultima posição com a posição atual
-        this.lastScrollPosition = currentScrollPosition;
-      }
-    },
-
-    // Emitir dados que foram recebidos pelo "FORMSelectCountry" e recolher dados de status do carregamento
-    countryDataEmit(res) {
-      this.countryDataLoading = res.countryDataLoading;
-      this.countryDataErro = res.countryDataErro;
-      this.$emit("resCountryData", res);
-    }
-  },
-  mounted() {
-    // Inicia o evento de scroll (OBS: O 2º Param do _debounce.use() é o tempo de delay entre a execução das funções)
-    window.addEventListener("scroll", _debounce.use(this.onScroll, 50));
-  },
-  beforeDestroy() {
-    // Inicia o evento de scroll (OBS: O 2º Param do _debounce.use() é o tempo de delay entre a execução das funções)
-    window.removeEventListener("scroll", _debounce.use(this.onScroll, 50));
-  }
-};
+<script src="./Header_Menu.js">
 </script>
 
 <style lang="scss" scoped>
@@ -188,7 +155,7 @@ export default {
 
 // OBS: Para cada item da sublista das classes "question__list" e "graphcs__list" deve ser adicionado mais 35px de altura.
 $question__list__height: 140px;
-$graphcs__list__height: 105px;
+$graphcs__list__height: 175px;
 
 // SCSS deste componente
 @import "./Header_Menu";

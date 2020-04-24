@@ -4,7 +4,7 @@ import { FunctionalCalendar } from "vue-functional-calendar";
 import _date from "@/methods/changeDate/dateIdentify.js";
 
 // Componentes
-import GraphSummaryAppLine from "@/components/Graphs/GraphSummaryAppLine/GraphSummaryAppLine.js";
+import GraphSummaryAppLine from "@/components/Graphs/GraphSummary/GraphSummaryAppLine.js";
 
 // Configurações do componente
 export default {
