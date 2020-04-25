@@ -5,8 +5,8 @@ import router from "./router";
 // Icones
 // OBS: A lista de icones está neste link "https://antonreshetov.github.io/vue-unicons/"
 import Unicon from 'vue-unicons'
-import { uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniHeartMedical, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart} from 'vue-unicons/src/icons'
-Unicon.add([uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniHeartMedical, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart])
+import { uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight} from 'vue-unicons/src/icons'
+Unicon.add([uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight])
 Vue.use(Unicon);
 
 // API de calendário

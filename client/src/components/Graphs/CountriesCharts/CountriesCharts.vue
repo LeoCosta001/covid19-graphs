@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <h2 class="title">Gráfico da Taxa de Crescimento</h2>
+    <h2 class="title_h2">Gráfico da Taxa de Crescimento</h2>
 
     <!-- Seleção de datas para exibição de dados -->
     <div class="data__select__container" v-if="countryData.countryData">
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Título -->
-    <article class="about__graph">
+    <article class="about__graph" id="summary-graph">
       <hr />
       <h3>Gráfico Resumido</h3>
       <p>Grafico atualizado com a soma de todos os novos registros diários.</p>
@@ -57,7 +57,7 @@
 
       <!-- Grafico em Linha -->
       <div class="graph__container">
-        <GraphSummaryAppLine ref="graphSummaryAppLine" :country-data="countryData" />
+        <SummaryGraphAppLine ref="summaryGraphAppLine" :country-data="countryData" />
       </div>
     </section>
 
@@ -306,7 +306,9 @@
 // Mixin
 @import "@/sass/mixin/alerts/invalidDate";
 @import "@/sass/mixin/alerts/unselectCountry";
+@import "@/sass/mixin/containers/localContainer";
 @import "@/sass/mixin/titles/graphTitles";
+@import "@/sass/mixin/titles/title_h2";
 @import "@/sass/mixin/mediaQueries/dateSelection";
 @import "@/sass/mixin/modifiers/unselectCountry";
 

@@ -1,0 +1,53 @@
+.localContainer {
+  @include localContainer;
+}
+
+// Titulo
+.title_h2 {
+  @include title_h2;
+}
+
+.title_h3 {
+  @include title_h3;
+}
+
+// Container da seção
+.section__content__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// Container do conteúdo
+.content__container {
+  font-size: 1.1em;
+  line-height: 1.4em;
+  width: 90vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  & .new__paragraph {
+    letter-spacing: 1px;
+    margin: 20px 0px 20px 3px;
+    display: flex;
+    flex-direction: column;
+
+    & .content__title {
+            color: $flatGreenSea;
+            font-weight: bold;
+            position: relative;
+
+        & .unicon {
+            fill: $flatGreenSea;
+            position: absolute;
+            left: -25px;
+            top: -2px;
+        }
+    }
+
+    & .content__obs {
+    margin-top: 15px;
+    }
+  }
+}

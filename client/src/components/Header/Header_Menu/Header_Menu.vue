@@ -36,6 +36,14 @@
         <!-- Sublinks de Gráficos -->
         <span class="graphcs__list">
           <router-link to="/graphs/countries-charts" class="menu__link__2">
+            <unicon class="unicon" name="schedule" width="23px" height="23px" />
+            <span class="link__title__2">Escolher Data</span>
+          </router-link>
+
+          <router-link
+            :to="{ path: '/graphs/countries-charts', hash: '#summary-graph'}"
+            class="menu__link__2"
+          >
             <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
             <span class="link__title__2">Gráfico Resumido</span>
           </router-link>
@@ -91,13 +99,23 @@
         <!-- Sublinks de Dúvidas -->
         <span class="question__list">
           <router-link to="#" class="menu__link__2">
-            <unicon class="unicon" name="heart-medical" width="23px" height="23px" />
+            <unicon class="unicon" name="heart" width="23px" height="23px" />
             <span class="link__title__2">Cuidados Pessoais</span>
           </router-link>
 
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="frown" width="23px" height="23px" />
             <span class="link__title__2">Sintomas</span>
+          </router-link>
+
+          <router-link to="/questions/modes-of-transmission" class="menu__link__2">
+            <unicon class="unicon" name="exclamation-triangle" width="23px" height="23px" />
+            <span class="link__title__2">Meios de Transmissão</span>
+          </router-link>
+
+          <router-link to="#" class="menu__link__2">
+            <unicon class="unicon" name="comment-question" width="23px" height="23px" />
+            <span class="link__title__2">Perguntas Frequentes</span>
           </router-link>
 
           <router-link to="#" class="menu__link__2">
@@ -154,8 +172,8 @@
 @import "@/sass/variables/_flatUiColors";
 
 // OBS: Para cada item da sublista das classes "question__list" e "graphcs__list" deve ser adicionado mais 35px de altura.
-$question__list__height: 140px;
-$graphcs__list__height: 175px;
+$question__list__height: 210px;
+$graphcs__list__height: 210px;
 
 // SCSS deste componente
 @import "./Header_Menu";

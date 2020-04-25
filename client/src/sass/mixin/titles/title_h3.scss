@@ -1,0 +1,17 @@
+@mixin title_h3 {
+  text-align: center;
+  border-radius: 20px 20px 0px 0px;
+  padding-top: 10px;
+  margin: 30px 0px 30px 0px;
+  width: 100%;
+
+  & h3 {
+    color: $flatGreenSea;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+  }
+
+  & hr {
+    border: solid 1px $flatGreenSea25;
+  }
+}

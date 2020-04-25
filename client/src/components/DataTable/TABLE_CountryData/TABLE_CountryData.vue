@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <h2 class="title">Tabela de casos confirmados</h2>
+    <h2 class="title_h2">Tabela de Dados Registrados</h2>
     <!-- Seleção de datas para exibição de dados -->
     <div class="data__select__container" v-if="countryData.countryData">
       <div class="data__select">
@@ -161,8 +161,10 @@
 // Mixin
 @import "@/sass/mixin/alerts/invalidDate";
 @import "@/sass/mixin/alerts/unselectCountry";
+@import "@/sass/mixin/containers/localContainer";
 @import "@/sass/mixin/mediaQueries/dateSelection";
 @import "@/sass/mixin/modifiers/unselectCountry";
+@import "@/sass/mixin/titles/title_h2";
 
 // SCSS deste componente
 @import "./TABLE_CountryData";

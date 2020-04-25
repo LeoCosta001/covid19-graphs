@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home/Home.vue";
 import DataTable from "../views/DataTable/DataTable.vue";
 import CountriesCharts from "../views/CountriesCharts/CountriesCharts.vue";
+import ModesOfTransmission from "../views/ModesOfTransmission/ModesOfTransmission.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: "/graphs/countries-charts",
     name: "CountriesCharts",
     component: CountriesCharts,
+  },
+  {
+    path: "/questions/modes-of-transmission",
+    name: "ModesOfTransmission",
+    component: ModesOfTransmission,
   },
 ];
 

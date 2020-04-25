@@ -11,11 +11,8 @@
 }
 
 // Titulo
-.title {
-  text-align: center;
-  font-size: 3em;
-  font-weight: 300;
-  margin-bottom: 0px;
+.title_h2 {
+  @include title_h2;
 }
 
 // Seleção de data para exibição de dados

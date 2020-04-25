@@ -7,7 +7,7 @@ import _date from "@/methods/changeDate/dateIdentify.js";
 import CountriesChartsAppBar from "@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js";
 import CountriesChartsAppDoughnut from "@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js";
 import CountriesChartsAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js";
-import GraphSummaryAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/GraphSummaryApp.js";
+import SummaryGraphAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js";
 
 // Configurações do componente
 export default {
@@ -17,7 +17,7 @@ export default {
     CountriesChartsAppBar,
     CountriesChartsAppDoughnut,
     CountriesChartsAppLine,
-    GraphSummaryAppLine
+    SummaryGraphAppLine
   },
   props: {
     countryData: {
@@ -107,7 +107,7 @@ export default {
         this.$refs.countriesChartsAppBar.attGraph();
         this.$refs.countriesChartsAppDoughnut.attGraph();
         this.$refs.countriesChartsAppLine.attGraph();
-        this.$refs.graphSummaryAppLine.attGraph();
+        this.$refs.summaryGraphAppLine.attGraph();
       } else {
         this.inputTableDataNumberInvalid = true;
       }
