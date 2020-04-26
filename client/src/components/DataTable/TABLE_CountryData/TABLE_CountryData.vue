@@ -161,7 +161,7 @@
 // Mixin
 @import "@/sass/mixin/alerts/invalidDate";
 @import "@/sass/mixin/alerts/unselectCountry";
-@import "@/sass/mixin/containers/localContainer";
+@import "@/sass/mixin/containers/localContainerDefault";
 @import "@/sass/mixin/mediaQueries/dateSelection";
 @import "@/sass/mixin/modifiers/unselectCountry";
 @import "@/sass/mixin/titles/title_h2";

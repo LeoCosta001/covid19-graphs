@@ -1,9 +1,9 @@
 .localContainer {
-  @include localContainer;
+  @include localContainerDefault;
 }
 
 // Titulo
-.title_h2 {
+.title__h2 {
   @include title_h2;
 }
 

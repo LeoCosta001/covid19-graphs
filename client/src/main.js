@@ -5,8 +5,8 @@ import router from "./router";
 // Icones
 // OBS: A lista de icones está neste link "https://antonreshetov.github.io/vue-unicons/"
 import Unicon from 'vue-unicons'
-import { uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight} from 'vue-unicons/src/icons'
-Unicon.add([uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight])
+import { uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight, uniLinkedin, uniGithub, uniEnvelope} from 'vue-unicons/src/icons'
+Unicon.add([uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight, uniLinkedin, uniGithub, uniEnvelope])
 Vue.use(Unicon);
 
 // API de calendário

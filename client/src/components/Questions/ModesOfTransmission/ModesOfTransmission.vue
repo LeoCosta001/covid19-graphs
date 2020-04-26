@@ -1,11 +1,11 @@
 <template>
   <div class="localContainer">
-    <h2 class="title_h2">Meios de Transmissão</h2>
+    <h2 class="title__h2">Meios de Transmissão</h2>
     <section class="section__content__container">
       <!-- Artigo: Meios mais comuns de transmissão -->
       <article>
         <!-- Titulo -->
-        <div class="title_h3">
+        <div class="title__h3">
           <hr />
           <h3>Meios mais comuns de transmissão</h3>
           <hr />
@@ -41,7 +41,7 @@
       <!-- Artigo: Outros meios de transmissão -->
       <article>
         <!-- Titulo -->
-        <div class="title_h3">
+        <div class="title__h3">
           <hr />
           <h3>Outros meios de transmissão</h3>
           <hr />
@@ -62,11 +62,11 @@
         </div>
       </article>
     </section>
+    <MainFooter />
   </div>
 </template>
 
-<script>
-export default {};
+<script src="./ModesOfTransmission.js">
 </script>
 
 <style lang="scss" scoped>
@@ -74,7 +74,8 @@ export default {};
 @import "@/sass/variables/_flatUiColors";
 
 // Mixin
-@import "@/sass/mixin/containers/localContainer";
+@import "@/sass/mixin/containers/localContainerDefault";
+@import "@/sass/mixin/texts/questionPageContent";
 @import "@/sass/mixin/titles/title_h2";
 @import "@/sass/mixin/titles/title_h3";
 

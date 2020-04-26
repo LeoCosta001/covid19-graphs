@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <HeaderMenu @resCountryData="countryData" />
+    <MainHeader @resCountryData="countryData" />
     <!-- fix-bm-overlay é editado em @/sass/global/externalComponents/sideBar_vueBurgerMenu -->
     <div class="fix-bm-overlay"></div>
-    <router-view ref="childReqData" :reqCountryData="resCountryData"/>
+    <router-view ref="childReqData" :reqCountryData="resCountryData" />
+    <MainFooter class="MainFooter" />
   </div>
 </template>
 
@@ -12,12 +13,14 @@
 import mapData from "@/methods/changeData/mapData.js";
 
 // Componentes
-import HeaderMenu from "@/components/Header/Header_Menu/Header_Menu.vue";
+import MainHeader from "@/components/Header/Header_Menu/Header_Menu.vue";
+import MainFooter from "@/components/MainFooter/MainFooter.vue";
 
 export default {
   name: "App",
   components: {
-    HeaderMenu
+    MainHeader,
+    MainFooter
   },
   data() {
     return {
@@ -31,10 +34,10 @@ export default {
         countryData: mapData.init(req.countryData),
         countryDataLoading: req.countryDataLoading,
         countryDataErro: req.countryDataErro
-      }
+      };
       // Ativando o método do componente filho que receberá os dados
-      this.$refs.childReqData.showDataNumber()
-    },
+      this.$refs.childReqData.showDataNumber();
+    }
   }
 };
 </script>

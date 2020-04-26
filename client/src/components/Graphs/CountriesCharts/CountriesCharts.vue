@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <h2 class="title_h2">Gráfico da Taxa de Crescimento</h2>
+    <h2 class="title__h2">Gráfico da Taxa de Crescimento</h2>
 
     <!-- Seleção de datas para exibição de dados -->
     <div class="data__select__container" v-if="countryData.countryData">
@@ -306,7 +306,7 @@
 // Mixin
 @import "@/sass/mixin/alerts/invalidDate";
 @import "@/sass/mixin/alerts/unselectCountry";
-@import "@/sass/mixin/containers/localContainer";
+@import "@/sass/mixin/containers/localContainerDefault";
 @import "@/sass/mixin/titles/graphTitles";
 @import "@/sass/mixin/titles/title_h2";
 @import "@/sass/mixin/mediaQueries/dateSelection";
