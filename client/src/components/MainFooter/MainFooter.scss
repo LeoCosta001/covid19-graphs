@@ -5,14 +5,13 @@
   letter-spacing: 1px;
   line-height: 1.3em;
   width: 100%;
-  height: 250px;
+  height: 275px;
   padding: 30px 40px;
   display: flex;
   justify-content: space-between;
 
   // Todos os artigos
   & article {
-    //border: solid 1px rgba(255, 192, 203, 0.26);
     height: 100%;
 
     & .footer__title {
@@ -46,7 +45,7 @@
 
   // Artigo: Contato
   & .footer__contact {
-    width: 300px;
+    width: 250px;
     display: flex;
     flex-direction: column;
 
@@ -75,7 +74,44 @@
 
   // Artigo: Links
   & .footer__links {
-    width: 300px;
+    width: 350px;
+
+    & .footer__links__content__container {
+      display: flex;
+      justify-content: center;
+
+      & .footer__links__content__subcontainer {
+        width: 175px;
+        display: flex;
+        flex-direction: column;
+
+        & .footer__subtitle {
+          margin: 0px 0px 10px 0px;
+        }
+
+        & .footer__links__content {
+          text-decoration: none;
+          color: $flatLightGrey;
+          margin-bottom: 5px;
+          margin-left: 17.5px;
+          position: relative;
+
+          & .unicon {
+            position: absolute;
+            top: 0px;
+            left: -22.5px;
+          }
+
+          &:hover {
+            color: $flatGreen;
+            & .unicon {
+              fill: $flatGreen;
+              margin-left: 3px;
+            }
+          }
+        }
+      }
+    }
   }
 
   // Artigo: Divulgue

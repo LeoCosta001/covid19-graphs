@@ -2,6 +2,7 @@
   <div class="mainFooterContainer">
     <!-- Sobre -->
     <article class="footer__about">
+      <!-- Titulo -->
       <div class="footer__title">
         Sobre
         <hr />
@@ -15,6 +16,7 @@
 
     <!-- Social -->
     <article class="footer__contact">
+      <!-- Titulo -->
       <div class="footer__title">
         Contato
         <hr />
@@ -44,14 +46,62 @@
 
     <!-- Links -->
     <article class="footer__links">
+      <!-- Titulo -->
       <div class="footer__title">
         Links
         <hr />
+      </div>
+
+      <div class="footer__links__content__container">
+        <!-- Links de Dúvidas -->
+        <div class="footer__links__content__subcontainer">
+          <div class="footer__subtitle">Dúvidas</div>
+          <router-link to="#" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Dados Pessoais
+          </router-link>
+
+          <router-link to="#" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Sintomas
+          </router-link>
+
+          <router-link to="/questions/modes-of-transmission" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Meios de Transmissão
+          </router-link>
+
+          <router-link to="#" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Perguntas Frequentes
+          </router-link>
+
+          <router-link to="#" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Emergência
+          </router-link>
+
+          <router-link to="#" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Sobre o COVID-19
+          </router-link>
+        </div>
+
+        <!-- Links de Dados -->
+        <div class="footer__links__content__subcontainer">
+          <div class="footer__subtitle">Dados</div>
+          <router-link to="/data-table" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Tabela de Dados
+          </router-link>
+
+          <router-link to="/graphs/countries-charts" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos dos Países
+          </router-link>
+
+          <router-link to="#" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos Mundiais
+          </router-link>
+        </div>
       </div>
     </article>
 
     <!-- Divulgue -->
     <article class="footer__help">
+      <!-- Titulo -->
       <div class="footer__title">
         Divulgue
         <hr />
@@ -60,7 +110,7 @@
       <div
         class="footer__help__content"
       >Ajude a concientizar as pessoas para que cada um faça a sua parte nesta luta contra o COVID-19! Compartilhe estas imagens.</div>
-      
+
       <div class="footer__subtitle">Imagens</div>
     </article>
   </div>
