@@ -62,7 +62,6 @@
         </div>
       </article>
     </section>
-    <MainFooter />
   </div>
 </template>
 

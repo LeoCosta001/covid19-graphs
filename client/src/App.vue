@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <MainHeader @resCountryData="countryData" />
-    <!-- fix-bm-overlay é editado em @/sass/global/externalComponents/sideBar_vueBurgerMenu -->
+    <!-- fix-bm-overlay escurece a tela ao abrir o menu, ele é editado em @/sass/global/externalComponents/sideBar_vueBurgerMenu -->
     <div class="fix-bm-overlay"></div>
     <router-view ref="childReqData" :reqCountryData="resCountryData" />
     <MainFooter class="MainFooter" />
@@ -62,6 +62,6 @@ body {
 }
 
 #app {
-  width: 90vw;
+  width: 100%;
 }
 </style>
