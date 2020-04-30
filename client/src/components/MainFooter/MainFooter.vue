@@ -41,6 +41,13 @@
         >
           <unicon class="unicon" name="linkedin" width="35px" height="35px" />
         </a>
+        <a
+          href="https://twitter.com/LeoCostaBlack"
+          class="footer__social__content"
+          target="_blank"
+        >
+          <unicon class="unicon" name="twitter" width="35px" height="35px" />
+        </a>
       </div>
     </article>
 
@@ -57,7 +64,7 @@
         <div class="footer__links__content__subcontainer">
           <div class="footer__subtitle">Dúvidas</div>
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Dados Pessoais
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Cuidados Pessoais
           </router-link>
 
           <router-link to="#" class="footer__links__content">
@@ -109,7 +116,7 @@
 
       <div
         class="footer__help__content"
-      >Ajude a concientizar as pessoas para que cada um faça a sua parte nesta luta contra o COVID-19! Compartilhe estas imagens.</div>
+      >Ajude a conscientizar as pessoas para que cada um faça a sua parte nesta luta contra o COVID-19! Compartilhe estas imagens.</div>
 
       <div class="footer__subtitle">Imagens</div>
     </article>

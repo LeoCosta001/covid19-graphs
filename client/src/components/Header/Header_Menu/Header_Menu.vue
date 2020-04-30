@@ -125,7 +125,7 @@
 
           <router-link to="#" class="menu__link__2">
             <unicon class="unicon" name="cell" width="23px" height="23px" />
-            <span class="link__title__2">Covid-19</span>
+            <span class="link__title__2">Sobre o COVID-19</span>
           </router-link>
         </span>
       </Slide>

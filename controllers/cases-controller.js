@@ -4,6 +4,9 @@ async function dataLoad() {
   try {
     const allCasesModel = await allCasesModelLoad.allCases();
 
+    exports.allData = () => {
+      return allCasesModel;
+    }
     // Array com uma lista de todos as chaves que são os nomes dos países
     exports.allCountries = () => {
       return Object.keys(allCasesModel);

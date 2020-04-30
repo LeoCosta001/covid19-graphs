@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
+const graphqlHTTP = require('express-graphql');
+const graphqlSchema = require('./models/graphql-schema');
 
 // Configurações
 
@@ -16,6 +18,12 @@ const cors = require("cors");
 
     // Cors
     app.use(cors());
+
+    // GraphQL
+    app.use('/graphql', graphqlHTTP ({
+      schema: graphqlSchema,
+      graphiql: true
+    }));
 
 // Rotas
 app.use("/database/country-list", require("./routes/countryList.js"));
