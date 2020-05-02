@@ -165,7 +165,19 @@ module.exports = {
    * @return {Array with Objects}
    */
   _filterCountryCasesByDate(caseData, firstDate, lastDate) {
-    // OBS: [1] = Dia, [2] = Mês e [3] = Ano
+    // Definindo data padrão para o caso de não houver parâmetro
+    if (!firstDate) {
+      firstDate = `22/1/2020`;
+    }
+
+    if (!lastDate) {
+      let todayDate = new Date();
+      let todayMonth = todayDate.getMonth() + 1;
+      let todayDay = todayDate.getDate();
+      let todayYear = todayDate.getFullYear();
+
+      lastDate = `${todayDay - 1}/${todayMonth}/${todayYear}`;
+    }
 
     /****************************************
      * Separando da string o Dia, Mês e ano *
@@ -182,6 +194,7 @@ module.exports = {
     /*****************************************
      * Iterando em todos os casos de um país *
      *****************************************/
+    // OBS: [1] = Dia, [2] = Mês e [3] = Ano
 
     let result = caseData.filter((value) => {
       // Separando os valores da data do caso atual e convertendo as datas de String para Number
@@ -193,18 +206,22 @@ module.exports = {
       // Comparação do Ano
       if (caseDate[1] > firstDate[3] && caseDate[3] < lastDate[3]) {
         return true;
-      } else if (caseDate[3] == firstDate[3] || caseDate[3] == lastDate[3]) {
-        // Comparação do Mês
+
+      // Caso o ano do "caseDate" seja o mesmo do "firstDate" e do "lastDate"
+      } else if (caseDate[3] == firstDate[3] && caseDate[3] == lastDate[3]) {
+        // Comparação do Mês caso o Ano do "firstDate" seja igual
         if (caseDate[2] > firstDate[2] && caseDate[2] < lastDate[2]) {
           return true;
-        } else if (caseDate[2] == firstDate[2] || caseDate[2] == lastDate[2]) {
-          // Comparação do Dia
-          if (caseDate[1] > firstDate[1] && caseDate[1] < lastDate[1]) {
+        } else if (caseDate[2] == firstDate[2]) {
+          // Comparação do Dia caso o Mês do "firstDate" seja igual
+          if (caseDate[1] > firstDate[1] || caseDate[1] == firstDate[1]) {
             return true;
-          } else if (
-            caseDate[1] == firstDate[1] ||
-            caseDate[1] == lastDate[1]
-          ) {
+          } else {
+            return false;
+          }
+        } else if (caseDate[2] == lastDate[2]) {
+          // Comparação do Dia caso o Mês do "lastDate" seja igual
+          if (caseDate[1] < lastDate[1] || caseDate[1] == lastDate[1]) {
             return true;
           } else {
             return false;
@@ -212,8 +229,38 @@ module.exports = {
         } else {
           return false;
         }
-      } else {
-        return false;
+
+      // Caso o ano do "caseDate" seja o mesmo do "firstDate" e diferente de "lastDate"
+      } else if (caseDate[3] == firstDate[3] && caseDate[3] != lastDate[3]) {
+        // Comparação do Mês caso o Ano do "firstDate" seja igual
+        if (caseDate[2] > firstDate[2]) {
+          return true;
+        } else if (caseDate[2] == firstDate[2]) {
+          // Comparação do Dia caso o Mês do "firstDate" seja igual
+          if (caseDate[1] > firstDate[1] || caseDate[1] == firstDate[1]) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return false;
+        }
+
+      // Caso o ano do "caseDate" seja o mesmo do "lastDate" e diferente de "firstDate"
+      } else if (caseDate[3] == lastDate[3] && caseDate[3] != firstDate[3]) {
+        // Comparação do Mês caso o Ano do "lastDate" seja igual
+        if (caseDate[2] < lastDate[2]) {
+          return true;
+        } else if (caseDate[2] == lastDate[2]) {
+          // Comparação do Dia caso o Mês do "lastDate" seja igual
+          if (caseDate[1] < lastDate[1] || caseDate[1] == lastDate[1]) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return false;
+        }
       }
     });
 

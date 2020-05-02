@@ -30,25 +30,22 @@ async function dataLoad() {
      ***********************************************************************/
     exports.allDataMap = (countrySearch, firstDate, lastDate) => {
       const allCountryName = Object.keys(allCasesModel);
+
+      let dataMapResult = dataCasesMap.remapAllData({
+        countryNameList: allCountryName,
+        data: allCasesModel,
+        reverse: true,
+        dateFormat: "DD/MM/AAAA",
+        firstDate: firstDate ? firstDate : false,
+        lastDate: lastDate ? lastDate : false,
+      });
+
       if (!countrySearch) {
-        return dataCasesMap.remapAllData({
-          countryNameList: allCountryName,
-          data: allCasesModel,
-          reverse: true,
-          dateFormat: "DD/MM/AAAA",
-          firstDate: firstDate ? firstDate : "1/3/2020",
-          lastDate: lastDate ? lastDate : "1/5/2020",
-        });
+        return dataMapResult;
       } else {
-        return dataCasesMap.remapAllData({
-          countryNameList: allCountryName,
-          data: allCasesModel,
-          reverse: true,
-          dateFormat: "DD/MM/AAAA",
-          firstDate: firstDate ? firstDate : "1/3/2020",
-          lastDate: lastDate ? lastDate : "1/5/2020",
-        }).filter((i) => i.country == countrySearch);
-      }
+        return dataMapResult.filter((i) => i.country == countrySearch);
+      };
+
     };
   } catch (err) {
     console.log('Error! Server controller "/controllers/cases-controller"');
