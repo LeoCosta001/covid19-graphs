@@ -6,7 +6,7 @@ module.exports = {
    *       - dateMax = String (Data no formato "dd/mm/aaaa").
    * Retorno: Boolean (True para caso o "dateMin" seja menor que o "dateMax") */
   compareDate(dateMin, dateMax) {
-    // Separando as datas de Dia Mês e Ano da string
+    // Separando as datas de Dia, Mês e Ano da string
     let minDateContainer = dateMin.match(
       /([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})/
     );
