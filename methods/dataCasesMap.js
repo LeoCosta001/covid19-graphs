@@ -8,8 +8,7 @@
  */
 
 module.exports = {
-  /**
-   * "Metodo que refaz todo o JSON criando novas chaves e novos valores"
+  /** "Metodo que refaz todo o JSON criando novas chaves e novos valores"
    * @method remapAllData
    * "Object com 6 atributos que serão usados nas configurações locais"
    * @param {*Object} localConfig
@@ -48,7 +47,7 @@ module.exports = {
           indexMap > 0 ? localConfig.data[value][indexMap - 1] : false;
         return {
           date:
-            localConfig.dateFormat == "DD/MM/AAAA"
+            localConfig.dateFormat == 'DD/MM/AAAA'
               ? this._modifyDateFormat(valueMap.date)
               : valueMap.date,
           confirmed: valueMap.confirmed,
@@ -84,8 +83,7 @@ module.exports = {
     return allCasesModelMapped;
   },
 
-  /**
-   * "Metodo que adiciona a chave/valor "growthRate""
+  /** "Metodo que adiciona a chave/valor "growthRate""
    * @method remapCountryCases
    * "Object com 5 atributos que serão usados nas configurações locais"
    * @param {*Object} localConfig
@@ -117,7 +115,7 @@ module.exports = {
       let previewIndex = indexMap > 0 ? localConfig.data[indexMap - 1] : false;
       return {
         date:
-          localConfig.dateFormat == "DD/MM/AAAA"
+          localConfig.dateFormat == 'DD/MM/AAAA'
             ? this._modifyDateFormat(valueMap.date)
             : valueMap.date,
         confirmed: valueMap.confirmed,
@@ -203,25 +201,26 @@ module.exports = {
         caseDate[i] = Number(caseDate[i]);
       }
 
-      // Comparação do Ano
-      if (caseDate[1] > firstDate[3] && caseDate[3] < lastDate[3]) {
+      /****************************************************************************
+       * Regras de filtro: Comparar datas de "caseDate", "firstDate" e "lastDate" *
+       ****************************************************************************/
+      
+       // Caso o ano do "caseDate" seja maior que "firstDate" e menor que "lastDate"
+      if (caseDate[3] > firstDate[3] && caseDate[3] < lastDate[3]) {
         return true;
 
-      // Caso o ano do "caseDate" seja o mesmo do "firstDate" e do "lastDate"
+        // Caso o ano do "caseDate" seja o mesmo do "firstDate" e do "lastDate"
       } else if (caseDate[3] == firstDate[3] && caseDate[3] == lastDate[3]) {
-        // Comparação do Mês caso o Ano do "firstDate" seja igual
         if (caseDate[2] > firstDate[2] && caseDate[2] < lastDate[2]) {
           return true;
         } else if (caseDate[2] == firstDate[2]) {
-          // Comparação do Dia caso o Mês do "firstDate" seja igual
-          if (caseDate[1] > firstDate[1] || caseDate[1] == firstDate[1]) {
+          if (caseDate[1] >= firstDate[1]) {
             return true;
           } else {
             return false;
           }
         } else if (caseDate[2] == lastDate[2]) {
-          // Comparação do Dia caso o Mês do "lastDate" seja igual
-          if (caseDate[1] < lastDate[1] || caseDate[1] == lastDate[1]) {
+          if (caseDate[1] <= lastDate[1]) {
             return true;
           } else {
             return false;
@@ -230,14 +229,12 @@ module.exports = {
           return false;
         }
 
-      // Caso o ano do "caseDate" seja o mesmo do "firstDate" e diferente de "lastDate"
+        // Caso o ano do "caseDate" seja o mesmo do "firstDate" e diferente de "lastDate"
       } else if (caseDate[3] == firstDate[3] && caseDate[3] != lastDate[3]) {
-        // Comparação do Mês caso o Ano do "firstDate" seja igual
         if (caseDate[2] > firstDate[2]) {
           return true;
         } else if (caseDate[2] == firstDate[2]) {
-          // Comparação do Dia caso o Mês do "firstDate" seja igual
-          if (caseDate[1] > firstDate[1] || caseDate[1] == firstDate[1]) {
+          if (caseDate[1] >= firstDate[1]) {
             return true;
           } else {
             return false;
@@ -246,14 +243,12 @@ module.exports = {
           return false;
         }
 
-      // Caso o ano do "caseDate" seja o mesmo do "lastDate" e diferente de "firstDate"
+        // Caso o ano do "caseDate" seja o mesmo do "lastDate" e diferente de "firstDate"
       } else if (caseDate[3] == lastDate[3] && caseDate[3] != firstDate[3]) {
-        // Comparação do Mês caso o Ano do "lastDate" seja igual
         if (caseDate[2] < lastDate[2]) {
           return true;
         } else if (caseDate[2] == lastDate[2]) {
-          // Comparação do Dia caso o Mês do "lastDate" seja igual
-          if (caseDate[1] < lastDate[1] || caseDate[1] == lastDate[1]) {
+          if (caseDate[1] <= lastDate[1]) {
             return true;
           } else {
             return false;
@@ -267,8 +262,7 @@ module.exports = {
     return result;
   },
 
-  /**
-   * "Metodo que altera o formato da data de "AAAA-MM-DD" para "DD/MM/AAAA"
+  /** "Metodo que altera o formato da data de "AAAA-MM-DD" para "DD/MM/AAAA"
    * @method _modifyDateFormat
    * "String com a data no formato "AAAA-MM-DDD""
    * @param {String} stringDate
@@ -284,8 +278,7 @@ module.exports = {
     return `${dateContainerLocal[3]}/${dateContainerLocal[2]}/${dateContainerLocal[1]}`;
   },
 
-  /**
-   * "Metodo que calcula a taxa de crescimento e cria a chave/valor "growthRate"
+  /** "Metodo que calcula a taxa de crescimento e cria a chave/valor "growthRate"
    * @method _addKeyGrowthRate
    * "Objeto com o caseData anterior (Se este for "false" então será retornado "0"
    * para os valores do "growthRate")"
@@ -297,9 +290,9 @@ module.exports = {
    */
   _addKeyGrowthRate(previewCaseData, currentCaseData) {
     let growthRateLocal = {
-      confirmed: "0",
-      deaths: "0",
-      recovered: "0",
+      confirmed: '0',
+      deaths: '0',
+      recovered: '0',
     };
 
     /*****************************************
@@ -332,7 +325,7 @@ module.exports = {
         100
       ).toFixed(2);
     } else {
-      growthRateLocal.confirmed = "0";
+      growthRateLocal.confirmed = '0';
     }
     if (previewCaseData.deaths != 0) {
       growthRateLocal.deaths = (
@@ -341,7 +334,7 @@ module.exports = {
         100
       ).toFixed(2);
     } else {
-      growthRateLocal.deaths = "0";
+      growthRateLocal.deaths = '0';
     }
     if (previewCaseData.recovered != 0) {
       growthRateLocal.recovered = (
@@ -350,14 +343,13 @@ module.exports = {
         100
       ).toFixed(2);
     } else {
-      growthRateLocal.recovered = "0";
+      growthRateLocal.recovered = '0';
     }
 
     return growthRateLocal;
   },
 
-  /**
-   * "Metodo que calcula a quantidade de novos registros daquele dia e
+  /** "Metodo que calcula a quantidade de novos registros daquele dia e
    * cria a chave/valor "in24HoursLocal"
    * @method _addKeyIn24HoursLocal
    * "Objeto com o caseData anterior (Se este for "false" então será retornado "0"
@@ -370,9 +362,9 @@ module.exports = {
    */
   _addKeyIn24HoursLocal(previewCaseData, currentCaseData) {
     let in24HoursLocal = {
-      confirmed: "0",
-      deaths: "0",
-      recovered: "0",
+      confirmed: '0',
+      deaths: '0',
+      recovered: '0',
     };
 
     /*****************************************
