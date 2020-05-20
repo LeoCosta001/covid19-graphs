@@ -2,7 +2,6 @@
 $flatBlue: #2980B9;
 $flatLightBlue: #3498DB;
 $flatGreenSea: #16A085;
-$flatGreenSea: #16A085;
 $flatLightGreenSea: #1ABC9C;
 $flatGreen: #27AE60;
 $flatLightGreen: #2ECC71;
@@ -21,10 +20,31 @@ $flatLightSmoke: #95A5A6;
 $flatGrey: #BDC3C7;
 $flatLightGrey: #ECF0F1;
 
+// Opacidade 75%
+$flatBlue75: rgba(41, 127, 185, 0.750);
+$flatLightBlue75: rgba(52, 152, 219, 0.750);
+$flatGreenSea75: rgba(22, 160, 132, 0.750);
+$flatLightGreenSea75: rgba(26, 188, 156, 0.750);
+$flatGreen75: rgba(39, 174, 95, 0.750);
+$flatLightGreen75: rgba(46, 204, 112, 0.750);
+$flatPruple75: rgba(63, 37, 75, 0.750);
+$flatLightPurple75: rgba(156, 89, 182, 0.750);
+$flatRed75: rgba(192, 58, 43, 0.750);
+$flatLightRed75: rgba(231, 77, 60, 0.750);
+$flatPumpkin75: rgba(211, 84, 0, 0.750);
+$flatCarrot75: rgba(230, 125, 34, 0.750);
+$flatOrange75: rgba(243, 157, 18, 0.750);
+$flatYellow75: rgba(241, 196, 15, 0.750);
+$flatMidnightBlue75: rgba(44, 62, 80, 0.750);
+$flatLightMidnightBlue75: rgba(52, 73, 94, 0.750);
+$flatSmoke75: rgba(127, 140, 141, 0.750);
+$flatLightSmoke75: rgba(149, 165, 166, 0.750);
+$flatGrey75: rgba(189, 195, 199, 0.750);
+$flatLightGrey75: rgba(236, 240, 241, 0.750);
+
 // Opacidade 50%
 $flatBlue50: rgba(41, 127, 185, 0.5);
 $flatLightBlue50: rgba(52, 152, 219, 0.5);
-$flatGreenSea50: rgba(22, 160, 132, 0.5);
 $flatGreenSea50: rgba(22, 160, 132, 0.5);
 $flatLightGreenSea50: rgba(26, 188, 156, 0.5);
 $flatGreen50: rgba(39, 174, 95, 0.5);
@@ -48,7 +68,6 @@ $flatLightGrey50: rgba(236, 240, 241, 0.5);
 $flatBlue25: rgba(41, 127, 185, 0.250);
 $flatLightBlue25: rgba(52, 152, 219, 0.250);
 $flatGreenSea25: rgba(22, 160, 132, 0.250);
-$flatGreenSea25: rgba(22, 160, 132, 0.250);
 $flatLightGreenSea25: rgba(26, 188, 156, 0.250);
 $flatGreen25: rgba(39, 174, 95, 0.250);
 $flatLightGreen25: rgba(46, 204, 112, 0.250);
@@ -66,3 +85,25 @@ $flatSmoke25: rgba(127, 140, 141, 0.250);
 $flatLightSmoke25: rgba(149, 165, 166, 0.250);
 $flatGrey25: rgba(189, 195, 199, 0.250);
 $flatLightGrey25: rgba(236, 240, 241, 0.250);
+
+// Opacidade 10%
+$flatBlue10: rgba(41, 127, 185, 0.100);
+$flatLightBlue10: rgba(52, 152, 219, 0.100);
+$flatGreenSea10: rgba(22, 160, 132, 0.100);
+$flatLightGreenSea10: rgba(26, 188, 156, 0.100);
+$flatGreen10: rgba(39, 174, 95, 0.100);
+$flatLightGreen10: rgba(46, 204, 112, 0.100);
+$flatPruple10: rgba(63, 37, 75, 0.100);
+$flatLightPurple10: rgba(156, 89, 182, 0.100);
+$flatRed10: rgba(192, 58, 43, 0.100);
+$flatLightRed10: rgba(231, 77, 60, 0.100);
+$flatPumpkin10: rgba(211, 84, 0, 0.100);
+$flatCarrot10: rgba(230, 125, 34, 0.100);
+$flatOrange10: rgba(243, 157, 18, 0.100);
+$flatYellow10: rgba(241, 196, 15, 0.100);
+$flatMidnightBlue10: rgba(44, 62, 80, 0.100);
+$flatLightMidnightBlue10: rgba(52, 73, 94, 0.100);
+$flatSmoke10: rgba(127, 140, 141, 0.100);
+$flatLightSmoke10: rgba(149, 165, 166, 0.100);
+$flatGrey10: rgba(189, 195, 199, 0.100);
+$flatLightGrey10: rgba(236, 240, 241, 0.100);

@@ -1,5 +1,6 @@
 <template>
   <div class="localContainer">
+    <DataOptions />>
     <CountriesCharts
       ref="attGraphData"
       @selectTableDataNumber="showDataNumber"

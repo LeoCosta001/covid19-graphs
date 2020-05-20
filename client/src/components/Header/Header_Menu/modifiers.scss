@@ -1,3 +1,5 @@
-.hide--headerbar {
-  top: -52px;
+@media (max-width: 860px) {
+  .hide--headerbar {
+    top: -52px;
+  }
 }

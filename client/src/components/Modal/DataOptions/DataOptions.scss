@@ -1,0 +1,318 @@
+.modal__data__options__button {
+  overflow: hidden;
+  margin-left: 5px;
+  position: fixed;
+  top: 100px;
+  z-index: 500;
+
+  & button {
+    outline: none;
+    background-color: rgba(42, 72, 85, 0.8);
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    word-wrap: none;
+    height: 50px;
+    padding: 5px;
+    border: solid 1px $flatGreenSea;
+    border-radius: 0px 10px 0px;
+    display: flex;
+    align-items: center;
+
+    & .unicon {
+      fill: $flatGreenSea;
+      margin: 0px 5px;
+    }
+
+    & span {
+      color: rgba(22, 160, 132, 0);
+      width: 0px;
+      transition: 0.3s;
+    }
+
+    &:hover {
+    background-color: rgba(42, 72, 85, 100);
+
+      & span {
+        color: rgba(22, 160, 132, 100);
+        width: 100px;
+      }
+    }
+  }
+}
+
+.request__status__container {
+  user-select: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 70px;
+  z-index: 9000;
+
+  & .popup__status {
+    height: 40px;
+    padding: 5px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    & .unicon {
+      position: absolute;
+    }
+
+    & span {
+      font-size: 1.3em;
+      letter-spacing: 1px;
+      margin: 0px 5px 0px 35px;
+    }
+  }
+
+  & .popup__status__loading {
+    background-color: $flatYellow10;
+
+    & .unicon {
+      fill: $flatYellow;
+      animation: __rotate__unicon__loading 1s linear 0s normal infinite none
+        running;
+    }
+
+    & span {
+      color: $flatYellow;
+    }
+  }
+
+  & .popup__status__complete {
+    background-color: $flatGreen10;
+
+    & .unicon {
+      fill: $flatGreen;
+    }
+
+    & span {
+      color: $flatGreen;
+    }
+  }
+
+  & .popup__status__error {
+    background-color: $flatRed10;
+
+    & .unicon {
+      fill: $flatRed;
+    }
+
+    & span {
+      color: $flatRed;
+    }
+  }
+}
+
+.modal__background {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 2000;
+}
+
+.modal__container {
+  background-color: $flatMidnightBlue;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border-radius: 7px;
+}
+
+// Cabeçalho do Modal
+.modal__header {
+  user-select: none;
+  background-color: $flatLightMidnightBlue;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 7px 7px 0px 0px;
+
+  & div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  & .header__icon {
+    width: 60px;
+    justify-content: center;
+    fill: $flatLightGreenSea;
+  }
+
+  & .header__title {
+    flex: 1;
+
+    & span {
+      font-size: 20pt;
+      font-weight: lighter;
+    }
+  }
+
+  & .modal__close {
+    color: $flatLightGrey;
+    width: 40px;
+    justify-content: center;
+    cursor: pointer;
+
+    & .unicon {
+      fill: $flatLightGrey;
+    }
+  }
+}
+
+// Conteúdo do Modal
+.modal__content__container {
+  width: 100%;
+  height: 60vh;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  & .content__title {
+    background-color: $flatGreenSea10;
+    width: 100%;
+    height: 40px;
+    margin: 0px;
+
+    & p {
+      color: $flatGreenSea;
+      font-size: 1.6em;
+      margin: 5px 0px 5px 10px;
+    }
+
+    & hr {
+      margin: 0px;
+      border: solid 1px $flatGreenSea;
+    }
+  }
+
+  & .content__invalid__value {
+    background-color: $flatYellow10;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    & div {
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+
+      & .unicon {
+        fill: $flatYellow;
+      }
+
+      & p {
+        color: $flatYellow;
+        font-size: 0.8em;
+        letter-spacing: 1px;
+        line-height: 1.3em;
+        margin: 5px 0px 5px 10px;
+      }
+    }
+
+    & hr {
+      margin: 0px;
+      border: solid 0.5px $flatYellow;
+    }
+  }
+
+  & .content_body {
+    padding: 15px 10px;
+  }
+
+  & .content__date {
+    & .content_body {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+// Rodapé do Modal
+.modal__footer {
+  background-color: $flatLightMidnightBlue;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  border-top: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 0px 7px 7px;
+
+  & .footer__button__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    & div {
+      user-select: none;
+      font-size: 11pt;
+      letter-spacing: 2px;
+      font-weight: lighter;
+      width: 100px;
+      height: 35px;
+      border-radius: 2.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  & .modal__button__reset {
+    padding-left: 20px;
+    flex: 1;
+
+    & div {
+      background-color: $flatSmoke50;
+      border: solid 1px $flatSmoke;
+
+      &:hover {
+        background-color: $flatSmoke75;
+      }
+    }
+  }
+
+  & .modal__button__cancel {
+    width: 120px;
+    justify-content: left;
+
+    & div {
+      background-color: $flatRed50;
+      border: solid 1px $flatRed;
+
+      &:hover {
+        background-color: $flatRed75;
+      }
+    }
+  }
+
+  & .modal__button__apply {
+    width: 120px;
+    justify-content: left;
+
+    & div {
+      background-color: $flatGreen50;
+      border: solid 1px $flatGreen;
+
+      &:hover {
+        background-color: $flatGreen75;
+      }
+    }
+  }
+}
+
+.display--none {
+  display: none;
+}

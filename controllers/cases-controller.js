@@ -28,6 +28,7 @@ async function dataLoad() {
     /***********************************************************************
      * Funções que retornam dados do JSON com novas chaves e novos valores *
      ***********************************************************************/
+    
     exports.allDataMap = (countrySearch, firstDate, lastDate) => {
       const allCountryName = Object.keys(allCasesModel);
 
