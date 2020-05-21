@@ -1,32 +1,22 @@
-
 // Métodos
 import _debounce from "@/methods/others/debounceFunction.js";
 
 // APIs
 import { Slide } from "vue-burger-menu";
 
-// Componentes
-import FORMSelectCountry from "@/components/Header/FORM_SelectCountry/FORM_SelectCountry.vue";
-
 export default {
   name: "HeaderMenu",
   components: {
     Slide,
-    FORMSelectCountry
   },
   data() {
     return {
-      countryDataLoading: false,
-      countryDataErro: false,
       // Posição do Scrollbar
       showHeaderbar: true,
       lastScrollPosition: 0
     };
   },
   methods: {
-    casesDataAtt() {
-      this.$refs.casesDataReqAtt.casesData();
-    },
     // Evento ativado quando é movido o Scrollbar
     onScroll() {
       // Posição atual do Scrollbar
@@ -50,13 +40,6 @@ export default {
         this.lastScrollPosition = currentScrollPosition;
       }
     },
-
-    // Emitir dados que foram recebidos pelo "FORMSelectCountry" e recolher dados de status do carregamento
-    countryDataEmit(res) {
-      this.countryDataLoading = res.countryDataLoading;
-      this.countryDataErro = res.countryDataErro;
-      this.$emit("resCountryData", res);
-    }
   },
   mounted() {
     // Inicia o evento de scroll (OBS: O 2º Param do _debounce.use() é o tempo de delay entre a execução das funções)

@@ -1,55 +1,19 @@
 <template>
   <div class="localContainer">
-    <h2 class="title__h2">Gráfico da Taxa de Crescimento</h2>
-
-    <!-- Seleção de datas para exibição de dados -->
-    <div class="data__select__container" v-if="countryData.countryData">
-      <div class="data__select">
-        <div>
-          <p>De:</p>
-          <FunctionalCalendar
-            @choseDay="attTableData"
-            v-model="calendarMinDay"
-            :placeholder="minDayPlaceholder"
-            :is-dark="true"
-            :is-modal="true"
-            :limits="{min: '22/01/2020', max: maxLimit}"
-            :change-month-function="true"
-            :is-date-picker="true"
-          ></FunctionalCalendar>
-        </div>
-        <div>
-          <p>Até:</p>
-          <FunctionalCalendar
-            @choseDay="attTableData"
-            v-model="calendarMaxDay"
-            :placeholder="maxDayPlaceholder"
-            :is-dark="true"
-            :is-modal="true"
-            :limits="{min: '22/01/2020', max: maxLimit}"
-            :change-month-function="true"
-            :is-date-picker="true"
-          ></FunctionalCalendar>
-        </div>
-      </div>
-      <div class="data__error__msg" v-if="inputTableDataNumberInvalid">
-        <p class="error__msg__title">Data invalida!</p>
-        <p class="error__msg__content">A data de ínicio tem que ser menor que a data final.</p>
-      </div>
-    </div>
+    <h2 class="title__h2">Dados do COVID-19 no país:<br>{{ countryData.selectedValues.selectCountry.countryName }}</h2>
 
     <!-- Título -->
-    <article class="about__graph" id="summary-graph">
+    <article class="about__graph" id="summary-graph" v-if="countryData.selectedValues.selectInfo.summaryGraph">
       <hr />
       <h3>Gráfico Resumido</h3>
-      <p>Grafico atualizado com a soma de todos os novos registros diários.</p>
+      <p>Grafico atualizado diariamente com a soma de todos os novos registros.</p>
       <hr />
     </article>
 
     <!-- Gráfico Resumido -->
-    <section class="graph__content__container">
+    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.summaryGraph">
       <!-- Mensagem de país não selecionado -->
-      <div v-if="!countryData.countryData">
+      <div v-if="!countryData.data">
         <div class="select__country__msg__container">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
@@ -57,77 +21,76 @@
 
       <!-- Grafico em Linha -->
       <div class="graph__container">
-        <SummaryGraphAppLine ref="summaryGraphAppLine" :country-data="countryData" />
+        <SummaryGraphAppLine ref="summaryGraphAppLine" />
       </div>
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="growth-rate">
+    <article class="about__graph" id="growth-rate" v-if="countryData.selectedValues.selectInfo.growthRate">
       <hr />
       <h3>Taxa de Crescimento Diário</h3>
       <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
       <hr />
     </article>
 
-    <section class="graph__content__container">
+    <!-- Gráfico em Barras -->
+    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.growthRate">
       <!-- Mensagem de país não selecionado -->
-      <article v-if="!countryData.countryData">
+      <article v-if="!countryData.data">
         <div class="select__country__msg__container">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
 
-      <!-- Gráfico Linear -->
-      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
-        <CountriesChartsAppBar ref="countriesChartsAppBar" :country-data="countryData" />
+      <!-- Gráfico -->
+      <div class="graph__container" :class="{'unselect--country': !countryData.data}">
+        <CountriesChartsAppBar ref="countriesChartsAppBar" />
       </div>
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="new-register">
+    <article class="about__graph" id="new-register" v-if="countryData.selectedValues.selectInfo.newRegister">
       <hr />
       <h3>Novos Registros Diário</h3>
-      <p>Dados com a quantidade de todos os novos registros diários.</p>
+      <p>Dados com a quantidade de novos registros diários.</p>
       <hr />
     </article>
 
-    <section class="graph__content__container">
+    <!-- Gráfico em Linha -->
+    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.newRegister">
       <!-- Mensagem de país não selecionado -->
-      <article v-if="!countryData.countryData">
+      <article v-if="!countryData.data">
         <div class="select__country__msg__container">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
 
       <!-- Gráfico Linear -->
-      <div class="graph__container" :class="{'unselect--country': !countryData.countryData}">
-        <CountriesChartsAppLine ref="countriesChartsAppLine" :country-data="countryData" />
+      <div class="graph__container" :class="{'unselect--country': !countryData.data}">
+        <CountriesChartsAppLine ref="countriesChartsAppLine" />
       </div>
     </section>
 
-
     <!-- Título -->
-    <article class="about__graph" id="summary">
+    <article class="about__graph" id="summary" v-if="countryData.selectedValues.selectInfo.summary">
       <hr />
       <h3>Resumo</h3>
       <p>Cálculo da Taxa de Crescimento e quantidade de Novos Registros relacionando apenas as duas datas selecionadas.</p>
+      <p>(De {{ countryData.selectedValues.selectDate.firstDate }} até {{ countryData.selectedValues.selectDate.lastDate }})</p>
       <hr />
     </article>
 
     <!-- Gráfico de Doughnut -->
-    <section class="graph__content__container">
+    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.summary">
       <!-- Mensagem de país não selecionado -->
-      <article v-if="!countryData.countryData">
+      <article v-if="!countryData.data">
         <div class="select__country__msg__container">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
 
       <!-- Conteúdo -->
-      <div
-        class="graph__doughnut__container"
-        :class="{'unselect--country': !countryData.countryData}"
-      >
+      <div class="graph__doughnut__container" :class="{'unselect--country': !countryData.data}">
         <div class="graph__doughnut__content">
           <!-- Tabela (Total de Novos Registros)-->
           <table>
@@ -193,31 +156,31 @@
           <CountriesChartsAppDoughnut
             ref="countriesChartsAppDoughnut"
             @resGraphDataEmit="reqGraphDataEmit"
-            :country-data="countryData"
           />
         </div>
       </div>
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="additional-information">
+    <article class="about__graph" id="additional-information" v-if="countryData.selectedValues.selectInfo.additionalInformation">
       <hr />
       <h3>Informações Adicionais</h3>
       <p>Estas informações são baseadas nas datas selecionadas.</p>
+      <p>(De {{ countryData.selectedValues.selectDate.firstDate }} até {{ countryData.selectedValues.selectDate.lastDate }})</p>
       <hr />
     </article>
 
     <!-- Informações Adicionais (Conteúdo) -->
-    <section class="graph__content__container">
+    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.additionalInformation">
       <!-- Mensagem de país não selecionado -->
-      <article v-if="!countryData.countryData">
+      <article v-if="!countryData.data">
         <div class="select__country__msg__container">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
 
       <!-- Tabela -->
-      <article :class="{'unselect--country': !countryData.countryData}">
+      <article :class="{'unselect--country': !countryData.data}">
         <table class="countryDataTable__main">
           <tbody class="main__tbody">
             <tr class="main__tr">

@@ -12,10 +12,10 @@
           >
             <option value="undefined" disabled selected>Selecione um País</option>
             <option
-              :value="country"
-              v-for="(country, index) in countryList"
+              :value="data.country"
+              v-for="(data, index) in countryList"
               :key="index"
-            >{{ country }}</option>
+            >{{ data.country }}</option>
           </select>
           <select v-else>
             <option value="undefined" disabled selected>Carregando...</option>

@@ -1,10 +1,9 @@
 <template>
   <div class="localContainer">
-    <DataOptions />>
+    <DataOptions @DataOptions_return="dataOptionsReturn" />>
     <CountriesCharts
       ref="attGraphData"
-      @selectTableDataNumber="showDataNumber"
-      :country-data="resForTableCountryData"
+      :country-data="dataOptions"
     />
   </div>
 </template>

@@ -213,6 +213,12 @@ module.exports = {
       } else if (caseDate[3] == firstDate[3] && caseDate[3] == lastDate[3]) {
         if (caseDate[2] > firstDate[2] && caseDate[2] < lastDate[2]) {
           return true;
+        } else if (caseDate[2] == firstDate[2] && caseDate[2] == lastDate[2]) {
+          if (caseDate[1] >= firstDate[1] && caseDate[1] <= lastDate[1]) {
+            return true;
+          } else {
+            return false;
+          }
         } else if (caseDate[2] == firstDate[2]) {
           if (caseDate[1] >= firstDate[1]) {
             return true;

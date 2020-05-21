@@ -1,4 +1,6 @@
-import casesList from '@/axiosConfig/countryList';
+// Apollo Client
+import { client } from '@/apolloConfig/apollo-client';
+import gql from 'graphql-tag';
 
 export default {
   name: 'SelectCountry',
@@ -6,14 +8,14 @@ export default {
     return {
       countryList: false,
       countrySelected: 'undefined',
-      invalidStatus: false
+      invalidStatus: false,
     };
   },
   computed: {
     SelectCountryEmit() {
       return {
         countrySelected: this.countrySelected,
-        invalidStatus: this.invalidStatus
+        invalidStatus: this.invalidStatus,
       };
     },
   },
@@ -29,9 +31,21 @@ export default {
     },
   },
   mounted() {
-    // Lista do nome dos países
-    casesList.toList().then((res) => {
-      this.countryList = res.data;
-    });
+    let query = gql`
+      query {
+        case {
+          country
+        }
+      }
+    `;
+
+    client
+      .query({ query })
+      .then((res) => {
+        this.countryList = res.data.case;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };

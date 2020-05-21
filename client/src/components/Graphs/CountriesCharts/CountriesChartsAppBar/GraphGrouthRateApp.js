@@ -6,15 +6,6 @@ import VueCharts from "vue-chartjs";
 
 export default {
   extends: VueCharts.Bar,
-  props: {
-    countryData: {
-      type: Object,
-      required: true,
-      default: () => {
-        return {};
-      },
-    },
-  },
   data() {
     return {
       countryDataForGraph: {
@@ -36,9 +27,9 @@ export default {
     };
   },
   methods: {
-    attGraph() {
+    attGraph(countryData) {
       // Atualizar dados da variavel "countryDataForGraph"
-      let reqCountryData = this.countryData.countryData();
+      let reqCountryData = countryData.data.cases;
       this.attVariable_CountryDataForGraph(reqCountryData);
 
       // Renderização do gráfico atualizado

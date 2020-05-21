@@ -1,38 +1,54 @@
 // APIs
-import { FunctionalCalendar } from "vue-functional-calendar";
+import { FunctionalCalendar } from 'vue-functional-calendar';
+/*
 // Métodos
-import _date from "@/methods/changeDate/dateIdentify.js";
-
+import _date from '@/methods/changeDate/dateIdentify.js';
+*/
 // Componentes
-import CountriesChartsAppBar from "@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js";
-import CountriesChartsAppDoughnut from "@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js";
-import CountriesChartsAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js";
-import SummaryGraphAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js";
+import CountriesChartsAppBar from '@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js';
+import CountriesChartsAppDoughnut from '@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js';
+import CountriesChartsAppLine from '@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js';
+import SummaryGraphAppLine from '@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js';
+
+// Metodos
+import _date from '@/methods/changeDate/dateIdentify.js';
 
 // Configurações do componente
 export default {
-  name: "CountriesCharts",
+  name: 'CountriesCharts',
   components: {
     FunctionalCalendar,
     CountriesChartsAppBar,
     CountriesChartsAppDoughnut,
     CountriesChartsAppLine,
-    SummaryGraphAppLine
-  },
-  props: {
-    countryData: {
-      type: Object,
-      required: true,
-      default: () => {
-        return {};
-      },
-    },
+    SummaryGraphAppLine,
   },
   data() {
     return {
       // Variáves
-      maxSelectDataNumber: "7 ",
-      minSelectDataNumber: "0",
+      countryData: {
+        selectedValues: {
+          selectDate: {
+            firstDate: _date.calcDate(-7, false),
+            lastDate: _date.calcDate(-1, false),
+            invalidStatus: false,
+          },
+          selectCountry: {
+            countryName: '',
+            invalidStatus: true,
+          },
+          selectInfo: {
+            summaryGraph: true,
+            growthRate: true,
+            newRegister: true,
+            summary: true,
+            additionalInformation: true,
+            invalidStatus: false,
+          },
+        },
+      },
+      maxSelectDataNumber: '7',
+      minSelectDataNumber: '0',
       graphDoughnutTable: {
         confirmed: 0,
         deaths: 0,
@@ -48,69 +64,72 @@ export default {
       tableLineDetailStatus: undefined,
       // Transferir dados para o componente de Gráfico
       resForGraph: this.countryData,
-      // Calendário
-      maxDayPlaceholder: _date.calcDate(-1, false),
-      minDayPlaceholder: _date.calcDate(-7, false),
-      maxLimit: _date.calcDate(-1, false),
-      calendarMaxDay: {
-        selectedDate: _date.calcDate(-1, false),
-      },
-      calendarMinDay: {
-        selectedDate: _date.calcDate(-7, false),
-      },
     };
-  },
-  computed: {
-    // Dados para serem emitidos para outros componentes
-    TABLE_CountryDataEmit() {
-      return {
-        selectDataNumber: {
-          min: this.minSelectDataNumber,
-          max: this.maxSelectDataNumber,
-        },
-      };
-    },
   },
   methods: {
     // Método ativado quando o grafico de Doughnut é calculado
     reqGraphDataEmit(req) {
       this.graphDoughnutTable = req.graphData;
     },
-    // Emitir dados que estiverem no data "TABLE_CountryDataEmit"
-    localEmit() {
-      this.$emit("selectTableDataNumber", this.TABLE_CountryDataEmit);
-    },
 
     // Ativado quando é alterada as datas para a exibição de dados
-    async attTableData() {
-      // Verifica se a data Min é menor que o data Max
-      if (
-        _date.compareDate(
-          this.calendarMinDay.selectedDate,
-          this.calendarMaxDay.selectedDate
-        )
-      ) {
-        // Desativando mensagem de data invalida
-        this.inputTableDataNumberInvalid = false;
+    async attTableData(attCountryData) {
+      this.countryData = attCountryData;
 
-        // Alterando valores que serão emitidos
-        this.maxSelectDataNumber = this.calendarMaxDay.selectedDate;
-        this.minSelectDataNumber = this.calendarMinDay.selectedDate;
+      // Fechando a tabela
+      this.tableLineDetail(-1);
 
-        // Fechando a tabela
-        this.tableLineDetail(-1);
-
-        // Emitindo dados
-        await this.localEmit();
-
-        // Atualizando gráfico
-        this.$refs.countriesChartsAppBar.attGraph();
-        this.$refs.countriesChartsAppDoughnut.attGraph();
-        this.$refs.countriesChartsAppLine.attGraph();
-        this.$refs.summaryGraphAppLine.attGraph();
-      } else {
-        this.inputTableDataNumberInvalid = true;
+      // Atualizando gráficos
+      if (this.countryData.selectedValues.selectInfo.summaryGraph) {
+        this.$refs.summaryGraphAppLine.attGraph(this.countryData);
       }
+
+      if (this.countryData.selectedValues.selectInfo.growthRate) {
+        this.$refs.countriesChartsAppBar.attGraph(this.countryData);
+      }
+
+      if (this.countryData.selectedValues.selectInfo.newRegister) {
+        this.$refs.countriesChartsAppLine.attGraph(this.countryData);
+      }
+
+      if (this.countryData.selectedValues.selectInfo.summary) {
+        this.$refs.countriesChartsAppDoughnut.attGraph(this.countryData);
+      }
+
+      this.attGraphResumeTable();
+    },
+
+    // Atualizando dados da tabela "GraphResumeGrouthRate"
+    attGraphResumeTable() {
+      let data = this.countryData.data.cases;
+
+      // Somando de todos os novos registros
+      this.graphDoughnutTable.confirmed = 0;
+      this.graphDoughnutTable.deaths = 0;
+      this.graphDoughnutTable.recovered = 0;
+
+      data.forEach((value) => {
+        this.graphDoughnutTable.confirmed += value.in24Hours.confirmed;
+        this.graphDoughnutTable.deaths += value.in24Hours.deaths;
+        this.graphDoughnutTable.recovered += value.in24Hours.recovered;
+      });
+
+      // Calculo de crescimento de todos os novos registros
+      this.graphDoughnutTable.growthRate.confirmed = (
+        ((data[0].confirmed - data[data.length - 1].confirmed) /
+          data[data.length - 1].confirmed) *
+        100
+      ).toFixed(2);
+      this.graphDoughnutTable.growthRate.deaths = (
+        ((data[0].deaths - data[data.length - 1].deaths) /
+          data[data.length - 1].deaths) *
+        100
+      ).toFixed(2);
+      this.graphDoughnutTable.growthRate.recovered = (
+        ((data[0].recovered - data[data.length - 1].recovered) /
+          data[data.length - 1].recovered) *
+        100
+      ).toFixed(2);
     },
 
     // Abrindo linha de informações detalhadas da tabela

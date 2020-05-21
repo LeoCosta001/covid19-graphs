@@ -1,17 +1,14 @@
 <template>
   <div id="app">
-    <MainHeader @resCountryData="countryData" />
+    <MainHeader />
     <!-- fix-bm-overlay escurece a tela ao abrir o menu, ele é editado em @/sass/global/externalComponents/sideBar_vueBurgerMenu -->
     <div class="fix-bm-overlay"></div>
-    <router-view ref="childReqData" :reqCountryData="resCountryData" />
+    <router-view />
     <MainFooter class="MainFooter" />
   </div>
 </template>
 
 <script>
-// Métodos
-import mapData from "@/methods/changeData/mapData.js";
-
 // Componentes
 import MainHeader from "@/components/Header/Header_Menu/Header_Menu.vue";
 import MainFooter from "@/components/MainFooter/MainFooter.vue";
@@ -22,23 +19,6 @@ export default {
     MainHeader,
     MainFooter
   },
-  data() {
-    return {
-      resCountryData: undefined
-    };
-  },
-  methods: {
-    countryData(req) {
-      this.resCountryData = {
-        countrySelected: req.countrySelected,
-        countryData: mapData.init(req.countryData),
-        countryDataLoading: req.countryDataLoading,
-        countryDataErro: req.countryDataErro
-      };
-      // Ativando o método do componente filho que receberá os dados
-      this.$refs.childReqData.showDataNumber();
-    }
-  }
 };
 </script>
 

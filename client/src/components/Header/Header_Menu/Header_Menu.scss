@@ -148,30 +148,8 @@ hr {
   flex: 2;
 }
 
-.country__select {
+.aside__header {
   justify-content: flex-end;
   padding: 0px 60px 0px 60px;
   width: 450px;
-
-  & .country__select__input {
-    margin-right: 10px;
-  }
-}
-
-// Status do carregamento dos dados
-.data__req__status {
-  & .unicon__error {
-    fill: $flatLightRed;
-  }
-
-  & .unicon__loading {
-    margin: 1px;
-    fill: $flatLightSmoke;
-    animation: __rotate__unicon__loading 1s linear 0s normal infinite none
-      running;
-  }
-
-  & .unicon__complete {
-    fill: $flatLightGreen;
-  }
 }

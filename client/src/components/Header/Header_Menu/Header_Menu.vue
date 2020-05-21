@@ -135,32 +135,8 @@
 
     <!-- Titulo principal da página -->
     <div class="page__title">COVID-19</div>
+    <div class="aside__header">Aqui vai mais botões...</div>
 
-    <!-- Seleção de países -->
-    <div class="country__select">
-      <FORMSelectCountry
-        class="country__select__input"
-        ref="casesDataReqAtt"
-        @resCountryData="countryDataEmit"
-      />
-
-      <!-- Icone informativo de requisição para o client -->
-      <div class="data__req__status">
-        <div v-if="countryDataErro">
-          <unicon class="unicon__error" name="exclamation-octagon" width="27.5px" height="27.5px" />
-          <!-- ERRO! Não foi possivel carregar os dados.
-          <br />Tente novamente mais tarde.-->
-        </div>
-        <div v-else>
-          <div v-if="countryDataLoading">
-            <unicon class="unicon__loading" name="sync" width="25px" height="25px" />
-          </div>
-          <div v-else>
-            <unicon class="unicon__complete" name="check-circle" width="27.5px" height="27.5px" />
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 

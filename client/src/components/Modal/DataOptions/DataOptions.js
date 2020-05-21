@@ -44,19 +44,26 @@ export default {
           invalidStatus: true,
         },
         selectInfo: {
-          summaryGraph: '',
-          growthRate: '',
-          newRegister: '',
-          summary: '',
-          additionalInformation: '',
+          summaryGraph: true,
+          growthRate: true,
+          newRegister: true,
+          summary: true,
+          additionalInformation: true,
           invalidStatus: false,
         },
       },
-      // Valores a serem emitidos para outros componentes
-      localEmit: undefined,
     };
   },
   computed: {
+    // Valores que serão emitidos
+    SelectCountryEmit() {
+      return {
+        data: this.reqResult.data.case[0],
+        selectedValues: this.selectedValues,
+      };
+    },
+
+    // Construção da "query" para fazer a requisição do GraphQL
     GraphQLQuery() {
       let query = gql`
         query {
@@ -90,12 +97,44 @@ export default {
     },
   },
   methods: {
+    // Emitir dados que estiverem no data "countrySelected"
+    localEmit() {
+      this.$emit('DataOptions_return', this.SelectCountryEmit);
+    },
+
     modalOpenButton() {
       this.controller.showDataOptions = false;
     },
 
     modalCloseButton() {
       this.controller.showDataOptions = true;
+    },
+
+    // Requisição com Apollo Client
+    async gql_Covid19inCountry() {
+      try {
+        this.gqlReqStatus.loading = true;
+        const query = this.GraphQLQuery;
+
+        await client
+          .query({ query })
+          .then((res) => {
+            this.gqlReqStatus.loading = false;
+            this.gqlReqStatus.success = true;
+
+            this.reqResult = res;
+
+            this.localEmit();
+          })
+          .catch((err) => {
+            this.gqlReqStatus.loading = false;
+            this.gqlReqStatus.success = false;
+
+            console.log(err);
+          });
+      } catch (err) {
+        console.log(err);
+      }
     },
 
     /*********************
@@ -131,37 +170,14 @@ export default {
      * Botões do rodapé *
      ********************/
     async applyButton() {
-      this.controller.hideModal = true;
-      await this.gql_Covid19inCountry();
-
-      console.log(this.reqResult);
-
-      setTimeout(() => {
-        this.controller.showDataOptions = true;
-        this.controller.hideModal = false;
-      }, 2000);
-    },
-
-    // Requisição com Apollo Client
-    async gql_Covid19inCountry() {
       try {
-        this.gqlReqStatus.loading = true;
-        const query = this.GraphQLQuery;
+        this.controller.hideModal = true;
+        await this.gql_Covid19inCountry();
 
-        await client
-          .query({ query })
-          .then((res) => {
-            this.gqlReqStatus.loading = false;
-            this.gqlReqStatus.success = true;
-
-            this.reqResult = res;
-          })
-          .catch((err) => {
-            this.gqlReqStatus.loading = false;
-            this.gqlReqStatus.success = false;
-
-            console.log(err);
-          });
+        setTimeout(() => {
+          this.controller.showDataOptions = true;
+          this.controller.hideModal = false;
+        }, 2000);
       } catch (err) {
         console.log(err);
       }
