@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <h2 class="title__h2">Dados do COVID-19 no país:<br>{{ countryData.selectedValues.selectCountry.countryName }}</h2>
+    <h2 class="title__h2">Dados do COVID-19 no país:<br>{{ countryData.selectedValues.selectCountry.countryNameTranslated }}</h2>
 
     <!-- Título -->
     <article class="about__graph" id="summary-graph" v-if="countryData.selectedValues.selectInfo.summaryGraph">
@@ -192,7 +192,7 @@
                   <thead>
                     <tr>
                       <th>Data</th>
-                      <th>Quantidade de novos registros</th>
+                      <th>Nº de novos registros</th>
                       <th>Total de registros</th>
                     </tr>
                   </thead>
@@ -215,7 +215,7 @@
                   <thead>
                     <tr>
                       <th>Data</th>
-                      <th>Quantidade de novos registros</th>
+                      <th>Nº de novos registros</th>
                       <th>Total de registros</th>
                     </tr>
                   </thead>
@@ -238,7 +238,7 @@
                   <thead>
                     <tr>
                       <th>Data</th>
-                      <th>Quantidade de novos registros</th>
+                      <th>Nº de novos registros</th>
                       <th>Total de registros</th>
                     </tr>
                   </thead>

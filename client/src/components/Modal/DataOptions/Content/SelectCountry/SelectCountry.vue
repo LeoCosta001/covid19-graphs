@@ -15,7 +15,7 @@
               :value="data.country"
               v-for="(data, index) in countryList"
               :key="index"
-            >{{ data.country }}</option>
+            >{{ data.countryTranslation }}</option>
           </select>
           <select v-else>
             <option value="undefined" disabled selected>Carregando...</option>

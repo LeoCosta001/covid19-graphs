@@ -1,9 +1,6 @@
 // APIs
 import { FunctionalCalendar } from 'vue-functional-calendar';
-/*
-// Métodos
-import _date from '@/methods/changeDate/dateIdentify.js';
-*/
+
 // Componentes
 import CountriesChartsAppBar from '@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js';
 import CountriesChartsAppDoughnut from '@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js';
@@ -47,8 +44,6 @@ export default {
           },
         },
       },
-      maxSelectDataNumber: '7',
-      minSelectDataNumber: '0',
       graphDoughnutTable: {
         confirmed: 0,
         deaths: 0,

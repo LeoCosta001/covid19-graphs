@@ -41,6 +41,7 @@ export default {
         },
         selectCountry: {
           countryName: '',
+          countrySelectedTranslated: '',
           invalidStatus: true,
         },
         selectInfo: {
@@ -97,7 +98,7 @@ export default {
     },
   },
   methods: {
-    // Emitir dados que estiverem no data "countrySelected"
+    // Emitir dados com os valores locais
     localEmit() {
       this.$emit('DataOptions_return', this.SelectCountryEmit);
     },
@@ -151,6 +152,7 @@ export default {
     // Atualizando as informações do país selecionado
     SelectCountry_method(result) {
       this.selectedValues.selectCountry.countryName = result.countrySelected;
+      this.selectedValues.selectCountry.countryNameTranslated = result.countrySelectedTranslated;
       this.selectedValues.selectCountry.invalidStatus = result.invalidStatus;
     },
 
