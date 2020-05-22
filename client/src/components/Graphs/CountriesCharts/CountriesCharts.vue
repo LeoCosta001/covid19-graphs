@@ -197,10 +197,10 @@
                     </tr>
                   </thead>
                   <tbody class="internal__tbody">
-                    <tr>
-                      <td>00/00/0000</td>
-                      <td>0</td>
-                      <td>0</td>
+                    <tr v-for="(data, index) in additionalInformation.highestNumberOfConfirmed" :key="index">
+                      <td>{{ data.date }}</td>
+                      <td>{{ data.value }}</td>
+                      <td>{{ data.totalValue }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -220,10 +220,10 @@
                     </tr>
                   </thead>
                   <tbody class="internal__tbody">
-                    <tr>
-                      <td>00/00/0000</td>
-                      <td>0</td>
-                      <td>0</td>
+                    <tr v-for="(data, index) in additionalInformation.highestNumberOfDeaths" :key="index">
+                      <td>{{ data.date }}</td>
+                      <td>{{ data.value }}</td>
+                      <td>{{ data.totalValue }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -243,10 +243,10 @@
                     </tr>
                   </thead>
                   <tbody class="internal__tbody">
-                    <tr>
-                      <td>00/00/0000</td>
-                      <td>0</td>
-                      <td>0</td>
+                    <tr v-for="(data, index) in additionalInformation.highestNumberOfRecovered" :key="index">
+                      <td>{{ data.date }}</td>
+                      <td>{{ data.value }}</td>
+                      <td>{{ data.totalValue }}</td>
                     </tr>
                   </tbody>
                 </table>

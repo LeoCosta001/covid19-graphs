@@ -54,6 +54,23 @@ export default {
           recovered: 0,
         },
       },
+      additionalInformation: {
+        highestNumberOfDeaths: {
+          date: 'dd/mm/aaaa',
+          value: 0,
+          totalValue: 0,
+        },
+        highestNumberOfRecovered: {
+          date: 'dd/mm/aaaa',
+          value: 0,
+          totalValue: 0,
+        },
+        highestNumberOfConfirmed: {
+          date: 'dd/mm/aaaa',
+          value: 0,
+          totalValue: 0,
+        },
+      },
       // Controladores de display
       inputTableDataNumberInvalid: false,
       tableLineDetailStatus: undefined,
@@ -91,7 +108,9 @@ export default {
         this.$refs.countriesChartsAppDoughnut.attGraph(this.countryData);
       }
 
+      // Atualizar Tabelas
       this.attGraphResumeTable();
+      this.attAdditionalInformation();
     },
 
     // Atualizando dados da tabela "GraphResumeGrouthRate"
@@ -135,5 +154,33 @@ export default {
         this.tableLineDetailStatus = index;
       }
     },
+
+    // Atualizando dados da tabela de "Informações Adicionais"
+    attAdditionalInformation() {
+      let data = this.countryData.data.cases;
+
+      // Função que calcula e separa os dias que tiveram os maiores registros
+      function highestValueSearch(valueType) {
+        let result = data.sort((currentValue, nextValue) => {
+            return currentValue.in24Hours[valueType] - nextValue.in24Hours[valueType];
+        }).reverse();
+
+        result = result.filter((value) => {
+          return value.in24Hours[valueType] == result[0].in24Hours[valueType] ? true : false;
+        }).map((value) => {
+            return {
+            date: value.date,
+            value: value.in24Hours[valueType],
+            totalValue: value[valueType],
+          }
+        })
+
+        return result;
+      }
+
+      this.additionalInformation.highestNumberOfConfirmed = highestValueSearch('confirmed');
+      this.additionalInformation.highestNumberOfDeaths = highestValueSearch('deaths');
+      this.additionalInformation.highestNumberOfRecovered = highestValueSearch('recovered');
+    }
   },
 };
