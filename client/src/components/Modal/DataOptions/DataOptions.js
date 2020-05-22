@@ -1,5 +1,6 @@
 // Metodos
 import _date from '@/methods/changeDate/dateIdentify.js';
+import _sortDate from '@/methods/changeDate/sortDate.js';
 
 // Apollo Client
 import { client } from '@/apolloConfig/apollo-client';
@@ -59,7 +60,7 @@ export default {
     // Valores que serão emitidos
     SelectCountryEmit() {
       return {
-        data: this.reqResult.data.case[0],
+        data: this.reqResult,
         selectedValues: this.selectedValues,
       };
     },
@@ -123,7 +124,17 @@ export default {
             this.gqlReqStatus.loading = false;
             this.gqlReqStatus.success = true;
 
-            this.reqResult = res;
+            this.reqResult = res.data.case[0];
+
+            // FIX: Reordenar os dados por data quando o Apollo Client os desorganizar
+            this.reqResult.cases = this.reqResult.cases.sort(
+              (nextIndex, currentIndex) => {
+                let nextDate = nextIndex.date;
+                let currentDate = currentIndex.date;
+
+                return _sortDate.init(currentDate, nextDate);
+              }
+            );
 
             this.localEmit();
           })
@@ -152,7 +163,8 @@ export default {
     // Atualizando as informações do país selecionado
     SelectCountry_method(result) {
       this.selectedValues.selectCountry.countryName = result.countrySelected;
-      this.selectedValues.selectCountry.countryNameTranslated = result.countrySelectedTranslated;
+      this.selectedValues.selectCountry.countryNameTranslated =
+        result.countrySelectedTranslated;
       this.selectedValues.selectCountry.invalidStatus = result.invalidStatus;
     },
 

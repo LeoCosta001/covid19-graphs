@@ -41,10 +41,22 @@ module.exports = {
 
     // Adicionando novo JSON no "allCasesModelMapped"
     localConfig.countryNameList.forEach((value) => {
-      // Adicionando as chaves/valors de "growthRate" e "in24Hours"
+      // Adicionando as chaves/valores de "growthRate" e "in24Hours"
       let casesMapped = localConfig.data[value].map((valueMap, indexMap) => {
         let previewIndex =
           indexMap > 0 ? localConfig.data[value][indexMap - 1] : false;
+
+        // FIX: Impede do bug em que a quantidade de registro seja menor que a do dia anterior
+        if (valueMap.confirmed < previewIndex.confirmed) {
+          valueMap.confirmed = previewIndex.confirmed;
+        }
+        if (valueMap.deaths < previewIndex.deaths) {
+          valueMap.deaths = previewIndex.deaths;
+        }
+        if (valueMap.recovered < previewIndex.recovered) {
+          valueMap.recovered = previewIndex.recovered;
+        }
+
         return {
           date:
             localConfig.dateFormat == 'DD/MM/AAAA'
@@ -204,8 +216,8 @@ module.exports = {
       /****************************************************************************
        * Regras de filtro: Comparar datas de "caseDate", "firstDate" e "lastDate" *
        ****************************************************************************/
-      
-       // Caso o ano do "caseDate" seja maior que "firstDate" e menor que "lastDate"
+
+      // Caso o ano do "caseDate" seja maior que "firstDate" e menor que "lastDate"
       if (caseDate[3] > firstDate[3] && caseDate[3] < lastDate[3]) {
         return true;
 
