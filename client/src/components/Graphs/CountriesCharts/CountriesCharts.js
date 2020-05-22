@@ -178,9 +178,14 @@ export default {
         return result;
       }
 
-      this.additionalInformation.highestNumberOfConfirmed = highestValueSearch('confirmed');
-      this.additionalInformation.highestNumberOfDeaths = highestValueSearch('deaths');
-      this.additionalInformation.highestNumberOfRecovered = highestValueSearch('recovered');
+      let highestNumberOfConfirmedResult = highestValueSearch('confirmed');
+      this.additionalInformation.highestNumberOfConfirmed = highestNumberOfConfirmedResult[0].value > 0 ? highestNumberOfConfirmedResult : false;
+      
+      let highestNumberOfDeathsResult = highestValueSearch('deaths');
+      this.additionalInformation.highestNumberOfDeaths = highestNumberOfDeathsResult[0].value > 0 ? highestNumberOfDeathsResult : false;
+      
+      let highestNumberOfRecoveredResult = highestValueSearch('recovered');
+      this.additionalInformation.highestNumberOfRecovered = highestNumberOfRecoveredResult[0].value > 0 ? highestNumberOfRecoveredResult : false;
     }
   },
 };

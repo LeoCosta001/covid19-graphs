@@ -188,7 +188,7 @@
             </tr>
             <tr>
               <td colspan="3">
-                <table class="countryDataTable__internal">
+                <table class="countryDataTable__internal" v-if="additionalInformation.highestNumberOfConfirmed">
                   <thead>
                     <tr>
                       <th>Data</th>
@@ -204,6 +204,13 @@
                     </tr>
                   </tbody>
                 </table>
+                <table class="countryDataTable__internal" v-else>
+                  <tbody class="internal__tbody">
+                    <tr>
+                      <td>Nenhum novo registro encontrado entre as datas selecionadas.</td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
             <tr class="main__tr">
@@ -211,7 +218,7 @@
             </tr>
             <tr>
               <td colspan="3">
-                <table class="countryDataTable__internal">
+                <table class="countryDataTable__internal" v-if="additionalInformation.highestNumberOfDeaths">
                   <thead>
                     <tr>
                       <th>Data</th>
@@ -227,6 +234,13 @@
                     </tr>
                   </tbody>
                 </table>
+                <table class="countryDataTable__internal" v-else>
+                  <tbody class="internal__tbody">
+                    <tr>
+                      <td>Nenhum novo registro encontrado entre as datas selecionadas.</td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
             <tr class="main__tr">
@@ -234,7 +248,7 @@
             </tr>
             <tr>
               <td colspan="3">
-                <table class="countryDataTable__internal">
+                <table class="countryDataTable__internal" v-if="additionalInformation.highestNumberOfRecovered">
                   <thead>
                     <tr>
                       <th>Data</th>
@@ -247,6 +261,13 @@
                       <td>{{ data.date }}</td>
                       <td>{{ data.value }}</td>
                       <td>{{ data.totalValue }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="countryDataTable__internal" v-else>
+                  <tbody class="internal__tbody">
+                    <tr>
+                      <td>Nenhum novo registro encontrado entre as datas selecionadas.</td>
                     </tr>
                   </tbody>
                 </table>
