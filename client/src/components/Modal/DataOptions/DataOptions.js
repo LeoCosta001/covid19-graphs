@@ -54,6 +54,16 @@ export default {
           invalidStatus: false,
         },
       },
+
+      // Informações que serão exibidas
+      selectInfoLocal: {
+        summaryGraph: true,
+        growthRate: true,
+        newRegister: true,
+        summary: true,
+        additionalInformation: true,
+        invalidStatus: false,
+      },
     };
   },
   computed: {
@@ -110,6 +120,16 @@ export default {
 
     modalCloseButton() {
       this.controller.showDataOptions = true;
+    },
+
+    // Atualizar componentes de informações que serão exibidos
+    attSelectInfo() {
+      this.selectedValues.selectInfo.summaryGraph = this.selectInfoLocal.summaryGraph;
+      this.selectedValues.selectInfo.growthRate = this.selectInfoLocal.growthRate;
+      this.selectedValues.selectInfo.newRegister = this.selectInfoLocal.newRegister;
+      this.selectedValues.selectInfo.summary = this.selectInfoLocal.summary;
+      this.selectedValues.selectInfo.additionalInformation = this.selectInfoLocal.additionalInformation;
+      this.selectedValues.selectInfo.invalidStatus = this.selectInfoLocal.invalidStatus;
     },
 
     // Requisição com Apollo Client
@@ -170,31 +190,52 @@ export default {
 
     // Atualizando as informações que serão exibidas
     SelectInfo_method(result) {
-      this.selectedValues.selectInfo.summaryGraph =
-        result.summaryGraph_checkbox;
-      this.selectedValues.selectInfo.growthRate = result.growthRate_checkbox;
-      this.selectedValues.selectInfo.newRegister = result.newRegister_checkbox;
-      this.selectedValues.selectInfo.summary = result.summary_checkbox;
-      this.selectedValues.selectInfo.additionalInformation =
+      this.selectInfoLocal.summaryGraph = result.summaryGraph_checkbox;
+      this.selectInfoLocal.growthRate = result.growthRate_checkbox;
+      this.selectInfoLocal.newRegister = result.newRegister_checkbox;
+      this.selectInfoLocal.summary = result.summary_checkbox;
+      this.selectInfoLocal.additionalInformation =
         result.additionalInformation_checkbox;
-      this.selectedValues.selectInfo.invalidStatus = result.invalidStatus;
+      this.selectInfoLocal.invalidStatus = result.invalidStatus;
     },
 
     /********************
      * Botões do rodapé *
      ********************/
+    // Botão de "Aplicar"
     async applyButton() {
-      try {
-        this.controller.hideModal = true;
-        await this.gql_Covid19inCountry();
+      if (
+        !this.selectedValues.selectDate.invalidStatus &&
+        !this.selectedValues.selectCountry.invalidStatus &&
+        !this.selectedValues.selectInfo.invalidStatus
+      ) {
+        try {
+          this.attSelectInfo();
+          this.controller.hideModal = true;
+          await this.gql_Covid19inCountry();
 
-        setTimeout(() => {
-          this.controller.showDataOptions = true;
-          this.controller.hideModal = false;
-        }, 2000);
-      } catch (err) {
-        console.log(err);
+          setTimeout(() => {
+            this.controller.showDataOptions = true;
+            this.controller.hideModal = false;
+          }, 2000);
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        console.log('Preencha todos os campos corretamente.');
       }
+    },
+
+    // Botão de "Cancelar"
+    cancelButton() {
+      this.$refs.refSelectCountry.resetValue(this.resetSelectCountry);
+    },
+
+    // Botão de "Resetar"
+    resetButton() {
+      this.$refs.refSelectDate.resetValue();
+      this.$refs.refSelectCountry.resetValue();
+      this.$refs.refSelectInfo.resetValue();
     },
   },
 };

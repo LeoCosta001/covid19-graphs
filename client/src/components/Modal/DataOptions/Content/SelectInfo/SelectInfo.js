@@ -41,8 +41,17 @@ export default {
         !this.additionalInformation_checkbox
       ) {
         this.invalidStatus = true;
-      };
+      }
       this.localEmit();
+    },
+    // Resetar valores
+    resetValue() {
+      this.summaryGraph_checkbox = true;
+      this.growthRate_checkbox = true;
+      this.newRegister_checkbox = true;
+      this.summary_checkbox = true;
+      this.additionalInformation_checkbox = true;
+      this.checkSelectedInfo();
     },
   },
 };

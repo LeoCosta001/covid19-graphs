@@ -93,7 +93,7 @@
 
         & .active {
           background-color: rgba(22, 160, 132, 0);
-          color: $flatGreen !important;
+          font-weight: bold;
         }
       }
 
@@ -106,12 +106,12 @@
 
     &:hover {
       background-color: rgba(42, 72, 85, 0.9);
-      height: 240px;
+      height: 230px;
 
       & .aside__navbar__hide {
         color: rgba(22, 160, 132, 100);
         margin-left: 10px;
-        width: 220px;
+        width: 235px;
 
         & .aside__navbar__links {
           height: 175px;

@@ -52,5 +52,17 @@ export default {
       
       this.localEmit();
     },
+
+    resetValue() {
+      // Placeholder com as datas iniciais
+      this.firstDatePlaceholder = _date.calcDate(-7, false);
+      this.lastDatePlaceholder = _date.calcDate(-1, false);
+
+      // Dados do calendário
+      this.firstDate.selectedDate = _date.calcDate(-7, false);
+      this.lastDate.selectedDate = _date.calcDate(-1, false);
+
+      this.checkDate();
+    },
   },
 };

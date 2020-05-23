@@ -78,7 +78,7 @@
               <hr />
             </div>
             <div class="content_body">
-              <SelectDate @SelectDate_return="SelectDate_method" />
+              <SelectDate ref="refSelectDate" @SelectDate_return="SelectDate_method" />
             </div>
           </article>
 
@@ -96,7 +96,7 @@
               <hr />
             </div>
             <div class="content_body">
-              <SelectCountry @SelectCountry_return="SelectCountry_method" />
+              <SelectCountry ref="refSelectCountry" @SelectCountry_return="SelectCountry_method" />
             </div>
           </article>
 
@@ -114,7 +114,7 @@
               <hr />
             </div>
             <div class="content_body">
-              <SelectInfo @SelectInfo_return="SelectInfo_method" />
+              <SelectInfo ref="refSelectInfo" @SelectInfo_return="SelectInfo_method" />
             </div>
           </article>
         </section>
@@ -122,10 +122,10 @@
         <!-- Rodapé -->
         <footer class="modal__footer">
           <div class="footer__button__container modal__button__reset">
-            <div>Desfazer</div>
+            <div @click="resetButton()">Desfazer</div>
           </div>
           <div class="footer__button__container modal__button__cancel">
-            <div>Cancelar</div>
+            <div @click="cancelButton()">Cancelar</div>
           </div>
           <div class="footer__button__container modal__button__apply">
             <div @click="applyButton()">Confirmar</div>

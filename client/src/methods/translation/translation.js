@@ -574,6 +574,12 @@ module.exports = {
       case 'Lesotho':
         return 'Lesoto';
         break;
+      case 'undefined':
+        return '';
+        break;
+      case undefined:
+        return '';
+        break;
       default:
         console.log(`Error! Translation not found: ${countryName}`);
         return countryName;

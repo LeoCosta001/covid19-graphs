@@ -33,10 +33,18 @@ export default {
 
     // Emite o nome do país selecionado
     selectCountryAtt() {
+      this.invalidStatus = this.countrySelected == 'undefined' ? true : false;
       this.localEmit();
+    },
+
+    // Resetar valores
+    resetValue() {
+      this.countrySelected = 'undefined';
+      this.selectCountryAtt();
     },
   },
   mounted() {
+    // Requisição para criar a lista de países no "select"
     let query = gql`
       query {
         case {
