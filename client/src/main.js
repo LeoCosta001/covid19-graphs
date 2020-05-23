@@ -1,10 +1,11 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import Unicon from 'vue-unicons'
 
 // Icones
 // OBS: A lista de icones está neste link "https://antonreshetov.github.io/vue-unicons/"
-import Unicon from 'vue-unicons'
 import { uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight, uniAngleLeft, uniLinkedin, uniGithub, uniTwitter, uniEnvelope, uniCog, uniTimes, uniCheck} from 'vue-unicons/src/icons'
 Unicon.add([uniHome, uniSync, uniExclamationOctagon, uniCheckCircle, uniListUl, uniPresentationLinesAlt, uniQuestionCircle, uniCell, uniAmbulance, uniChartGrowth, uniChartLine, uniChartBar, uniFrown, uniChartPie, uniChart, uniSchedule, uniCommentQuestion, uniHeart, uniExclamationTriangle, uniAngleRight, uniAngleLeft, uniLinkedin, uniGithub, uniTwitter, uniEnvelope, uniCog, uniTimes, uniCheck])
 Vue.use(Unicon);
@@ -20,6 +21,12 @@ Vue.use(FunctionalCalendar, {
     disabledDates:['afterToday'],
     hiddenElements:['leftAndRightDays'],
 });
+
+// Componentes do bootstrap-vue
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 
 Vue.config.productionTip = false;
 

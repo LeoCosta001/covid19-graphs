@@ -18,7 +18,7 @@ export default {
   components: {
     MainHeader,
     MainFooter
-  },
+  }
 };
 </script>
 
@@ -34,14 +34,14 @@ export default {
 @import "@/sass/global/externalComponents/sideBar_vueBurgerMenu";
 
 body {
-  background-color: $flatLightMidnightBlue;
-  color: $flatLightGrey;
-  font-family: "Open Sans";
   display: flex;
   justify-content: center;
 }
 
 #app {
+  background-color: $flatLightMidnightBlue;
+  color: $flatLightGrey;
+  font-family: "Open Sans";
   width: 100%;
 }
 </style>

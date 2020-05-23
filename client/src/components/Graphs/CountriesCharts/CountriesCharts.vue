@@ -1,9 +1,17 @@
 <template>
   <div class="localContainer">
-    <h2 class="title__h2">Dados do COVID-19 no país:<br>{{ countryData.selectedValues.selectCountry.countryNameTranslated }}</h2>
+    <h2 class="title__h2">
+      Dados do COVID-19 no país:
+      <br />
+      {{ countryData.selectedValues.selectCountry.countryNameTranslated }}
+    </h2>
 
     <!-- Título -->
-    <article class="about__graph" id="summary-graph" v-if="countryData.selectedValues.selectInfo.summaryGraph">
+    <article
+      class="about__graph"
+      id="summary-graph"
+      v-if="countryData.selectedValues.selectInfo.summaryGraph"
+    >
       <hr />
       <h3>Gráfico Resumido</h3>
       <p>Grafico atualizado diariamente com a soma de todos os novos registros.</p>
@@ -11,7 +19,10 @@
     </article>
 
     <!-- Gráfico Resumido -->
-    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.summaryGraph">
+    <section
+      class="graph__content__container"
+      v-if="countryData.selectedValues.selectInfo.summaryGraph"
+    >
       <!-- Mensagem de país não selecionado -->
       <div v-if="!countryData.data">
         <div class="select__country__msg__container">
@@ -26,7 +37,11 @@
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="growth-rate" v-if="countryData.selectedValues.selectInfo.growthRate">
+    <article
+      class="about__graph"
+      id="growth-rate"
+      v-if="countryData.selectedValues.selectInfo.growthRate"
+    >
       <hr />
       <h3>Taxa de Crescimento Diário</h3>
       <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
@@ -34,7 +49,10 @@
     </article>
 
     <!-- Gráfico em Barras -->
-    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.growthRate">
+    <section
+      class="graph__content__container"
+      v-if="countryData.selectedValues.selectInfo.growthRate"
+    >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
         <div class="select__country__msg__container">
@@ -49,7 +67,11 @@
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="new-register" v-if="countryData.selectedValues.selectInfo.newRegister">
+    <article
+      class="about__graph"
+      id="new-register"
+      v-if="countryData.selectedValues.selectInfo.newRegister"
+    >
       <hr />
       <h3>Novos Registros Diário</h3>
       <p>Dados com a quantidade de novos registros diários.</p>
@@ -57,7 +79,10 @@
     </article>
 
     <!-- Gráfico em Linha -->
-    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.newRegister">
+    <section
+      class="graph__content__container"
+      v-if="countryData.selectedValues.selectInfo.newRegister"
+    >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
         <div class="select__country__msg__container">
@@ -129,6 +154,18 @@
                   <span
                     v-if="graphDoughnutTable.growthRate.confirmed != undefined"
                   >+{{ graphDoughnutTable.growthRate.confirmed }}%</span>
+
+                  <span
+                    class="growthRate__null__information"
+                    v-if="graphDoughnutTable.growthRate.confirmed == null"
+                  >
+                    <unicon
+                      class="unicon"
+                      name="exclamation-triangle"
+                      width="22.5px"
+                      height="22.5px"
+                    />
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -137,6 +174,17 @@
                   <span
                     v-if="graphDoughnutTable.growthRate.deaths != undefined"
                   >+{{ graphDoughnutTable.growthRate.deaths }}%</span>
+                  <span
+                    class="growthRate__null__information"
+                    v-if="graphDoughnutTable.growthRate.deaths == null"
+                  >
+                    <unicon
+                      class="unicon"
+                      name="exclamation-triangle"
+                      width="22.5px"
+                      height="22.5px"
+                    />
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -145,6 +193,17 @@
                   <span
                     v-if="graphDoughnutTable.growthRate.recovered != undefined"
                   >+{{ graphDoughnutTable.growthRate.recovered }}%</span>
+                  <span
+                    class="growthRate__null__information"
+                    v-if="graphDoughnutTable.growthRate.recovered == null"
+                  >
+                    <unicon
+                      class="unicon"
+                      name="exclamation-triangle"
+                      width="22.5px"
+                      height="22.5px"
+                    />
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -162,7 +221,11 @@
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="additional-information" v-if="countryData.selectedValues.selectInfo.additionalInformation">
+    <article
+      class="about__graph"
+      id="additional-information"
+      v-if="countryData.selectedValues.selectInfo.additionalInformation"
+    >
       <hr />
       <h3>Informações Adicionais</h3>
       <p>Estas informações são baseadas nas datas selecionadas.</p>
@@ -171,7 +234,10 @@
     </article>
 
     <!-- Informações Adicionais (Conteúdo) -->
-    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.additionalInformation">
+    <section
+      class="graph__content__container"
+      v-if="countryData.selectedValues.selectInfo.additionalInformation"
+    >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
         <div class="select__country__msg__container">
@@ -188,7 +254,10 @@
             </tr>
             <tr>
               <td colspan="3">
-                <table class="countryDataTable__internal" v-if="additionalInformation.highestNumberOfConfirmed">
+                <table
+                  class="countryDataTable__internal"
+                  v-if="additionalInformation.highestNumberOfConfirmed"
+                >
                   <thead>
                     <tr>
                       <th>Data</th>
@@ -197,7 +266,10 @@
                     </tr>
                   </thead>
                   <tbody class="internal__tbody">
-                    <tr v-for="(data, index) in additionalInformation.highestNumberOfConfirmed" :key="index">
+                    <tr
+                      v-for="(data, index) in additionalInformation.highestNumberOfConfirmed"
+                      :key="index"
+                    >
                       <td>{{ data.date }}</td>
                       <td>{{ data.value }}</td>
                       <td>{{ data.totalValue }}</td>
@@ -218,7 +290,10 @@
             </tr>
             <tr>
               <td colspan="3">
-                <table class="countryDataTable__internal" v-if="additionalInformation.highestNumberOfDeaths">
+                <table
+                  class="countryDataTable__internal"
+                  v-if="additionalInformation.highestNumberOfDeaths"
+                >
                   <thead>
                     <tr>
                       <th>Data</th>
@@ -227,7 +302,10 @@
                     </tr>
                   </thead>
                   <tbody class="internal__tbody">
-                    <tr v-for="(data, index) in additionalInformation.highestNumberOfDeaths" :key="index">
+                    <tr
+                      v-for="(data, index) in additionalInformation.highestNumberOfDeaths"
+                      :key="index"
+                    >
                       <td>{{ data.date }}</td>
                       <td>{{ data.value }}</td>
                       <td>{{ data.totalValue }}</td>
@@ -248,7 +326,10 @@
             </tr>
             <tr>
               <td colspan="3">
-                <table class="countryDataTable__internal" v-if="additionalInformation.highestNumberOfRecovered">
+                <table
+                  class="countryDataTable__internal"
+                  v-if="additionalInformation.highestNumberOfRecovered"
+                >
                   <thead>
                     <tr>
                       <th>Data</th>
@@ -257,7 +338,10 @@
                     </tr>
                   </thead>
                   <tbody class="internal__tbody">
-                    <tr v-for="(data, index) in additionalInformation.highestNumberOfRecovered" :key="index">
+                    <tr
+                      v-for="(data, index) in additionalInformation.highestNumberOfRecovered"
+                      :key="index"
+                    >
                       <td>{{ data.date }}</td>
                       <td>{{ data.value }}</td>
                       <td>{{ data.totalValue }}</td>

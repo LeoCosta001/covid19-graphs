@@ -128,22 +128,27 @@ export default {
         this.graphDoughnutTable.recovered += value.in24Hours.recovered;
       });
 
-      // Calculo de crescimento de todos os novos registros
-      this.graphDoughnutTable.growthRate.confirmed = (
+      // Calculo de crescimento de todos os novos registros (OBS: Resultados "infinity" é substituido por "null")
+      let calcConfirmedGrowthRate = (
         ((data[0].confirmed - data[data.length - 1].confirmed) /
           data[data.length - 1].confirmed) *
         100
       ).toFixed(2);
-      this.graphDoughnutTable.growthRate.deaths = (
+      this.graphDoughnutTable.growthRate.confirmed = isFinite(calcConfirmedGrowthRate) ? calcConfirmedGrowthRate : null;
+
+      let calcDeathsGrowthRate = (
         ((data[0].deaths - data[data.length - 1].deaths) /
           data[data.length - 1].deaths) *
         100
       ).toFixed(2);
-      this.graphDoughnutTable.growthRate.recovered = (
+      this.graphDoughnutTable.growthRate.deaths = isFinite(calcDeathsGrowthRate) ? calcDeathsGrowthRate : null;
+
+      let calcRecoveredGrowthRate = (
         ((data[0].recovered - data[data.length - 1].recovered) /
           data[data.length - 1].recovered) *
         100
       ).toFixed(2);
+      this.graphDoughnutTable.growthRate.recovered = isFinite(calcRecoveredGrowthRate) ? calcRecoveredGrowthRate : null;
     },
 
     // Abrindo linha de informações detalhadas da tabela
@@ -155,11 +160,11 @@ export default {
       }
     },
 
-    // Atualizando dados da tabela de "Informações Adicionais"
+    // Atualizar dados da tabela de "Informações Adicionais"
     attAdditionalInformation() {
       let data = this.countryData.data.cases;
 
-      // Função que calcula e separa os dias que tiveram os maiores registros
+      // Calcular e separa os dias que tiveram os maiores registros
       function highestValueSearch(valueType) {
         let result = data.sort((currentValue, nextValue) => {
             return currentValue.in24Hours[valueType] - nextValue.in24Hours[valueType];

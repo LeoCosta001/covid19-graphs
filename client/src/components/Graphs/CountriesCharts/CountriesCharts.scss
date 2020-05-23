@@ -87,6 +87,9 @@
         font-size: 1.1em;
 
         & tr {
+          display: flex;
+          align-items: center;
+          
           & td:first-child {
             width: 250px;
           }
@@ -102,6 +105,14 @@
 
         & td {
           padding: 10px;
+          
+          & .growthRate__null__information {
+            fill: $flatGrey75;
+
+            &:hover {
+              fill: $flatLightGrey;
+            }
+          }
         }
       }
     }
