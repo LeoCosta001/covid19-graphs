@@ -1,3 +1,4 @@
+// Botão lateral que abre o modal
 .modal__data__options__button {
   overflow: hidden;
   margin-left: 5px;
@@ -40,6 +41,7 @@
   }
 }
 
+// Navbar lateral que desliza pela página
 .aside__navbar__container {
   overflow: hidden;
   margin-left: 5px;
@@ -77,32 +79,53 @@
       font-size: 0.8em;
       white-space: nowrap;
       height: 0px;
+      border-left: solid 1px $flatGreenSea;
       margin: 5px 0px;
       display: flex;
       flex-direction: column;
       transition: 0.3s;
 
       & .aside__navbar__link {
+        text-decoration: none;
+        color: rgba(22, 160, 132, 0) !important;
+        margin: 1px 0px;
+        transition: 0.3s;
+
+        & .active {
+          background-color: rgba(22, 160, 132, 0);
+          color: $flatGreen !important;
+        }
+      }
+
+      & .nav-link {
         color: rgba(22, 160, 132, 0);
+        padding: 5px 15px;
         transition: 0.3s;
       }
     }
 
     &:hover {
       background-color: rgba(42, 72, 85, 0.9);
-      height: 180px;
-      padding-bottom: 20px;
+      height: 240px;
 
       & .aside__navbar__hide {
         color: rgba(22, 160, 132, 100);
         margin-left: 10px;
-        width: 200px;
+        width: 220px;
 
         & .aside__navbar__links {
-          height: 100px;
+          height: 175px;
 
-          & .aside__navbar__link {
+          & .nav-link {
             color: rgba(22, 160, 132, 100);
+
+            &:hover {
+              background-color: $flatGreenSea10;
+            }
+          }
+
+          & .active {
+            background-color: rgba(22, 160, 132, 0.1);
           }
         }
       }

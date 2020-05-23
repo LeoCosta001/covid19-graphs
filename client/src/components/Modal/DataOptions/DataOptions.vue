@@ -16,13 +16,14 @@
         <unicon class="unicon" name="list-ul" width="30px" height="30px" />
         <span class="aside__navbar__hide">
           <div class="aside__navbar__title">Navbar</div>
-          <span class="aside__navbar__links">
-            <router-link class="aside__navbar__link" to="#summary-graph">Gráfico Resumido</router-link>
-            <router-link class="aside__navbar__link" to="#growth-rate">Taxa de Crescimento</router-link>
-            <router-link class="aside__navbar__link" to="#new-register">Novos Registros</router-link>
-            <router-link class="aside__navbar__link" to="#summary">Resumo</router-link>
-            <router-link class="aside__navbar__link" to="#additional-information">Informações Adicionais</router-link>
-          </span>
+
+          <b-nav v-b-scrollspy:nav-scroller class="aside__navbar__links">
+            <b-nav-item class="aside__navbar__link" to="#summary-graph" active>Gráfico Resumido</b-nav-item>
+            <b-nav-item class="aside__navbar__link" to="#growth-rate">Taxa de Crescimento</b-nav-item>
+            <b-nav-item class="aside__navbar__link" to="#new-register">Novos Registros</b-nav-item>
+            <b-nav-item class="aside__navbar__link" to="#summary">Resumo</b-nav-item>
+            <b-nav-item class="aside__navbar__link" to="#additional-information">Informações Adicionais</b-nav-item>
+          </b-nav>
         </span>
       </div>
     </section>
