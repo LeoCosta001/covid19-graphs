@@ -5,8 +5,7 @@
   top: 100px;
   z-index: 500;
 
-  & button {
-    outline: none;
+  & .aside__navbar__content {
     background-color: rgba(42, 72, 85, 0.8);
     font-size: 1.2em;
     letter-spacing: 1px;
@@ -23,18 +22,89 @@
       margin: 0px 5px;
     }
 
-    & span {
+    & .aside__navbar__hide {
       color: rgba(22, 160, 132, 0);
       width: 0px;
       transition: 0.3s;
     }
 
     &:hover {
-    background-color: rgba(42, 72, 85, 100);
+      background-color: rgba(42, 72, 85, 0.9);
 
-      & span {
+      & .aside__navbar__hide {
         color: rgba(22, 160, 132, 100);
+        margin-left: 10px;
         width: 100px;
+      }
+    }
+  }
+}
+
+.aside__navbar__container {
+  overflow: hidden;
+  margin-left: 5px;
+  position: fixed;
+  top: 170px;
+  z-index: 500;
+
+  & .aside__navbar__content {
+    background-color: rgba(42, 72, 85, 0.8);
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    word-wrap: none;
+    height: 50px;
+    padding: 5px;
+    border: solid 1px $flatGreenSea;
+    border-radius: 0px 10px 0px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+
+    & .unicon {
+      fill: $flatGreenSea;
+      margin: 0px 5px;
+    }
+
+    & .aside__navbar__hide {
+      color: rgba(22, 160, 132, 0);
+      width: 0px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+    }
+
+    & .aside__navbar__links {
+      font-size: 0.8em;
+      white-space: nowrap;
+      height: 0px;
+      margin: 5px 0px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+
+      & .aside__navbar__link {
+        color: rgba(22, 160, 132, 0);
+        transition: 0.3s;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(42, 72, 85, 0.9);
+      height: 180px;
+      padding-bottom: 20px;
+
+      & .aside__navbar__hide {
+        color: rgba(22, 160, 132, 100);
+        margin-left: 10px;
+        width: 200px;
+
+        & .aside__navbar__links {
+          height: 100px;
+
+          & .aside__navbar__link {
+            color: rgba(22, 160, 132, 100);
+          }
+        }
       }
     }
   }
@@ -184,17 +254,13 @@
     background-color: $flatGreenSea10;
     width: 100%;
     height: 40px;
-    margin: 0px;
+    border-top: solid 1px $flatGreenSea;
+    border-bottom: solid 1px $flatGreenSea;
 
     & p {
       color: $flatGreenSea;
       font-size: 1.6em;
-      margin: 5px 0px 5px 10px;
-    }
-
-    & hr {
-      margin: 0px;
-      border: solid 1px $flatGreenSea;
+      margin-left: 5px;
     }
   }
 
@@ -229,8 +295,12 @@
     }
   }
 
+  & article ~ article {
+    margin-top: 35px;
+  }
+
   & .content_body {
-    padding: 15px 10px;
+    padding: 25px 10px;
   }
 
   & .content__date {

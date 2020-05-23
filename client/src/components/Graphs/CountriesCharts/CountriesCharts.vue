@@ -158,6 +158,8 @@
                   <span
                     class="growthRate__null__information"
                     v-if="graphDoughnutTable.growthRate.confirmed == null"
+                    v-b-tooltip.left.hover
+                    title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
                   >
                     <unicon
                       class="unicon"
@@ -177,6 +179,8 @@
                   <span
                     class="growthRate__null__information"
                     v-if="graphDoughnutTable.growthRate.deaths == null"
+                    v-b-tooltip.left.hover
+                    title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
                   >
                     <unicon
                       class="unicon"
@@ -196,6 +200,8 @@
                   <span
                     class="growthRate__null__information"
                     v-if="graphDoughnutTable.growthRate.recovered == null"
+                    v-b-tooltip.left.hover
+                    title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
                   >
                     <unicon
                       class="unicon"
@@ -232,7 +238,6 @@
       <p>(De {{ countryData.selectedValues.selectDate.firstDate }} até {{ countryData.selectedValues.selectDate.lastDate }})</p>
       <hr />
     </article>
-
     <!-- Informações Adicionais (Conteúdo) -->
     <section
       class="graph__content__container"
