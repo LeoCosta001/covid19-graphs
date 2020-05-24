@@ -92,7 +92,80 @@ module.exports = {
       });
     }
 
-    return allCasesModelMapped;
+    /**********************************
+     * Criando a chave "casesSummary" *
+     **********************************/
+    let result = allCasesModelMapped.map((value) => {
+      let firstIndexOfCases = value.cases[0];
+      let lastIndexOfCases = value.cases[value.cases.length - 1];
+
+      // Calculo da soma de todos os novos registros
+      let calcConfirmed = localConfig.reverse
+        ? firstIndexOfCases.confirmed - lastIndexOfCases.confirmed
+        : lastIndexOfCases.confirmed - firstIndexOfCases.confirmed;
+      let calcDeaths = localConfig.reverse
+        ? firstIndexOfCases.deaths - lastIndexOfCases.deaths
+        : lastIndexOfCases.deaths - firstIndexOfCases.deaths;
+      let calcRecovered = localConfig.reverse
+        ? firstIndexOfCases.recovered - lastIndexOfCases.recovered
+        : lastIndexOfCases.recovered - firstIndexOfCases.recovered;
+
+      // Calculo da taxa de crescimento de todos os novos registros
+      let calcGrowthRateConfirmed = localConfig.reverse
+        ? ((firstIndexOfCases.confirmed - lastIndexOfCases.confirmed) /
+            lastIndexOfCases.confirmed) *
+          100
+        : ((lastIndexOfCases.confirmed - firstIndexOfCases.confirmed) /
+            firstIndexOfCases.confirmed) *
+          100;
+      let calcGrowthRateDeaths = localConfig.reverse
+        ? ((firstIndexOfCases.deaths - lastIndexOfCases.deaths) /
+            lastIndexOfCases.deaths) *
+          100
+        : ((lastIndexOfCases.deaths - firstIndexOfCases.deaths) /
+            firstIndexOfCases.deaths) *
+          100;
+      let calcGrowthRateRecovered = localConfig.reverse
+        ? ((firstIndexOfCases.recovered - lastIndexOfCases.recovered) /
+            lastIndexOfCases.recovered) *
+          100
+        : ((lastIndexOfCases.recovered - firstIndexOfCases.recovered) /
+            firstIndexOfCases.recovered) *
+          100;
+
+      return {
+        country: value.country,
+        cases: value.cases,
+        casesSummary: {
+          date: {
+            firstDate: localConfig.reverse
+              ? lastIndexOfCases.date
+              : firstIndexOfCases.date,
+            lastDate: localConfig.reverse
+              ? firstIndexOfCases.date
+              : lastIndexOfCases.date,
+          },
+
+          confirmed: calcConfirmed,
+          deaths: calcDeaths,
+          recovered: calcRecovered,
+
+          growthRate: {
+            confirmed: isFinite(calcGrowthRateConfirmed)
+              ? calcGrowthRateConfirmed.toFixed(2)
+              : null,
+            deaths: isFinite(calcGrowthRateDeaths)
+              ? calcGrowthRateDeaths.toFixed(2)
+              : null,
+            recovered: isFinite(calcGrowthRateRecovered)
+              ? calcGrowthRateRecovered.toFixed(2)
+              : null,
+          },
+        },
+      };
+    });
+
+    return result;
   },
 
   /** "Metodo que adiciona a chave/valor "growthRate""
