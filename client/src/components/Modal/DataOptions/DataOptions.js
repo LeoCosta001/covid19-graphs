@@ -221,8 +221,6 @@ export default {
         } catch (err) {
           console.log(err);
         }
-      } else {
-        console.log('Preencha todos os campos corretamente.');
       }
     },
 

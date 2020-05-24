@@ -148,8 +148,8 @@
 @import "@/sass/variables/_flatUiColors";
 
 // OBS: Para cada item da sublista das classes "question__list" e "graphcs__list" deve ser adicionado mais 35px de altura.
-$question__list__height: 210px;
-$graphcs__list__height: 210px;
+$question__list__height: 215px;
+$graphcs__list__height: 220px;
 
 // SCSS deste componente
 @import "./Header_Menu";

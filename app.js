@@ -25,10 +25,6 @@ const graphqlSchema = require('./models/graphql-schema');
       graphiql: true
     }));
 
-// Rotas
-app.use("/database/country-list", require("./routes/countryList.js"));
-app.use("/database/country-data", require("./routes/countryData.js"));
-
 // Porta
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`);
