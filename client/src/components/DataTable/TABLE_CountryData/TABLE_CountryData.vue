@@ -12,7 +12,7 @@
             :placeholder="minDayPlaceholder"
             :is-dark="true"
             :is-modal="true"
-            :limits="{min: '22/01/2020', max: maxLimit}"
+            :limits="{ min: '22/01/2020', max: maxLimit }"
             :change-month-function="true"
             :is-date-picker="true"
           ></FunctionalCalendar>
@@ -25,7 +25,7 @@
             :placeholder="maxDayPlaceholder"
             :is-dark="true"
             :is-modal="true"
-            :limits="{min: '22/01/2020', max: maxLimit}"
+            :limits="{ min: '22/01/2020', max: maxLimit }"
             :change-month-function="true"
             :is-date-picker="true"
           ></FunctionalCalendar>
@@ -33,7 +33,9 @@
       </div>
       <div class="data__error__msg" v-if="inputTableDataNumberInvalid">
         <p class="error__msg__title">Data invalida!</p>
-        <p class="error__msg__content">A data de ínicio tem que ser menor que a data final.</p>
+        <p class="error__msg__content">
+          A data de ínicio tem que ser menor que a data final.
+        </p>
       </div>
     </div>
 
@@ -99,7 +101,11 @@
           </tbody>
         </table>
       </article>
-      <article v-else class="table__container" :class="{'unselect--country': !countryData.countryData}">
+      <article
+        v-else
+        class="table__container"
+        :class="{ 'unselect--country': !countryData.countryData }"
+      >
         <table class="countryDataTable__main">
           <thead class="main__thead">
             <tr>
@@ -151,8 +157,7 @@
   </div>
 </template>
 
-<script src="./TABLE_CountryData.js">
-</script>
+<script src="./TABLE_CountryData.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis

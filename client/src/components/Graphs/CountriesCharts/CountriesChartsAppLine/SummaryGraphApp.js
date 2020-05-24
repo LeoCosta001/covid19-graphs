@@ -16,14 +16,14 @@ export default {
         growthRate: {
           confirmed: [],
           deaths: [],
-          recovered: [],
+          recovered: []
         },
         in24Hours: {
           confirmed: [],
           deaths: [],
-          recovered: [],
-        },
-      },
+          recovered: []
+        }
+      }
     };
   },
   methods: {
@@ -42,23 +42,23 @@ export default {
               borderColor: "#F1C40F",
               backgroundColor: "rgba(241, 196, 15, 0.100)",
               data: this.countryDataForGraph.confirmed,
-              lineTension: 0,
+              lineTension: 0
             },
             {
               label: "Mortos",
               borderColor: "#E74C3C",
               backgroundColor: "rgba(231, 77, 60, 0.100)",
               data: this.countryDataForGraph.deaths,
-              lineTension: 0,
+              lineTension: 0
             },
             {
               label: "Recuperados",
               borderColor: "#2ECC71",
               backgroundColor: "rgba(46, 204, 112, 0.100)",
               data: this.countryDataForGraph.recovered,
-              lineTension: 0,
-            },
-          ],
+              lineTension: 0
+            }
+          ]
         },
         _graphLine.option.default(true)
       );
@@ -73,23 +73,23 @@ export default {
         growthRate: {
           confirmed: [],
           deaths: [],
-          recovered: [],
+          recovered: []
         },
         in24Hours: {
           confirmed: [],
           deaths: [],
-          recovered: [],
-        },
+          recovered: []
+        }
       };
 
       // Adicionar novos valores
-      data.forEach((value) => {
+      data.forEach(value => {
         this.countryDataForGraph.date.unshift(value.date);
         this.countryDataForGraph.confirmed.unshift(value.confirmed);
         this.countryDataForGraph.deaths.unshift(value.deaths);
         this.countryDataForGraph.recovered.unshift(value.recovered);
       });
-    },
+    }
   },
   mounted() {
     // Renderização inicial do Gráfico
@@ -100,11 +100,11 @@ export default {
           {
             label: "",
             backgroundColor: "transparent",
-            data: [],
-          },
-        ],
+            data: []
+          }
+        ]
       },
       _graphLine.option.default(false)
     );
-  },
+  }
 };

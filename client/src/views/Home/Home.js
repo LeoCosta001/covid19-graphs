@@ -1,4 +1,4 @@
-import HomeContent from "@/components/Home/HomeContent.vue"
+import HomeContent from "@/components/Home/HomeContent.vue";
 
 export default {
   name: "Home",

@@ -1,14 +1,11 @@
 <template>
-  <div class="localContainer">
-  </div>
+  <div class="localContainer"></div>
 </template>
 
 <script>
-
 export default {
   name: "HomeContent",
-  component: {
-  }
+  component: {}
 };
 </script>
 

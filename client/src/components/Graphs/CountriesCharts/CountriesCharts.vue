@@ -14,7 +14,9 @@
     >
       <hr />
       <h3>Gráfico Resumido</h3>
-      <p>Grafico atualizado diariamente com a soma de todos os novos registros.</p>
+      <p>
+        Grafico atualizado diariamente com a soma de todos os novos registros.
+      </p>
       <hr />
     </article>
 
@@ -44,7 +46,9 @@
     >
       <hr />
       <h3>Taxa de Crescimento Diário</h3>
-      <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
+      <p>
+        Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.
+      </p>
       <hr />
     </article>
 
@@ -61,7 +65,10 @@
       </article>
 
       <!-- Gráfico -->
-      <div class="graph__container" :class="{'unselect--country': !countryData.data}">
+      <div
+        class="graph__container"
+        :class="{ 'unselect--country': !countryData.data }"
+      >
         <CountriesChartsAppBar ref="countriesChartsAppBar" />
       </div>
     </section>
@@ -91,22 +98,38 @@
       </article>
 
       <!-- Gráfico Linear -->
-      <div class="graph__container" :class="{'unselect--country': !countryData.data}">
+      <div
+        class="graph__container"
+        :class="{ 'unselect--country': !countryData.data }"
+      >
         <CountriesChartsAppLine ref="countriesChartsAppLine" />
       </div>
     </section>
 
     <!-- Título -->
-    <article class="about__graph" id="summary" v-if="countryData.selectedValues.selectInfo.summary">
+    <article
+      class="about__graph"
+      id="summary"
+      v-if="countryData.selectedValues.selectInfo.summary"
+    >
       <hr />
       <h3>Resumo</h3>
-      <p>Cálculo da Taxa de Crescimento e quantidade de Novos Registros relacionando apenas as duas datas selecionadas.</p>
-      <p>(De {{ countryData.selectedValues.selectDate.firstDate }} até {{ countryData.selectedValues.selectDate.lastDate }})</p>
+      <p>
+        Cálculo da Taxa de Crescimento e quantidade de Novos Registros
+        relacionando apenas as duas datas selecionadas.
+      </p>
+      <p>
+        (De {{ countryData.selectedValues.selectDate.firstDate }} até
+        {{ countryData.selectedValues.selectDate.lastDate }})
+      </p>
       <hr />
     </article>
 
     <!-- Gráfico de Doughnut -->
-    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.summary">
+    <section
+      class="graph__content__container"
+      v-if="countryData.selectedValues.selectInfo.summary"
+    >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
         <div class="select__country__msg__container">
@@ -115,7 +138,10 @@
       </article>
 
       <!-- Conteúdo -->
-      <div class="graph__doughnut__container" :class="{'unselect--country': !countryData.data}">
+      <div
+        class="graph__doughnut__container"
+        :class="{ 'unselect--country': !countryData.data }"
+      >
         <div class="graph__doughnut__content">
           <!-- Tabela (Total de Novos Registros)-->
           <table>
@@ -153,7 +179,8 @@
                 <td>
                   <span
                     v-if="graphDoughnutTable.growthRate.confirmed != undefined"
-                  >+{{ graphDoughnutTable.growthRate.confirmed }}%</span>
+                    >+{{ graphDoughnutTable.growthRate.confirmed }}%</span
+                  >
 
                   <span
                     class="growthRate__null__information"
@@ -173,9 +200,9 @@
               <tr>
                 <td>Mortos:</td>
                 <td>
-                  <span
-                    v-if="graphDoughnutTable.growthRate.deaths != undefined"
-                  >+{{ graphDoughnutTable.growthRate.deaths }}%</span>
+                  <span v-if="graphDoughnutTable.growthRate.deaths != undefined"
+                    >+{{ graphDoughnutTable.growthRate.deaths }}%</span
+                  >
                   <span
                     class="growthRate__null__information"
                     v-if="graphDoughnutTable.growthRate.deaths == null"
@@ -196,7 +223,8 @@
                 <td>
                   <span
                     v-if="graphDoughnutTable.growthRate.recovered != undefined"
-                  >+{{ graphDoughnutTable.growthRate.recovered }}%</span>
+                    >+{{ graphDoughnutTable.growthRate.recovered }}%</span
+                  >
                   <span
                     class="growthRate__null__information"
                     v-if="graphDoughnutTable.growthRate.recovered == null"
@@ -235,7 +263,10 @@
       <hr />
       <h3>Informações Adicionais</h3>
       <p>Estas informações são baseadas nas datas selecionadas.</p>
-      <p>(De {{ countryData.selectedValues.selectDate.firstDate }} até {{ countryData.selectedValues.selectDate.lastDate }})</p>
+      <p>
+        (De {{ countryData.selectedValues.selectDate.firstDate }} até
+        {{ countryData.selectedValues.selectDate.lastDate }})
+      </p>
       <hr />
     </article>
     <!-- Informações Adicionais (Conteúdo) -->
@@ -251,11 +282,13 @@
       </article>
 
       <!-- Tabela -->
-      <article :class="{'unselect--country': !countryData.data}">
+      <article :class="{ 'unselect--country': !countryData.data }">
         <table class="countryDataTable__main">
           <tbody class="main__tbody">
             <tr class="main__tr">
-              <td colspan="3">Dia com o maior registro de "Casos Confirmados"</td>
+              <td colspan="3">
+                Dia com o maior registro de "Casos Confirmados"
+              </td>
             </tr>
             <tr>
               <td colspan="3">
@@ -272,7 +305,8 @@
                   </thead>
                   <tbody class="internal__tbody">
                     <tr
-                      v-for="(data, index) in additionalInformation.highestNumberOfConfirmed"
+                      v-for="(data,
+                      index) in additionalInformation.highestNumberOfConfirmed"
                       :key="index"
                     >
                       <td>{{ data.date }}</td>
@@ -284,7 +318,10 @@
                 <table class="countryDataTable__internal" v-else>
                   <tbody class="internal__tbody">
                     <tr>
-                      <td>Nenhum novo registro encontrado entre as datas selecionadas.</td>
+                      <td>
+                        Nenhum novo registro encontrado entre as datas
+                        selecionadas.
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -308,7 +345,8 @@
                   </thead>
                   <tbody class="internal__tbody">
                     <tr
-                      v-for="(data, index) in additionalInformation.highestNumberOfDeaths"
+                      v-for="(data,
+                      index) in additionalInformation.highestNumberOfDeaths"
                       :key="index"
                     >
                       <td>{{ data.date }}</td>
@@ -320,7 +358,10 @@
                 <table class="countryDataTable__internal" v-else>
                   <tbody class="internal__tbody">
                     <tr>
-                      <td>Nenhum novo registro encontrado entre as datas selecionadas.</td>
+                      <td>
+                        Nenhum novo registro encontrado entre as datas
+                        selecionadas.
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -344,7 +385,8 @@
                   </thead>
                   <tbody class="internal__tbody">
                     <tr
-                      v-for="(data, index) in additionalInformation.highestNumberOfRecovered"
+                      v-for="(data,
+                      index) in additionalInformation.highestNumberOfRecovered"
                       :key="index"
                     >
                       <td>{{ data.date }}</td>
@@ -356,7 +398,10 @@
                 <table class="countryDataTable__internal" v-else>
                   <tbody class="internal__tbody">
                     <tr>
-                      <td>Nenhum novo registro encontrado entre as datas selecionadas.</td>
+                      <td>
+                        Nenhum novo registro encontrado entre as datas
+                        selecionadas.
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -369,8 +414,7 @@
   </div>
 </template>
 
-<script src="./CountriesCharts.js">
-</script>
+<script src="./CountriesCharts.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis

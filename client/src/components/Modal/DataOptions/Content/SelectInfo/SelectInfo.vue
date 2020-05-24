@@ -111,7 +111,9 @@
             />
             <label
               for="additionalInformation_checkbox"
-              :class="{ 'select_info--input--checked': additionalInformation_checkbox }"
+              :class="{
+                'select_info--input--checked': additionalInformation_checkbox
+              }"
             >
               <unicon
                 v-if="additionalInformation_checkbox"
@@ -129,8 +131,7 @@
   </div>
 </template>
 
-<script src="./SelectInfo.js">
-</script>
+<script src="./SelectInfo.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis

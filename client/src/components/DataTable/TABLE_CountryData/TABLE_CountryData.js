@@ -58,7 +58,12 @@ export default {
     // Ativado quando é alterada as datas para a exibição de dados
     attTableData() {
       // Verifica se a data Min é menor que o data Max
-      if (_date.compareDate(this.calendarMinDay.selectedDate, this.calendarMaxDay.selectedDate)) {
+      if (
+        _date.compareDate(
+          this.calendarMinDay.selectedDate,
+          this.calendarMaxDay.selectedDate
+        )
+      ) {
         // Desativando mensagem de data invalida
         this.inputTableDataNumberInvalid = false;
 

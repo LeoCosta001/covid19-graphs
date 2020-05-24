@@ -16,14 +16,14 @@ export default {
         growthRate: {
           confirmed: [],
           deaths: [],
-          recovered: [],
+          recovered: []
         },
         in24Hours: {
           confirmed: [],
           deaths: [],
-          recovered: [],
-        },
-      },
+          recovered: []
+        }
+      }
     };
   },
   methods: {
@@ -45,7 +45,7 @@ export default {
               hoverBackgroundColor: "#F1C40F",
               borderWidth: 2,
               data: this.countryDataForGraph.growthRate.confirmed,
-              lineTension: 0,
+              lineTension: 0
             },
             {
               label: "Mortos",
@@ -55,7 +55,7 @@ export default {
               hoverBackgroundColor: "#E74C3C",
               borderWidth: 2,
               data: this.countryDataForGraph.growthRate.deaths,
-              lineTension: 0,
+              lineTension: 0
             },
             {
               label: "Recuperados",
@@ -65,13 +65,12 @@ export default {
               hoverBackgroundColor: "#2ECC71",
               borderWidth: 2,
               data: this.countryDataForGraph.growthRate.recovered,
-              lineTension: 0,
-            },
-          ],
+              lineTension: 0
+            }
+          ]
         },
         _graphBar.option.default(true)
       );
-
     },
     attVariable_CountryDataForGraph(data) {
       // Resetar valores antigos
@@ -83,23 +82,29 @@ export default {
         growthRate: {
           confirmed: [],
           deaths: [],
-          recovered: [],
+          recovered: []
         },
         in24Hours: {
           confirmed: [],
           deaths: [],
-          recovered: [],
-        },
+          recovered: []
+        }
       };
 
       // Adicionar novos valores
-      data.forEach((value) => {
+      data.forEach(value => {
         this.countryDataForGraph.date.unshift(value.date);
-        this.countryDataForGraph.growthRate.confirmed.unshift(value.growthRate.confirmed);
-        this.countryDataForGraph.growthRate.deaths.unshift(value.growthRate.deaths);
-        this.countryDataForGraph.growthRate.recovered.unshift(value.growthRate.recovered);
+        this.countryDataForGraph.growthRate.confirmed.unshift(
+          value.growthRate.confirmed
+        );
+        this.countryDataForGraph.growthRate.deaths.unshift(
+          value.growthRate.deaths
+        );
+        this.countryDataForGraph.growthRate.recovered.unshift(
+          value.growthRate.recovered
+        );
       });
-    },
+    }
   },
   mounted() {
     // Renderização inicial do Gráfico
@@ -110,11 +115,11 @@ export default {
           {
             label: "",
             backgroundColor: "transparent",
-            data: [],
-          },
-        ],
+            data: []
+          }
+        ]
       },
       _graphBar.option.default(false)
     );
-  },
+  }
 };

@@ -1,22 +1,22 @@
 // Metodos
-import _date from '@/methods/changeDate/dateIdentify.js';
-import _sortDate from '@/methods/changeDate/sortDate.js';
+import _date from "@/methods/changeDate/dateIdentify.js";
+import _sortDate from "@/methods/changeDate/sortDate.js";
 
 // Apollo Client
-import { client } from '@/apolloConfig/apollo-client';
-import gql from 'graphql-tag';
+import { client } from "@/apolloConfig/apollo-client";
+import gql from "graphql-tag";
 
 // Componentes
-import SelectDate from '@/components/Modal/DataOptions/Content/SelectDate/SelectDate.vue';
-import SelectCountry from '@/components/Modal/DataOptions/Content/SelectCountry/SelectCountry.vue';
-import SelectInfo from '@/components/Modal/DataOptions/Content/SelectInfo/SelectInfo.vue';
+import SelectDate from "@/components/Modal/DataOptions/Content/SelectDate/SelectDate.vue";
+import SelectCountry from "@/components/Modal/DataOptions/Content/SelectCountry/SelectCountry.vue";
+import SelectInfo from "@/components/Modal/DataOptions/Content/SelectInfo/SelectInfo.vue";
 
 export default {
-  name: 'DataOptions',
+  name: "DataOptions",
   components: {
     SelectDate,
     SelectCountry,
-    SelectInfo,
+    SelectInfo
   },
   data() {
     return {
@@ -24,13 +24,13 @@ export default {
       // Variáveis de controle
       controller: {
         showDataOptions: true,
-        hideModal: false,
+        hideModal: false
       },
 
       // Status da requisição
       gqlReqStatus: {
         loading: false,
-        success: true,
+        success: true
       },
 
       // Opções selecionadas
@@ -38,12 +38,12 @@ export default {
         selectDate: {
           firstDate: _date.calcDate(-7, false),
           lastDate: _date.calcDate(-1, false),
-          invalidStatus: false,
+          invalidStatus: false
         },
         selectCountry: {
-          countryName: '',
-          countrySelectedTranslated: '',
-          invalidStatus: true,
+          countryName: "",
+          countrySelectedTranslated: "",
+          invalidStatus: true
         },
         selectInfo: {
           summaryGraph: true,
@@ -51,8 +51,8 @@ export default {
           newRegister: true,
           summary: true,
           additionalInformation: true,
-          invalidStatus: false,
-        },
+          invalidStatus: false
+        }
       },
 
       // Informações que serão exibidas
@@ -62,8 +62,8 @@ export default {
         newRegister: true,
         summary: true,
         additionalInformation: true,
-        invalidStatus: false,
-      },
+        invalidStatus: false
+      }
     };
   },
   computed: {
@@ -71,7 +71,7 @@ export default {
     SelectCountryEmit() {
       return {
         data: this.reqResult,
-        selectedValues: this.selectedValues,
+        selectedValues: this.selectedValues
       };
     },
 
@@ -106,12 +106,12 @@ export default {
       `;
 
       return query;
-    },
+    }
   },
   methods: {
     // Emitir dados com os valores locais
     localEmit() {
-      this.$emit('DataOptions_return', this.SelectCountryEmit);
+      this.$emit("DataOptions_return", this.SelectCountryEmit);
     },
 
     modalOpenButton() {
@@ -140,7 +140,7 @@ export default {
 
         await client
           .query({ query })
-          .then((res) => {
+          .then(res => {
             this.gqlReqStatus.loading = false;
             this.gqlReqStatus.success = true;
 
@@ -158,7 +158,7 @@ export default {
 
             this.localEmit();
           })
-          .catch((err) => {
+          .catch(err => {
             this.gqlReqStatus.loading = false;
             this.gqlReqStatus.success = false;
 
@@ -234,6 +234,6 @@ export default {
       this.$refs.refSelectDate.resetValue();
       this.$refs.refSelectCountry.resetValue();
       this.$refs.refSelectInfo.resetValue();
-    },
-  },
+    }
+  }
 };

@@ -7,5 +7,4 @@
   </div>
 </template>
 
-<script src="./DataTable.js">
-</script>
+<script src="./DataTable.js"></script>

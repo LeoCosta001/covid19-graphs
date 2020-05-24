@@ -1,8 +1,8 @@
 // Metodos
-import _date from '@/methods/changeDate/dateIdentify.js';
+import _date from "@/methods/changeDate/dateIdentify.js";
 
 export default {
-  name: 'SelectDate',
+  name: "SelectDate",
   data() {
     return {
       // Datas inválidas
@@ -15,11 +15,11 @@ export default {
 
       // Dados do calendário
       firstDate: {
-        selectedDate: _date.calcDate(-7, false),
+        selectedDate: _date.calcDate(-7, false)
       },
       lastDate: {
-        selectedDate: _date.calcDate(-1, false),
-      },
+        selectedDate: _date.calcDate(-1, false)
+      }
     };
   },
   computed: {
@@ -27,14 +27,14 @@ export default {
       return {
         invalidStatus: this.invalidDate,
         firstDate: this.firstDate.selectedDate,
-        lastDate: this.lastDate.selectedDate,
+        lastDate: this.lastDate.selectedDate
       };
-    },
+    }
   },
   methods: {
     // Emitir dados que estiverem no data "SelectDateEmit"
     localEmit() {
-      this.$emit('SelectDate_return', this.SelectDateEmit);
+      this.$emit("SelectDate_return", this.SelectDateEmit);
     },
 
     // Verifica se o "firstDate" é menor que o "lastDate"
@@ -49,7 +49,7 @@ export default {
       } else {
         this.invalidDate = true;
       }
-      
+
       this.localEmit();
     },
 
@@ -63,6 +63,6 @@ export default {
       this.lastDate.selectedDate = _date.calcDate(-1, false);
 
       this.checkDate();
-    },
-  },
+    }
+  }
 };

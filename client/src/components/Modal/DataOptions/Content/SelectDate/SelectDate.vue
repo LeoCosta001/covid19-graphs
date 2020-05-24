@@ -9,7 +9,7 @@
           :placeholder="firstDatePlaceholder"
           :is-dark="true"
           :is-modal="true"
-          :limits="{min: '22/01/2020', max: maxDate}"
+          :limits="{ min: '22/01/2020', max: maxDate }"
           :change-month-function="true"
           :is-date-picker="true"
         ></FunctionalCalendar>
@@ -22,7 +22,7 @@
           :placeholder="lastDatePlaceholder"
           :is-dark="true"
           :is-modal="true"
-          :limits="{min: '22/01/2020', max: maxDate}"
+          :limits="{ min: '22/01/2020', max: maxDate }"
           :change-month-function="true"
           :is-date-picker="true"
         ></FunctionalCalendar>
@@ -31,8 +31,7 @@
   </div>
 </template>
 
-<script src="./SelectDate.js">
-</script>
+<script src="./SelectDate.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis

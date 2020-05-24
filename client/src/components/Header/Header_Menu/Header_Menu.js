@@ -7,7 +7,7 @@ import { Slide } from "vue-burger-menu";
 export default {
   name: "HeaderMenu",
   components: {
-    Slide,
+    Slide
   },
   data() {
     return {
@@ -39,7 +39,7 @@ export default {
         // Atualizar a ultima posição com a posição atual
         this.lastScrollPosition = currentScrollPosition;
       }
-    },
+    }
   },
   mounted() {
     // Inicia o evento de scroll (OBS: O 2º Param do _debounce.use() é o tempo de delay entre a execução das funções)

@@ -1,3 +1,3 @@
 export default {
-  name: "ModesOfTransmission",
+  name: "ModesOfTransmission"
 };

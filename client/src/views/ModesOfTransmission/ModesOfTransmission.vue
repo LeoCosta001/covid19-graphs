@@ -4,5 +4,4 @@
   </div>
 </template>
 
-<script src="./ModesOfTransmission.js">
-</script>
+<script src="./ModesOfTransmission.js"></script>

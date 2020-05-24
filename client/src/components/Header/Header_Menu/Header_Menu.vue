@@ -1,5 +1,9 @@
 <template>
-  <div id="headerBar" class="localContainer" :class="{'hide--headerbar': !showHeaderbar}">
+  <div
+    id="headerBar"
+    class="localContainer"
+    :class="{ 'hide--headerbar': !showHeaderbar }"
+  >
     <!-- Menu lateral -->
     <div class="open__menu">
       <Slide>
@@ -19,7 +23,12 @@
         <!-- Link para Tabela de Dados -->
         <div v-on:click="casesDataAtt()">
           <router-link to="/data-table" class="menu__link__1">
-            <unicon class="unicon" name="list-ul" width="27.5px" height="27.5px" />
+            <unicon
+              class="unicon"
+              name="list-ul"
+              width="27.5px"
+              height="27.5px"
+            />
             <span class="link__title__1">Tabela de Dados</span>
           </router-link>
         </div>
@@ -28,7 +37,12 @@
         <!-- Link para Gráficos -->
         <input type="checkbox" id="checkGraphcsList" />
         <label class="menu__link__1" for="checkGraphcsList">
-          <unicon class="unicon" name="presentation-lines-alt" width="27.5px" height="27.5px" />
+          <unicon
+            class="unicon"
+            name="presentation-lines-alt"
+            width="27.5px"
+            height="27.5px"
+          />
           <span class="link__title__1">Gráficos</span>
         </label>
         <hr />
@@ -41,42 +55,70 @@
           </router-link>
 
           <router-link
-            :to="{ path: '/graphs/countries-charts', hash: '#summary-graph'}"
+            :to="{ path: '/graphs/countries-charts', hash: '#summary-graph' }"
             class="menu__link__2"
           >
-            <unicon class="unicon" name="chart-growth" width="23px" height="23px" />
+            <unicon
+              class="unicon"
+              name="chart-growth"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Gráfico Resumido</span>
           </router-link>
 
           <router-link
-            :to="{ path: '/graphs/countries-charts', hash: '#growth-rate'}"
+            :to="{ path: '/graphs/countries-charts', hash: '#growth-rate' }"
             class="menu__link__2"
           >
-            <unicon class="unicon" name="chart-bar" width="23px" height="23px" />
+            <unicon
+              class="unicon"
+              name="chart-bar"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Taxa de Crescimento</span>
           </router-link>
 
           <router-link
-            :to="{ path: '/graphs/countries-charts', hash: '#new-register'}"
+            :to="{ path: '/graphs/countries-charts', hash: '#new-register' }"
             class="menu__link__2"
           >
-            <unicon class="unicon" name="chart-line" width="23px" height="23px" />
+            <unicon
+              class="unicon"
+              name="chart-line"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Novos Registros</span>
           </router-link>
 
           <router-link
-            :to="{ path: '/graphs/countries-charts', hash: '#summary'}"
+            :to="{ path: '/graphs/countries-charts', hash: '#summary' }"
             class="menu__link__2"
           >
-            <unicon class="unicon" name="chart-pie" width="23px" height="23px" />
+            <unicon
+              class="unicon"
+              name="chart-pie"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Resumo</span>
           </router-link>
 
           <router-link
-            :to="{ path: '/graphs/countries-charts', hash: '#additional-information'}"
+            :to="{
+              path: '/graphs/countries-charts',
+              hash: '#additional-information'
+            }"
             class="menu__link__2"
           >
-            <unicon class="unicon" name="list-ul" width="27.5px" height="27.5px" />
+            <unicon
+              class="unicon"
+              name="list-ul"
+              width="27.5px"
+              height="27.5px"
+            />
             <span class="link__title__2">Informações Adicionais</span>
           </router-link>
         </span>
@@ -91,7 +133,12 @@
         <!-- Link para Dúvidas -->
         <input type="checkbox" id="checkQuestionList" />
         <label class="menu__link__1" for="checkQuestionList">
-          <unicon class="unicon" name="question-circle" width="27.5px" height="27.5px" />
+          <unicon
+            class="unicon"
+            name="question-circle"
+            width="27.5px"
+            height="27.5px"
+          />
           <span class="link__title__1">Dúvidas</span>
         </label>
         <hr />
@@ -108,18 +155,36 @@
             <span class="link__title__2">Sintomas</span>
           </router-link>
 
-          <router-link to="/questions/modes-of-transmission" class="menu__link__2">
-            <unicon class="unicon" name="exclamation-triangle" width="23px" height="23px" />
+          <router-link
+            to="/questions/modes-of-transmission"
+            class="menu__link__2"
+          >
+            <unicon
+              class="unicon"
+              name="exclamation-triangle"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Meios de Transmissão</span>
           </router-link>
 
           <router-link to="#" class="menu__link__2">
-            <unicon class="unicon" name="comment-question" width="23px" height="23px" />
+            <unicon
+              class="unicon"
+              name="comment-question"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Perguntas Frequentes</span>
           </router-link>
 
           <router-link to="#" class="menu__link__2">
-            <unicon class="unicon" name="ambulance" width="23px" height="23px" />
+            <unicon
+              class="unicon"
+              name="ambulance"
+              width="23px"
+              height="23px"
+            />
             <span class="link__title__2">Emergência</span>
           </router-link>
 
@@ -136,12 +201,10 @@
     <!-- Titulo principal da página -->
     <div class="page__title">COVID-19</div>
     <div class="aside__header">Aqui vai mais botões...</div>
-
   </div>
 </template>
 
-<script src="./Header_Menu.js">
-</script>
+<script src="./Header_Menu.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis

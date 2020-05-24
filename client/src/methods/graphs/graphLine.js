@@ -8,8 +8,8 @@ module.exports = {
           labels: {
             fontColor: "#ECF0F1",
             fontSize: 15,
-            padding: 25,
-          },
+            padding: 25
+          }
         },
         tooltips: {
           intersect: false,
@@ -18,38 +18,38 @@ module.exports = {
           xPadding: 10,
           caretSize: 7,
           caretPadding: 7,
-          multiKeyBackground: "transparent",
+          multiKeyBackground: "transparent"
         },
         elements: {
           point: {
             pointStyle: "circle",
             radius: 3,
-            hoverRadius: 4,
-          },
+            hoverRadius: 4
+          }
         },
         scales: {
           yAxes: [
             {
               gridLines: {
-                color: "rgba(127, 140, 141, 0.250)",
+                color: "rgba(127, 140, 141, 0.250)"
               },
               ticks: {
-                fontColor: activeStatus ? "#ECF0F1" : "#34495E",
-              },
-            },
+                fontColor: activeStatus ? "#ECF0F1" : "#34495E"
+              }
+            }
           ],
           xAxes: [
             {
               gridLines: {
-                color: "rgba(127, 140, 141, 0.250)",
+                color: "rgba(127, 140, 141, 0.250)"
               },
               ticks: {
-                fontColor: activeStatus ? "#ECF0F1" : "#34495E",
-              },
-            },
-          ],
-        },
+                fontColor: activeStatus ? "#ECF0F1" : "#34495E"
+              }
+            }
+          ]
+        }
       };
-    },
-  },
+    }
+  }
 };

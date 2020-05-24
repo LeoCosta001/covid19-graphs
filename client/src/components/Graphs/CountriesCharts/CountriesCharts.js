@@ -1,24 +1,24 @@
 // APIs
-import { FunctionalCalendar } from 'vue-functional-calendar';
+import { FunctionalCalendar } from "vue-functional-calendar";
 
 // Componentes
-import CountriesChartsAppBar from '@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js';
-import CountriesChartsAppDoughnut from '@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js';
-import CountriesChartsAppLine from '@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js';
-import SummaryGraphAppLine from '@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js';
+import CountriesChartsAppBar from "@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js";
+import CountriesChartsAppDoughnut from "@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js";
+import CountriesChartsAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js";
+import SummaryGraphAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js";
 
 // Metodos
-import _date from '@/methods/changeDate/dateIdentify.js';
+import _date from "@/methods/changeDate/dateIdentify.js";
 
 // Configurações do componente
 export default {
-  name: 'CountriesCharts',
+  name: "CountriesCharts",
   components: {
     FunctionalCalendar,
     CountriesChartsAppBar,
     CountriesChartsAppDoughnut,
     CountriesChartsAppLine,
-    SummaryGraphAppLine,
+    SummaryGraphAppLine
   },
   data() {
     return {
@@ -28,11 +28,11 @@ export default {
           selectDate: {
             firstDate: _date.calcDate(-7, false),
             lastDate: _date.calcDate(-1, false),
-            invalidStatus: false,
+            invalidStatus: false
           },
           selectCountry: {
-            countryName: '',
-            invalidStatus: true,
+            countryName: "",
+            invalidStatus: true
           },
           selectInfo: {
             summaryGraph: true,
@@ -40,9 +40,9 @@ export default {
             newRegister: true,
             summary: true,
             additionalInformation: true,
-            invalidStatus: false,
-          },
-        },
+            invalidStatus: false
+          }
+        }
       },
       graphDoughnutTable: {
         confirmed: 0,
@@ -51,31 +51,31 @@ export default {
         growthRate: {
           confirmed: 0,
           deaths: 0,
-          recovered: 0,
-        },
+          recovered: 0
+        }
       },
       additionalInformation: {
         highestNumberOfDeaths: {
-          date: 'dd/mm/aaaa',
+          date: "dd/mm/aaaa",
           value: 0,
-          totalValue: 0,
+          totalValue: 0
         },
         highestNumberOfRecovered: {
-          date: 'dd/mm/aaaa',
+          date: "dd/mm/aaaa",
           value: 0,
-          totalValue: 0,
+          totalValue: 0
         },
         highestNumberOfConfirmed: {
-          date: 'dd/mm/aaaa',
+          date: "dd/mm/aaaa",
           value: 0,
-          totalValue: 0,
-        },
+          totalValue: 0
+        }
       },
       // Controladores de display
       inputTableDataNumberInvalid: false,
       tableLineDetailStatus: undefined,
       // Transferir dados para o componente de Gráfico
-      resForGraph: this.countryData,
+      resForGraph: this.countryData
     };
   },
   methods: {
@@ -122,7 +122,7 @@ export default {
       this.graphDoughnutTable.deaths = 0;
       this.graphDoughnutTable.recovered = 0;
 
-      data.forEach((value) => {
+      data.forEach(value => {
         this.graphDoughnutTable.confirmed += value.in24Hours.confirmed;
         this.graphDoughnutTable.deaths += value.in24Hours.deaths;
         this.graphDoughnutTable.recovered += value.in24Hours.recovered;
@@ -134,21 +134,31 @@ export default {
           data[data.length - 1].confirmed) *
         100
       ).toFixed(2);
-      this.graphDoughnutTable.growthRate.confirmed = isFinite(calcConfirmedGrowthRate) ? calcConfirmedGrowthRate : null;
+      this.graphDoughnutTable.growthRate.confirmed = isFinite(
+        calcConfirmedGrowthRate
+      )
+        ? calcConfirmedGrowthRate
+        : null;
 
       let calcDeathsGrowthRate = (
         ((data[0].deaths - data[data.length - 1].deaths) /
           data[data.length - 1].deaths) *
         100
       ).toFixed(2);
-      this.graphDoughnutTable.growthRate.deaths = isFinite(calcDeathsGrowthRate) ? calcDeathsGrowthRate : null;
+      this.graphDoughnutTable.growthRate.deaths = isFinite(calcDeathsGrowthRate)
+        ? calcDeathsGrowthRate
+        : null;
 
       let calcRecoveredGrowthRate = (
         ((data[0].recovered - data[data.length - 1].recovered) /
           data[data.length - 1].recovered) *
         100
       ).toFixed(2);
-      this.graphDoughnutTable.growthRate.recovered = isFinite(calcRecoveredGrowthRate) ? calcRecoveredGrowthRate : null;
+      this.graphDoughnutTable.growthRate.recovered = isFinite(
+        calcRecoveredGrowthRate
+      )
+        ? calcRecoveredGrowthRate
+        : null;
     },
 
     // Abrindo linha de informações detalhadas da tabela
@@ -166,31 +176,48 @@ export default {
 
       // Calcular e separa os dias que tiveram os maiores registros
       function highestValueSearch(valueType) {
-        let result = data.sort((currentValue, nextValue) => {
-            return currentValue.in24Hours[valueType] - nextValue.in24Hours[valueType];
-        }).reverse();
+        let result = data
+          .sort((currentValue, nextValue) => {
+            return (
+              currentValue.in24Hours[valueType] - nextValue.in24Hours[valueType]
+            );
+          })
+          .reverse();
 
-        result = result.filter((value) => {
-          return value.in24Hours[valueType] == result[0].in24Hours[valueType] ? true : false;
-        }).map((value) => {
+        result = result
+          .filter(value => {
+            return value.in24Hours[valueType] == result[0].in24Hours[valueType]
+              ? true
+              : false;
+          })
+          .map(value => {
             return {
-            date: value.date,
-            value: value.in24Hours[valueType],
-            totalValue: value[valueType],
-          }
-        })
+              date: value.date,
+              value: value.in24Hours[valueType],
+              totalValue: value[valueType]
+            };
+          });
 
         return result;
       }
 
-      let highestNumberOfConfirmedResult = highestValueSearch('confirmed');
-      this.additionalInformation.highestNumberOfConfirmed = highestNumberOfConfirmedResult[0].value > 0 ? highestNumberOfConfirmedResult : false;
-      
-      let highestNumberOfDeathsResult = highestValueSearch('deaths');
-      this.additionalInformation.highestNumberOfDeaths = highestNumberOfDeathsResult[0].value > 0 ? highestNumberOfDeathsResult : false;
-      
-      let highestNumberOfRecoveredResult = highestValueSearch('recovered');
-      this.additionalInformation.highestNumberOfRecovered = highestNumberOfRecoveredResult[0].value > 0 ? highestNumberOfRecoveredResult : false;
+      let highestNumberOfConfirmedResult = highestValueSearch("confirmed");
+      this.additionalInformation.highestNumberOfConfirmed =
+        highestNumberOfConfirmedResult[0].value > 0
+          ? highestNumberOfConfirmedResult
+          : false;
+
+      let highestNumberOfDeathsResult = highestValueSearch("deaths");
+      this.additionalInformation.highestNumberOfDeaths =
+        highestNumberOfDeathsResult[0].value > 0
+          ? highestNumberOfDeathsResult
+          : false;
+
+      let highestNumberOfRecoveredResult = highestValueSearch("recovered");
+      this.additionalInformation.highestNumberOfRecovered =
+        highestNumberOfRecoveredResult[0].value > 0
+          ? highestNumberOfRecoveredResult
+          : false;
     }
-  },
+  }
 };

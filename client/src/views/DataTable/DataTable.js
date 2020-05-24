@@ -8,7 +8,7 @@ import TABLECountryData from "@/components/DataTable/TABLE_CountryData/TABLE_Cou
 export default {
   name: "DataTable",
   components: {
-    TABLECountryData,
+    TABLECountryData
   },
   props: {
     reqCountryData: {
@@ -17,15 +17,15 @@ export default {
       default: () => {
         return {};
       }
-    },
+    }
   },
   data() {
     return {
       resForTableCountryData: undefined,
       selectTableDataNumber: {
         min: _date.calcDate(-7, false),
-        max: _date.calcDate(-1, false),
-      },
+        max: _date.calcDate(-1, false)
+      }
     };
   },
   methods: {
@@ -44,7 +44,7 @@ export default {
               ) {
                 this.selectTableDataNumber = {
                   max: req.selectDataNumber.max,
-                  min: req.selectDataNumber.min,
+                  min: req.selectDataNumber.min
                 };
               }
               return changeData.showIndex(
@@ -62,9 +62,9 @@ export default {
           },
           countryDataLoading: this.reqCountryData.countryDataLoading,
           countryDataErro: this.reqCountryData.countryDataErro,
-          totalDataNumber: this.reqCountryData.countryData.length,
+          totalDataNumber: this.reqCountryData.countryData.length
         };
       }
-    },
-  },
+    }
+  }
 };

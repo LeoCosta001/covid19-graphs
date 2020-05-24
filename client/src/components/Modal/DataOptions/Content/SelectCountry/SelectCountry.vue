@@ -10,12 +10,15 @@
             @change="selectCountryAtt"
             name="country_select"
           >
-            <option value="undefined" disabled selected>Selecione um País</option>
+            <option value="undefined" disabled selected
+              >Selecione um País</option
+            >
             <option
               :value="data.country"
               v-for="(data, index) in countryList"
               :key="index"
-            >{{ data.countryTranslation }}</option>
+              >{{ data.countryTranslation }}</option
+            >
           </select>
           <select v-else>
             <option value="undefined" disabled selected>Carregando...</option>
@@ -26,8 +29,7 @@
   </div>
 </template>
 
-<script src="./SelectCountry.js">
-</script>
+<script src="./SelectCountry.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis

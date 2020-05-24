@@ -8,6 +8,6 @@ const link = new HttpLink({
 });
 
 export const client = new ApolloClient({
-    cache,
-    link
+  cache,
+  link
 });

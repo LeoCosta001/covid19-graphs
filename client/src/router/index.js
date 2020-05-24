@@ -10,23 +10,23 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/data-table",
     name: "DataTable",
-    component: DataTable,
+    component: DataTable
   },
   {
     path: "/graphs/countries-charts",
     name: "CountriesCharts",
-    component: CountriesCharts,
+    component: CountriesCharts
   },
   {
     path: "/questions/modes-of-transmission",
     name: "ModesOfTransmission",
-    component: ModesOfTransmission,
-  },
+    component: ModesOfTransmission
+  }
 ];
 
 const router = new VueRouter({
@@ -39,11 +39,11 @@ const router = new VueRouter({
     }
     if (to.hash) {
       return {
-        selector: to.hash,
+        selector: to.hash
       };
     }
     return { x: 0, y: 0 };
-  },
+  }
 });
 
 export default router;

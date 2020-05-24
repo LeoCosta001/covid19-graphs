@@ -12,7 +12,7 @@ export default {
       firstPosition: {
         confirmed: 0,
         deaths: 0,
-        recovered: 0,
+        recovered: 0
       },
       countryDataForGraph: {
         date: [],
@@ -22,14 +22,14 @@ export default {
         growthRate: {
           confirmed: [],
           deaths: [],
-          recovered: [],
+          recovered: []
         },
         in24Hours: {
           confirmed: [],
           deaths: [],
-          recovered: [],
-        },
-      },
+          recovered: []
+        }
+      }
     };
   },
   methods: {
@@ -48,15 +48,19 @@ export default {
               borderColor: "#2C3E50",
               hoverBorderColor: "#2C3E50",
               borderWidth: 3,
-              backgroundColor: ["rgba(241, 196, 15, 0.750)", "rgba(231, 77, 60, 0.750)", "rgba(46, 204, 112, 0.750)"],
+              backgroundColor: [
+                "rgba(241, 196, 15, 0.750)",
+                "rgba(231, 77, 60, 0.750)",
+                "rgba(46, 204, 112, 0.750)"
+              ],
               hoverBackgroundColor: ["#F1C40F", "#E74C3C", "#2ECC71"],
               data: [
                 this.countryDataForGraph.in24Hours.confirmed,
                 this.countryDataForGraph.in24Hours.deaths,
-                this.countryDataForGraph.in24Hours.recovered,
-              ],
-            },
-          ],
+                this.countryDataForGraph.in24Hours.recovered
+              ]
+            }
+          ]
         },
         _graphDoughnut.option.default
       );
@@ -77,22 +81,24 @@ export default {
         growthRate: {
           confirmed: [],
           deaths: [],
-          recovered: [],
+          recovered: []
         },
         in24Hours: {
           confirmed: 0,
           deaths: 0,
-          recovered: 0,
-        },
+          recovered: 0
+        }
       };
 
       // Adicionar novos valores
-      data.forEach((value) => {
-        this.countryDataForGraph.in24Hours.confirmed += value.in24Hours.confirmed;
+      data.forEach(value => {
+        this.countryDataForGraph.in24Hours.confirmed +=
+          value.in24Hours.confirmed;
         this.countryDataForGraph.in24Hours.deaths += value.in24Hours.deaths;
-        this.countryDataForGraph.in24Hours.recovered += value.in24Hours.recovered;
+        this.countryDataForGraph.in24Hours.recovered +=
+          value.in24Hours.recovered;
       });
-    },
+    }
   },
   mounted() {
     // Renderização inicial do Gráfico
@@ -103,11 +109,11 @@ export default {
           {
             borderColor: "#34495E",
             backgroundColor: "transparent", //["rgba(241, 196, 15, 0.100)", "rgba(231, 77, 60, 0.100)", "rgba(46, 204, 112, 0.100)"],
-            data: [-1, -1, -1],
-          },
-        ],
+            data: [-1, -1, -1]
+          }
+        ]
       },
       _graphDoughnut.option.default
     );
-  },
+  }
 };

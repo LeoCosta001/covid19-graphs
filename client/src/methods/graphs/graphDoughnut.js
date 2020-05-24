@@ -7,8 +7,8 @@ module.exports = {
         labels: {
           fontColor: "#ECF0F1",
           fontSize: 15,
-          padding: 25,
-        },
+          padding: 25
+        }
       },
       tooltips: {
         intersect: false,
@@ -17,8 +17,8 @@ module.exports = {
         xPadding: 10,
         caretSize: 7,
         caretPadding: 7,
-        multiKeyBackground: "transparent",
+        multiKeyBackground: "transparent"
       }
-    },
-  },
+    }
+  }
 };

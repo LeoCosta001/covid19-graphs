@@ -9,9 +9,10 @@
       </div>
 
       <div class="footer__subtitle">COVID-19</div>
-      <div
-        class="footer__about__content"
-      >Lorem ipsum, dolor sit amet consectetur adipisicing elit corrupti obcaecati dignissimos voluptatum nobis distinctio commodi accusantium!</div>
+      <div class="footer__about__content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit corrupti
+        obcaecati dignissimos voluptatum nobis distinctio commodi accusantium!
+      </div>
     </article>
 
     <!-- Social -->
@@ -64,27 +65,60 @@
         <div class="footer__links__content__subcontainer">
           <div class="footer__subtitle">Dúvidas</div>
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Cuidados Pessoais
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Cuidados Pessoais
           </router-link>
 
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Sintomas
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Sintomas
           </router-link>
 
-          <router-link to="/questions/modes-of-transmission" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Meios de Transmissão
+          <router-link
+            to="/questions/modes-of-transmission"
+            class="footer__links__content"
+          >
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Meios de Transmissão
           </router-link>
 
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Perguntas Frequentes
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Perguntas Frequentes
           </router-link>
 
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Emergência
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Emergência
           </router-link>
 
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Sobre o COVID-19
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Sobre o COVID-19
           </router-link>
         </div>
 
@@ -92,15 +126,33 @@
         <div class="footer__links__content__subcontainer">
           <div class="footer__subtitle">Dados</div>
           <router-link to="/data-table" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Tabela de Dados
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Tabela de Dados
           </router-link>
 
-          <router-link to="/graphs/countries-charts" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos dos Países
+          <router-link
+            to="/graphs/countries-charts"
+            class="footer__links__content"
+          >
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Gráficos dos Países
           </router-link>
 
           <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos Mundiais
+            <unicon
+              class="unicon"
+              name="angle-right"
+              width="20px"
+              height="20px"
+            />Gráficos Mundiais
           </router-link>
         </div>
       </div>
@@ -114,22 +166,22 @@
         <hr />
       </div>
 
-      <div
-        class="footer__help__content"
-      >Ajude a conscientizar as pessoas para que cada um faça a sua parte nesta luta contra o COVID-19! Compartilhe estas imagens.</div>
+      <div class="footer__help__content">
+        Ajude a conscientizar as pessoas para que cada um faça a sua parte nesta
+        luta contra o COVID-19! Compartilhe estas imagens.
+      </div>
 
       <div class="footer__subtitle">Imagens</div>
     </article>
   </div>
 </template>
 
-<script src="./MainFooter.js">
-</script>
+<script src="./MainFooter.js"></script>
 
 <style lang="scss" scoped>
 // Variáveis
 @import "@/sass/variables/_flatUiColors";
 
 // SCSS deste componente
-@import "./MainFooter";
-</style>;
+@import "./MainFooter";</style
+>;
