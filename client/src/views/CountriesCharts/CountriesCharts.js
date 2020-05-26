@@ -3,7 +3,7 @@ import DataOptions from "@/components/Modal/DataOptions/DataOptions.vue";
 import CountriesCharts from "@/components/Graphs/CountriesCharts/CountriesCharts.vue";
 
 export default {
-  name: "DataTable",
+  name: "CountriesChartsView",
   components: {
     DataOptions,
     CountriesCharts

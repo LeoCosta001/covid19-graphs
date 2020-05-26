@@ -6,7 +6,7 @@ import VueCharts from "vue-chartjs";
 
 export default {
   extends: VueCharts.Line,
-  name: "RegisterNumberForCountriesCharts",
+  name: "RegisterNumbersForGlobalCharts",
   data() {
     return {
       countryDataForGraph: {

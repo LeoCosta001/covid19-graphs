@@ -5,6 +5,7 @@ import _graphBar from "@/methods/graphs/graphBar.js";
 import VueCharts from "vue-chartjs";
 
 export default {
+  name: "GraphGrouthRateForCountriesCharts",
   extends: VueCharts.Bar,
   data() {
     return {

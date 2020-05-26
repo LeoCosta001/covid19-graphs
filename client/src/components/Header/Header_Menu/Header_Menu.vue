@@ -124,7 +124,7 @@
         </span>
 
         <!-- Link para Comparar Países -->
-        <router-link to="#" class="menu__link__1">
+        <router-link to="/graphs/global-charts" class="menu__link__1">
           <unicon class="unicon" name="chart" width="23px" height="23px" />
           <span class="link__title__1">Comparar Países</span>
         </router-link>

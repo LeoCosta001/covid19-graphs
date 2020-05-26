@@ -1,12 +1,12 @@
 // Métodos
-import _graphLine from "@/methods/graphs/graphLine.js";
+import _graphBar from "@/methods/graphs/graphBar.js";
 
 // APIs
 import VueCharts from "vue-chartjs";
 
 export default {
-  extends: VueCharts.Line,
-  name: "RegisterNumberForCountriesCharts",
+  extends: VueCharts.Bar,
+  name: "GraphGrouthRateForGlobalCharts",
   data() {
     return {
       countryDataForGraph: {
@@ -41,27 +41,36 @@ export default {
             {
               label: "Casos Confirmados",
               borderColor: "#F1C40F",
-              backgroundColor: "rgba(241, 196, 15, 0.100)",
-              data: this.countryDataForGraph.in24Hours.confirmed,
+              hoverBorderColor: "##F1C40F",
+              backgroundColor: "rgba(241, 196, 15, 0.5)",
+              hoverBackgroundColor: "#F1C40F",
+              borderWidth: 2,
+              data: this.countryDataForGraph.growthRate.confirmed,
               lineTension: 0
             },
             {
               label: "Mortos",
               borderColor: "#E74C3C",
-              backgroundColor: "rgba(231, 77, 60, 0.100)",
-              data: this.countryDataForGraph.in24Hours.deaths,
+              hoverBorderColor: "##E74C3C",
+              backgroundColor: "rgba(231, 77, 60, 0.5)",
+              hoverBackgroundColor: "#E74C3C",
+              borderWidth: 2,
+              data: this.countryDataForGraph.growthRate.deaths,
               lineTension: 0
             },
             {
               label: "Recuperados",
               borderColor: "#2ECC71",
-              backgroundColor: "rgba(46, 204, 112, 0.100)",
-              data: this.countryDataForGraph.in24Hours.recovered,
+              hoverBorderColor: "##2ECC71",
+              backgroundColor: "rgba(46, 204, 112, 0.5)",
+              hoverBackgroundColor: "#2ECC71",
+              borderWidth: 2,
+              data: this.countryDataForGraph.growthRate.recovered,
               lineTension: 0
             }
           ]
         },
-        _graphLine.option.default(true)
+        _graphBar.option.default(true)
       );
     },
     attVariable_CountryDataForGraph(data) {
@@ -86,14 +95,14 @@ export default {
       // Adicionar novos valores
       data.forEach(value => {
         this.countryDataForGraph.date.unshift(value.date);
-        this.countryDataForGraph.in24Hours.confirmed.unshift(
-          value.in24Hours.confirmed
+        this.countryDataForGraph.growthRate.confirmed.unshift(
+          value.growthRate.confirmed
         );
-        this.countryDataForGraph.in24Hours.deaths.unshift(
-          value.in24Hours.deaths
+        this.countryDataForGraph.growthRate.deaths.unshift(
+          value.growthRate.deaths
         );
-        this.countryDataForGraph.in24Hours.recovered.unshift(
-          value.in24Hours.recovered
+        this.countryDataForGraph.growthRate.recovered.unshift(
+          value.growthRate.recovered
         );
       });
     }
@@ -111,7 +120,7 @@ export default {
           }
         ]
       },
-      _graphLine.option.default(false)
+      _graphBar.option.default(false)
     );
   }
 };

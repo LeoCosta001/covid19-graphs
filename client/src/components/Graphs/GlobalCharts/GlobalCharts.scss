@@ -1,0 +1,23 @@
+.localContainer {
+  @include localContainerDefault;
+}
+
+// Titulo
+.title__h2 {
+  @include title_h2;
+}
+
+// Texto sobre o gráfico
+.about__content {
+  @include graphTitles;
+}
+
+// Conteiner de conteúdo
+.content__container {
+  position: relative;
+}
+
+.geochart__map__container {
+  width: 80vw;
+  height: 60vh;
+}

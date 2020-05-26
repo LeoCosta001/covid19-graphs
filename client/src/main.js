@@ -1,8 +1,12 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
-import Unicon from "vue-unicons";
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
+import Unicon from 'vue-unicons';
+
+// API de gráficos do Google Charts
+import VueGoogleCharts from 'vue-google-charts';
+Vue.use(VueGoogleCharts);
 
 // Icones
 // OBS: A lista de icones está neste link "https://antonreshetov.github.io/vue-unicons/"
@@ -34,8 +38,10 @@ import {
   uniEnvelope,
   uniCog,
   uniTimes,
-  uniCheck
-} from "vue-unicons/src/icons";
+  uniCheck,
+  uniSearchMinus,
+  uniSearchPlus,
+} from 'vue-unicons/src/icons';
 Unicon.add([
   uniHome,
   uniSync,
@@ -64,51 +70,53 @@ Unicon.add([
   uniEnvelope,
   uniCog,
   uniTimes,
-  uniCheck
+  uniCheck,
+  uniSearchMinus,
+  uniSearchPlus,
 ]);
 Vue.use(Unicon);
 
 // API de calendário
-import FunctionalCalendar from "vue-functional-calendar";
+import FunctionalCalendar from 'vue-functional-calendar';
 Vue.use(FunctionalCalendar, {
   isAutoCloseable: true,
-  dateFormat: "dd/mm/yyyy",
-  dayNames: ["S", "T", "Q", "Q", "S", "S", "D"],
+  dateFormat: 'dd/mm/yyyy',
+  dayNames: ['S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
   monthNames: [
-    "Janeiro",
-    "Fevereiro",
-    "Março",
-    "Abril",
-    "Maio",
-    "Junho",
-    "Julho",
-    "Agosto",
-    "Setembro",
-    "Outubro",
-    "Novembro",
-    "Dezembro"
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
   ],
   shortMonthNames: [
-    "Jan",
-    "Fev",
-    "Mar",
-    "Abr",
-    "Mai",
-    "Jun",
-    "Jul",
-    "Ago",
-    "Set",
-    "Out",
-    "Nov",
-    "Dez"
+    'Jan',
+    'Fev',
+    'Mar',
+    'Abr',
+    'Mai',
+    'Jun',
+    'Jul',
+    'Ago',
+    'Set',
+    'Out',
+    'Nov',
+    'Dez',
   ],
-  disabledDates: ["afterToday"],
-  hiddenElements: ["leftAndRightDays"]
+  disabledDates: ['afterToday'],
+  hiddenElements: ['leftAndRightDays'],
 });
 
 // Componentes do bootstrap-vue
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 
@@ -116,5 +124,5 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
-}).$mount("#app");
+  render: (h) => h(App),
+}).$mount('#app');

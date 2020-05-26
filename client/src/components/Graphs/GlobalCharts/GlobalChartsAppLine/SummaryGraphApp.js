@@ -6,7 +6,7 @@ import VueCharts from "vue-chartjs";
 
 export default {
   extends: VueCharts.Line,
-  name: "RegisterNumberForCountriesCharts",
+  name: "SummaryGraphForGlobalCharts",
   data() {
     return {
       countryDataForGraph: {
@@ -42,21 +42,21 @@ export default {
               label: "Casos Confirmados",
               borderColor: "#F1C40F",
               backgroundColor: "rgba(241, 196, 15, 0.100)",
-              data: this.countryDataForGraph.in24Hours.confirmed,
+              data: this.countryDataForGraph.confirmed,
               lineTension: 0
             },
             {
               label: "Mortos",
               borderColor: "#E74C3C",
               backgroundColor: "rgba(231, 77, 60, 0.100)",
-              data: this.countryDataForGraph.in24Hours.deaths,
+              data: this.countryDataForGraph.deaths,
               lineTension: 0
             },
             {
               label: "Recuperados",
               borderColor: "#2ECC71",
               backgroundColor: "rgba(46, 204, 112, 0.100)",
-              data: this.countryDataForGraph.in24Hours.recovered,
+              data: this.countryDataForGraph.recovered,
               lineTension: 0
             }
           ]
@@ -86,15 +86,9 @@ export default {
       // Adicionar novos valores
       data.forEach(value => {
         this.countryDataForGraph.date.unshift(value.date);
-        this.countryDataForGraph.in24Hours.confirmed.unshift(
-          value.in24Hours.confirmed
-        );
-        this.countryDataForGraph.in24Hours.deaths.unshift(
-          value.in24Hours.deaths
-        );
-        this.countryDataForGraph.in24Hours.recovered.unshift(
-          value.in24Hours.recovered
-        );
+        this.countryDataForGraph.confirmed.unshift(value.confirmed);
+        this.countryDataForGraph.deaths.unshift(value.deaths);
+        this.countryDataForGraph.recovered.unshift(value.recovered);
       });
     }
   },

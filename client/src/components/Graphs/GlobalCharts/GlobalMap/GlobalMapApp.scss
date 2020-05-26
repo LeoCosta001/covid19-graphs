@@ -1,0 +1,46 @@
+.GlobalMapAppContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+// Mapa global
+.globalmap__container {
+  cursor: grab;
+  height: 100%;
+  flex: 1;
+  border: solid 2px $flatGreenSea;
+  overflow: auto;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// Botões laterais
+.aside__map__button__container {
+  width: 50px;
+  margin-left: 5px;
+  z-index: 100;
+
+  .map__button__box {
+    cursor: pointer;
+    background-color: $bgflatGreenSea80;
+    width: 45px;
+    height: 45px;
+    border: solid 1px $flatGreenSea;
+    border-radius: 0px 10px 0px;
+    margin: 0px 0px 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: $flatGreenSea25;
+    }
+  }
+
+  .unicon {
+    fill: $flatGreenSea;
+  }
+}
