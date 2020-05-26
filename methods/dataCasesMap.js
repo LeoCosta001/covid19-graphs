@@ -35,9 +35,9 @@ module.exports = {
   remapAllData(localConfig) {
     let allCasesModelMapped = [];
 
-    /*****************************************
-     * Iterando nos dados de todos os países *
-     *****************************************/
+    /****************************************
+     * Iterando os dados de todos os países *
+     ****************************************/
 
     // Adicionando novo JSON no "allCasesModelMapped"
     localConfig.countryNameList.forEach((value) => {
@@ -95,20 +95,11 @@ module.exports = {
     /**********************************
      * Criando a chave "casesSummary" *
      **********************************/
+
     let result = allCasesModelMapped.map((value) => {
       let firstIndexOfCases = value.cases[0];
       let lastIndexOfCases = value.cases[value.cases.length - 1];
 
-      // Calculo da soma de todos os novos registros
-      let calcConfirmed = localConfig.reverse
-        ? firstIndexOfCases.confirmed - lastIndexOfCases.confirmed
-        : lastIndexOfCases.confirmed - firstIndexOfCases.confirmed;
-      let calcDeaths = localConfig.reverse
-        ? firstIndexOfCases.deaths - lastIndexOfCases.deaths
-        : lastIndexOfCases.deaths - firstIndexOfCases.deaths;
-      let calcRecovered = localConfig.reverse
-        ? firstIndexOfCases.recovered - lastIndexOfCases.recovered
-        : lastIndexOfCases.recovered - firstIndexOfCases.recovered;
 
       // Calculo da taxa de crescimento de todos os novos registros
       let calcGrowthRateConfirmed = localConfig.reverse
@@ -133,6 +124,18 @@ module.exports = {
             firstIndexOfCases.recovered) *
           100;
 
+      // Calculo da soma de todos os novos registros
+      let calcConfirmed = localConfig.reverse
+        ? firstIndexOfCases.confirmed - lastIndexOfCases.confirmed
+        : lastIndexOfCases.confirmed - firstIndexOfCases.confirmed;
+      let calcDeaths = localConfig.reverse
+        ? firstIndexOfCases.deaths - lastIndexOfCases.deaths
+        : lastIndexOfCases.deaths - firstIndexOfCases.deaths;
+      let calcRecovered = localConfig.reverse
+        ? firstIndexOfCases.recovered - lastIndexOfCases.recovered
+        : lastIndexOfCases.recovered - firstIndexOfCases.recovered;
+
+
       return {
         country: value.country,
         cases: value.cases,
@@ -146,9 +149,9 @@ module.exports = {
               : lastIndexOfCases.date,
           },
 
-          confirmed: calcConfirmed,
-          deaths: calcDeaths,
-          recovered: calcRecovered,
+          confirmed: localConfig.reverse ? firstIndexOfCases.confirmed : lastIndexOfCases.confirmed,
+          deaths: localConfig.reverse ? firstIndexOfCases.deaths : lastIndexOfCases.deaths,
+          recovered: localConfig.reverse ? firstIndexOfCases.recovered : lastIndexOfCases.recovered,
 
           growthRate: {
             confirmed: isFinite(calcGrowthRateConfirmed)
@@ -161,6 +164,12 @@ module.exports = {
               ? calcGrowthRateRecovered.toFixed(2)
               : null,
           },
+
+          inBetweenDays: {
+            confirmed: calcConfirmed,
+            deaths: calcDeaths,
+            recovered: calcRecovered,
+          }
         },
       };
     });

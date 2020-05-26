@@ -108,6 +108,22 @@ const growthRateSummaryKeyType = new GraphQLObjectType({
   },
 });
 
+// Chaves de "inBetweenDays"
+const inBetweenDaysKeyType = new GraphQLObjectType({
+  name: 'inBetweenDaysKey',
+  fields: {
+    confirmed: {
+      type: GraphQLInt,
+    },
+    deaths: {
+      type: GraphQLInt,
+    },
+    recovered: {
+      type: GraphQLInt,
+    },
+  },
+});
+
 // Chaves de "casesSummary"
 const casesSummaryKeyType = new GraphQLObjectType({
   name: 'casesSummaryKey',
@@ -126,6 +142,9 @@ const casesSummaryKeyType = new GraphQLObjectType({
     },
     growthRate: {
       type: growthRateSummaryKeyType,
+    },
+    inBetweenDays: {
+      type: inBetweenDaysKeyType,
     },
   },
 });
