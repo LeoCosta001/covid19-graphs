@@ -1,9 +1,10 @@
 <template>
   <div class="localContainer">
     <h2 class="title__h2">Dados do COVID-19 no Mundo</h2>
+    <p>Dados atualizado de acordo com a data selecionada "{{ reqResult.selectedValues.selectDate.lastDate }}".</p>
 
     <!-- Título -->
-    <article class="about__content" id="summary-graph">
+    <article class="about__content" id="global-map">
       <hr />
       <h3>Mapa Mundial</h3>
       <hr />
@@ -11,17 +12,30 @@
 
     <!-- Mapa global -->
     <section class="content__container">
-      <article class="geochart__data__type__container"></article>
-      <article class="geochart__map__container">
-        <GlobalMapApp ref="attGlobalMapApp" :globalDataOptions="globalData" />
+      <article class="component__GlobalMapApp__container">
+        <GlobalMapApp ref="attGlobalMapApp" />
       </article>
     </section>
 
     <!-- Título -->
-    <article class="about__content" id="summary-graph">
+    <article class="about__content" id="countries-rank">
       <hr />
       <h3>Rank dos países</h3>
-      <p>Lista atualizada diariamente com os registros de todos os países.</p>
+    <p>Rank baseado no tipo de dado selecionado "{{ reqResult.selectedValues.selectDataType.dataTypeTranslated }}".</p>
+      <hr />
+    </article>
+
+    <!-- Rank dos países -->
+    <section class="content__container">
+      <article class="component__GlobalRankApp__container">
+        <GlobalRankApp ref="attGlobalRankApp" />
+      </article>
+    </section>
+
+    <!-- Título -->
+    <article class="about__content" id="global-summary">
+      <hr />
+      <h3>Resumo global</h3>
       <hr />
     </article>
   </div>

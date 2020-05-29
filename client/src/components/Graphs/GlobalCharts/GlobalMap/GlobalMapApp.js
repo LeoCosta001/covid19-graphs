@@ -10,15 +10,6 @@ export default {
   components: {
     GChart,
   },
-  props: {
-    globalDataOptions: {
-      type: Object,
-      required: true,
-      default: () => {
-        return {};
-      },
-    },
-  },
   data() {
     return {
       newGlobalMapData: [],
@@ -36,15 +27,7 @@ export default {
       },
 
       // Dados do mapa
-      chartData: [
-        ['Country', 'Popularity'],
-        ['Germany', 200],
-        ['United States', 300],
-        ['Brazil', 400],
-        ['Canada', 500],
-        ['France', 600],
-        ['RU', 700], // Para usar strings na visualização é necessário passar um objeto onde "v" é o valor e "f" é a exibição (ex: ['RU', {v: 700, f: '700%'] = 700%)
-      ],
+      chartData: [],
       chartOptions: {
         displayMode: 'regions',
         /*region: '002', // Africa (Aqui vai ser usada a opção de selecionar areas especificas, o valor padrão é "world")*/
@@ -165,8 +148,6 @@ export default {
       });
 
       this.newGlobalMapData.unshift(['País', 'Casos confirmados']);
-
-      console.log(this.newGlobalMapData);
       this.attMap;
     },
   },

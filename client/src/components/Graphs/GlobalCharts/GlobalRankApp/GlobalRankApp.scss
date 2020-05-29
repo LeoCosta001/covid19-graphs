@@ -1,0 +1,95 @@
+.GlobalRankAppContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+// Conteiner da lista de rank
+.rank__list__container {
+  border: solid 2px $flatGreenSea;
+  height: 100%;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+
+  & .rank__item__container {
+    user-select: none;
+    cursor: pointer;
+    color: $flatGreenSea;
+    background-color: $bgflatGreenSea80;
+    height: 77.5px;
+    width: 300px;
+    border: solid 1px $flatGreenSea;
+    border-radius: 0px 10px 0px;
+    margin: 10px 0px;
+    display: flex;
+
+    & .rank__position {
+      font-size: 1.4em;
+      width: 50px;
+      height: 100%;
+      padding-top: 5px;
+      text-align: end;
+    }
+
+    & div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      & .rank__country__name {
+        flex: 1;
+        letter-spacing: 1px;
+        line-height: 1em;
+        font-size: 1.3em;
+        font-weight: bold;
+        padding: 10px 0px 0px 10px;
+      }
+
+      & .rank__value {
+        flex: 1;
+        letter-spacing: 1px;
+        font-weight: lighter;
+        font-size: 1.4em;
+        padding-right: 5px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+    }
+
+    &:hover {
+      background-color: $flatLightGreenSea10;
+    }
+  }
+}
+
+// Conteiner do gráficode Doughnut
+.graph__doughnut__container {
+  background-color: $bgflatGreenSea80;
+  border: solid 1px $flatGreenSea;
+  width: calc(80vw - 330px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & .graph__doughnut__title {
+    border-bottom: solid 1px $flatGreenSea;
+    color: $flatGreenSea;
+    font-size: 1.8em;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: center;
+  }
+}

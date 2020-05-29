@@ -15,9 +15,17 @@
 // Conteiner de conteúdo
 .content__container {
   position: relative;
+  width: 80vw;
 }
 
-.geochart__map__container {
-  width: 80vw;
+// Conteiner dos componentes
+.component__GlobalMapApp__container {
+  width: 100%;
   height: 60vh;
+  
+}
+
+.component__GlobalRankApp__container {
+  width: 100%;
+  height: 500px;
 }

@@ -166,7 +166,7 @@
             </div>
             <div
               class="content__invalid__value"
-              v-if="selectedValues.selectInfo.invalidStatus"
+              v-if="selectInfoLocal.invalidStatus"
             >
               <hr />
               <div>

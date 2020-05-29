@@ -8,12 +8,6 @@ export default {
     GlobalDataOptions,
     GlobalCharts
   },
-  data() {
-    return {
-      // Dados recebidos do componente "GlobalDataOptions"
-      globalDataOptions: undefined
-    };
-  },
   methods: {
     // Recebe novos valores no componente "GlobalDataOptions" e os envia para o componente "GlobalCharts"
     globalDataOptionsReturn(req) {

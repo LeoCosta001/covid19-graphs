@@ -4,125 +4,75 @@
       <div class="select__info__graph">
         <p>Selecione as informações que serão exibidas:</p>
         <div class="select__input__container">
-          <!-- Opção: Gráfico resumido -->
+          <!-- Opção: Mapa mundial -->
           <span class="select__input__item">
             <input
               type="checkbox"
-              v-model="summaryGraph_checkbox"
+              v-model="globalMap_checkbox"
               @change="checkSelectedInfo"
-              id="summaryGraph_checkbox"
+              id="globalMap_checkbox"
               checked
             />
             <label
-              for="summaryGraph_checkbox"
-              :class="{ 'select_info--input--checked': summaryGraph_checkbox }"
+              for="globalMap_checkbox"
+              :class="{ 'select_info--input--checked': globalMap_checkbox }"
             >
               <unicon
-                v-if="summaryGraph_checkbox"
+                v-if="globalMap_checkbox"
                 class="unicon"
                 name="check"
                 width="20px"
                 height="20px"
               />
-              <span>Gráfico resumido</span>
+              <span>Mapa mundial</span>
             </label>
           </span>
 
-          <!-- Opção: Taxa de crescimento diário -->
+          <!-- Opção: Rank dos países -->
           <span class="select__input__item">
             <input
               type="checkbox"
-              v-model="growthRate_checkbox"
+              v-model="countriesRank_checkbox"
               @change="checkSelectedInfo"
-              id="growthRate_checkbox"
+              id="countriesRank_checkbox"
               checked
             />
             <label
-              for="growthRate_checkbox"
-              :class="{ 'select_info--input--checked': growthRate_checkbox }"
+              for="countriesRank_checkbox"
+              :class="{ 'select_info--input--checked': countriesRank_checkbox }"
             >
               <unicon
-                v-if="growthRate_checkbox"
+                v-if="countriesRank_checkbox"
                 class="unicon"
                 name="check"
                 width="20px"
                 height="20px"
               />
-              <span>Taxa de crescimento diário</span>
+              <span>Rank dos países</span>
             </label>
           </span>
 
-          <!-- Opção: Novos registros diários -->
+          <!-- Opção: Resumo global -->
           <span class="select__input__item">
             <input
               type="checkbox"
-              v-model="newRegister_checkbox"
+              v-model="globalSummary_checkbox"
               @change="checkSelectedInfo"
-              id="newRegister_checkbox"
+              id="globalSummary_checkbox"
               checked
             />
             <label
-              for="newRegister_checkbox"
-              :class="{ 'select_info--input--checked': newRegister_checkbox }"
+              for="globalSummary_checkbox"
+              :class="{ 'select_info--input--checked': globalSummary_checkbox }"
             >
               <unicon
-                v-if="newRegister_checkbox"
+                v-if="globalSummary_checkbox"
                 class="unicon"
                 name="check"
                 width="20px"
                 height="20px"
               />
-              <span>Novos registros diários</span>
-            </label>
-          </span>
-
-          <!-- Opção: Resumo -->
-          <span class="select__input__item">
-            <input
-              type="checkbox"
-              v-model="summary_checkbox"
-              @change="checkSelectedInfo"
-              id="summary_checkbox"
-              checked
-            />
-            <label
-              for="summary_checkbox"
-              :class="{ 'select_info--input--checked': summary_checkbox }"
-            >
-              <unicon
-                v-if="summary_checkbox"
-                class="unicon"
-                name="check"
-                width="20px"
-                height="20px"
-              />
-              <span>Resumo</span>
-            </label>
-          </span>
-
-          <!-- Opção: Informações adicionais -->
-          <span class="select__input__item">
-            <input
-              type="checkbox"
-              v-model="additionalInformation_checkbox"
-              @change="checkSelectedInfo"
-              id="additionalInformation_checkbox"
-              checked
-            />
-            <label
-              for="additionalInformation_checkbox"
-              :class="{
-                'select_info--input--checked': additionalInformation_checkbox
-              }"
-            >
-              <unicon
-                v-if="additionalInformation_checkbox"
-                class="unicon"
-                name="check"
-                width="20px"
-                height="20px"
-              />
-              <span>Informações adicionais</span>
+              <span>Resumo global</span>
             </label>
           </span>
         </div>

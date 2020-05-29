@@ -73,6 +73,10 @@
       display: flex;
       flex-direction: column;
       transition: 0.3s;
+
+      .aside__navbar__title {
+        white-space: nowrap;
+      }
     }
 
     & .aside__navbar__links {
@@ -99,14 +103,14 @@
 
       & .nav-link {
         color: rgba(22, 160, 132, 0);
-        padding: 5px 15px;
+        padding: 0px 0px;
         transition: 0.3s;
       }
     }
 
     &:hover {
       background-color: $bgflatGreenSea90;
-      height: 230px;
+      height: 160px;
 
       & .aside__navbar__hide {
         color: rgba(22, 160, 132, 100);
@@ -114,10 +118,11 @@
         width: 235px;
 
         & .aside__navbar__links {
-          height: 175px;
+          height: 105px;
 
           & .nav-link {
             color: rgba(22, 160, 132, 100);
+            padding: 5px 15px;
 
             &:hover {
               background-color: $flatGreenSea10;
@@ -133,6 +138,92 @@
   }
 }
 
+// Menu lateral que seleciona os tipos de dados
+.aside__data__type__container {
+  overflow: hidden;
+  margin-left: 5px;
+  position: fixed;
+  top: 240px;
+  z-index: 500;
+
+  & .aside__data__type__content {
+    background-color: $bgflatGreenSea80;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    word-wrap: none;
+    height: 50px;
+    padding: 5px;
+    border: solid 1px $flatGreenSea;
+    border-radius: 0px 10px 0px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+
+    & .unicon {
+      fill: $flatGreenSea;
+      margin: 0px 5px;
+    }
+
+    & .aside__data__type__hide {
+      color: rgba(22, 160, 132, 0);
+      width: 0px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+
+      .aside__data__type__title {
+        white-space: nowrap;
+      }
+    }
+
+    & .aside__data__type__radios {
+      font-size: 0.8em;
+      white-space: nowrap;
+      height: 0px;
+      border-left: solid 1px $flatGreenSea;
+      margin: 5px 0px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+
+      & .aside__data__type__radio {
+        outline: none;  
+        text-decoration: none;
+        background-color: transparent;
+        text-align: left;
+        color: rgba(22, 160, 132, 0);
+        margin: 1px 0px;
+        transition: 0.3s;
+      }
+    }
+
+    &:hover {
+      background-color: $bgflatGreenSea90;
+      height: 160px;
+
+      & .aside__data__type__hide {
+        color: rgba(22, 160, 132, 100);
+        margin-left: 10px;
+        width: 235px;
+
+        & .aside__data__type__radios {
+          height: 105px;
+
+          & .aside__data__type__radio {
+            color: rgba(22, 160, 132, 100);
+            padding: 5px 15px;
+
+            &:hover {
+              background-color: $flatGreenSea10;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Background que exibe o status da requisição
 .request__status__container {
   user-select: none;
   width: 100%;

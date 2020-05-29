@@ -41,6 +41,7 @@ import {
   uniCheck,
   uniSearchMinus,
   uniSearchPlus,
+  uniLayerGroup,
 } from 'vue-unicons/src/icons';
 Unicon.add([
   uniHome,
@@ -73,6 +74,7 @@ Unicon.add([
   uniCheck,
   uniSearchMinus,
   uniSearchPlus,
+  uniLayerGroup,
 ]);
 Vue.use(Unicon);
 
