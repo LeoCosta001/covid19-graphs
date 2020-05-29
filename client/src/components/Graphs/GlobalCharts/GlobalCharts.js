@@ -25,6 +25,11 @@ export default {
             firstDate: _date.calcDate(-2, false),
             lastDate: _date.calcDate(-1, false),
           },
+          selectInfo: {
+            globalMap: true,
+            countriesRank: true,
+            globalSummary: true,
+          }
         },
       },
     };

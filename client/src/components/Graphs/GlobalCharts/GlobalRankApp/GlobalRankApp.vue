@@ -14,15 +14,15 @@
           <span
             class="rank__value"
             v-if="newGlobalRankData.selectedValues.selectDataType.dataType == 'confirmed'"
-          >{{ data.casesSummary.confirmed }} ({{ data.globalPercentage.confirmed }}%)</span>
+          >{{ data.valueWithPoints.confirmed }} ({{ data.globalPercentage.confirmed }}%)</span>
           <span
             class="rank__value"
             v-if="newGlobalRankData.selectedValues.selectDataType.dataType == 'deaths'"
-          >{{ data.casesSummary.deaths }} ({{ data.globalPercentage.deaths }}%)</span>
+          >{{ data.valueWithPoints.deaths }} ({{ data.globalPercentage.deaths }}%)</span>
           <span
             class="rank__value"
             v-if="newGlobalRankData.selectedValues.selectDataType.dataType == 'recovered'"
-          >{{ data.casesSummary.recovered }} ({{ data.globalPercentage.recovered }}%)</span>
+          >{{ data.valueWithPoints.recovered }} ({{ data.globalPercentage.recovered }}%)</span>
         </div>
       </div>
     </section>

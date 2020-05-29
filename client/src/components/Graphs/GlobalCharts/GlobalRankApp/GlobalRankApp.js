@@ -1,4 +1,5 @@
 // Metodos
+import _addPoints from '@/methods/changeData/addPoints';
 import _translation from '@/methods/translation/translation';
 import GlobalChartsAppDoughnut from '@/components/Graphs/GlobalCharts/GlobalChartsAppDoughnut/GlobalChartsAppDoughnut';
 
@@ -79,9 +80,23 @@ export default {
             country: value.country,
             countryTranslated: _translation.countryName(value.country),
             globalPercentage: {
-              confirmed: ((value.casesSummary.confirmed / this.totalValue.confirmed) * 100).toFixed(2),
-              deaths: ((value.casesSummary.deaths / this.totalValue.deaths) * 100).toFixed(2),
-              recovered: ((value.casesSummary.recovered / this.totalValue.recovered) * 100).toFixed(2),
+              confirmed: (
+                (value.casesSummary.confirmed / this.totalValue.confirmed) *
+                100
+              ).toFixed(2),
+              deaths: (
+                (value.casesSummary.deaths / this.totalValue.deaths) *
+                100
+              ).toFixed(2),
+              recovered: (
+                (value.casesSummary.recovered / this.totalValue.recovered) *
+                100
+              ).toFixed(2),
+            },
+            valueWithPoints: {
+              confirmed: _addPoints.init(value.casesSummary.confirmed),
+              deaths: _addPoints.init(value.casesSummary.deaths),
+              recovered: _addPoints.init(value.casesSummary.recovered),
             },
           };
         }),

@@ -1,10 +1,21 @@
+// Conteiner dos botões laterais
+.aside__buttons__container {
+  margin-left: 5px;
+  position: fixed;
+  top: 130px;
+  z-index: 500;
+}
+
 // Botão lateral que abre o modal
 .modal__data__options__button {
   overflow: hidden;
-  margin-left: 5px;
-  position: fixed;
-  top: 100px;
-  z-index: 500;
+  margin-bottom: 10px;
+  width: 52px;
+  transition: 0.3s;
+
+  &:hover {
+    width: 150px;
+  }
 
   & .aside__navbar__content {
     background-color: rgba(42, 72, 85, 0.8);
@@ -44,10 +55,13 @@
 // Navbar lateral que desliza pela página
 .aside__navbar__container {
   overflow: hidden;
-  margin-left: 5px;
-  position: fixed;
-  top: 170px;
-  z-index: 500;
+  margin-bottom: 10px;
+  width: 52px;
+  transition: 0.3s;
+
+  &:hover {
+    width: 280px;
+  }
 
   & .aside__navbar__content {
     background-color: $bgflatGreenSea80;
@@ -141,10 +155,12 @@
 // Menu lateral que seleciona os tipos de dados
 .aside__data__type__container {
   overflow: hidden;
-  margin-left: 5px;
-  position: fixed;
-  top: 240px;
-  z-index: 500;
+  width: 52px;
+  transition: 0.3s;
+
+  &:hover {
+    width: 250px;
+  }
 
   & .aside__data__type__content {
     background-color: $bgflatGreenSea80;
@@ -187,7 +203,7 @@
       transition: 0.3s;
 
       & .aside__data__type__radio {
-        outline: none;  
+        outline: none;
         text-decoration: none;
         background-color: transparent;
         text-align: left;
@@ -229,8 +245,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  position: fixed;
-  top: 70px;
   z-index: 9000;
 
   & .popup__status {

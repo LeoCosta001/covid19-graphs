@@ -54,8 +54,8 @@ export default {
 
       // Tipo de dados que serão exibidos
       selectDataTypeLocal: {
-        dataType: '',
-        dataTypeTranslated: '',
+        dataType: 'confirmed',
+        dataTypeTranslated: 'Casos Confirmados',
         invalidStatus: false,
       },
 

@@ -1,57 +1,60 @@
 <template>
   <div class="modal__data__options__container">
-    <!-- Botão lateral que abre o modal -->
-    <section class="modal__data__options__button">
-      <div @click="modalOpenButton" class="aside__navbar__content">
-        <unicon class="unicon" name="cog" width="30px" height="30px" />
-        <span class="aside__navbar__hide">
-          <div class="aside__navbar__title">Opções</div>
-        </span>
-      </div>
-    </section>
+      <!-- Conteiner dos botões laterais -->
+    <section class="aside__buttons__container">
+      <!-- Botão lateral que abre o modal -->
+      <article class="modal__data__options__button">
+        <div @click="modalOpenButton" class="aside__navbar__content">
+          <unicon class="unicon" name="cog" width="30px" height="30px" />
+          <span class="aside__navbar__hide">
+            <div class="aside__navbar__title">Opções</div>
+          </span>
+        </div>
+      </article>
 
-    <!-- Navbar lateral que desliza pela página -->
-    <section class="aside__navbar__container">
-      <div class="aside__navbar__content">
-        <unicon class="unicon" name="list-ul" width="30px" height="30px" />
-        <span class="aside__navbar__hide">
-          <div class="aside__navbar__title">Barra de Navegação</div>
+      <!-- Navbar lateral que desliza pela página -->
+      <article class="aside__navbar__container">
+        <div class="aside__navbar__content">
+          <unicon class="unicon" name="list-ul" width="30px" height="30px" />
+          <span class="aside__navbar__hide">
+            <div class="aside__navbar__title">Barra de Navegação</div>
 
-          <b-nav v-b-scrollspy:nav-scroller class="aside__navbar__links">
-            <b-nav-item class="aside__navbar__link" to="#global-map" active>Mapa Mundial</b-nav-item>
-            <b-nav-item class="aside__navbar__link" to="#countries-rank">Rank dos Países</b-nav-item>
-            <b-nav-item class="aside__navbar__link" to="#global-summary">Resumo Global</b-nav-item>
-          </b-nav>
-        </span>
-      </div>
-    </section>
+            <b-nav v-b-scrollspy:nav-scroller class="aside__navbar__links">
+              <b-nav-item class="aside__navbar__link" to="#global-map" active>Mapa Mundial</b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#countries-rank">Rank dos Países</b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#global-summary">Resumo Global</b-nav-item>
+            </b-nav>
+          </span>
+        </div>
+      </article>
 
-    <!-- Lista lateral que seleicona os dados -->
-    <section class="aside__data__type__container">
-      <div class="aside__data__type__content">
-        <unicon class="unicon" name="layer-group" width="30px" height="30px" />
-        <span class="aside__data__type__hide">
-          <div class="aside__data__type__title">Tipo de dados</div>
+      <!-- Lista lateral que seleciona os dados -->
+      <article class="aside__data__type__container">
+        <div class="aside__data__type__content">
+          <unicon class="unicon" name="layer-group" width="30px" height="30px" />
+          <span class="aside__data__type__hide">
+            <div class="aside__data__type__title">Tipo de dados</div>
 
-          <div class="aside__data__type__radios">
-            <button
-              class="aside__data__type__radio"
-              :class="{ 'data--type--active': selectedValues.dataType == 'confirmed' }"
-              @click="attGlobalData('confirmed')"
-            >Casos Confirmados</button>
-            <button
-              class="aside__data__type__radio"
-              :class="{ 'data--type--active': selectedValues.dataType == 'recovered' }"
-              @click="attGlobalData('recovered')"
-            >Recuperados</button>
-            <button
-              class="aside__data__type__radio"
-              :class="{ 'data--type--active': selectedValues.dataType == 'deaths' }"
-              @click="attGlobalData('deaths')"
-            >Mortos</button>
-          </div>
-        </span>
-      </div>
+            <div class="aside__data__type__radios">
+              <button
+                class="aside__data__type__radio"
+                :class="{ 'data--type--active': selectedValues.dataType == 'confirmed' }"
+                @click="attGlobalData('confirmed')"
+              >Casos Confirmados</button>
+              <button
+                class="aside__data__type__radio"
+                :class="{ 'data--type--active': selectedValues.dataType == 'recovered' }"
+                @click="attGlobalData('recovered')"
+              >Recuperados</button>
+              <button
+                class="aside__data__type__radio"
+                :class="{ 'data--type--active': selectedValues.dataType == 'deaths' }"
+                @click="attGlobalData('deaths')"
+              >Mortos</button>
+            </div>
+          </span>
+        </div>
+      </article>
     </section>
 
     <!-- Popup que exibe o status da requisição -->
@@ -125,7 +128,10 @@
               <hr />
             </div>
             <div class="content_body">
-              <SelectDataType ref="refSelectDataType" @SelectDataType_return="SelectDataType_method" />
+              <SelectDataType
+                ref="refSelectDataType"
+                @SelectDataType_return="SelectDataType_method"
+              />
             </div>
           </article>
 
