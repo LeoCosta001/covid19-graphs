@@ -45,4 +45,5 @@
 
 // SCSS deste componente
 @import "./GlobalRankApp";
+@import "./GlobalRankApp_Media";
 </style>

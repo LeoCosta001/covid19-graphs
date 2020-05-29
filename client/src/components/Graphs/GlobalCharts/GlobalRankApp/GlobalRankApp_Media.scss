@@ -1,0 +1,15 @@
+@media (max-width: 770px) {
+  .GlobalRankAppContainer {
+    flex-direction: column !important;
+    height: auto !important;
+
+    & .rank__list__container {
+      height: 300px !important;
+      width: 100% !important;
+    }
+
+    & .graph__doughnut__container {
+      width: 100% !important;
+    }
+  }
+}
