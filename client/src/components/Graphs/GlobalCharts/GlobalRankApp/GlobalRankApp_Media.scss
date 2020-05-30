@@ -1,4 +1,4 @@
-@media (max-width: 770px) {
+@media (max-width: 830px) {
   .GlobalRankAppContainer {
     flex-direction: column;
     height: auto;
@@ -9,6 +9,7 @@
     }
 
     & .graph__doughnut__container {
+      margin-top: 30px;
       width: 100%;
     }
   }

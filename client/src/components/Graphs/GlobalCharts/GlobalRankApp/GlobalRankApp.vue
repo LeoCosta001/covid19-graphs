@@ -32,7 +32,7 @@
       <span class="graph__doughnut__title">
         {{ countryRankSelected.countryTranslateSelected }}
       </span>
-      <GlobalChartsAppDoughnut ref="attGlobalChartsAppDoughnut" class="graph__doughnut" />
+      <GlobalRankAppDoughnut ref="attGlobalRankAppDoughnut" class="graph__doughnut" />
     </section>
   </div>
 </template>

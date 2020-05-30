@@ -1,7 +1,9 @@
 // Metodos
 import _addPoints from '@/methods/changeData/addPoints';
 import _translation from '@/methods/translation/translation';
-import GlobalChartsAppDoughnut from '@/components/Graphs/GlobalCharts/GlobalChartsAppDoughnut/GlobalChartsAppDoughnut';
+
+// Componentes
+import GlobalRankAppDoughnut from '@/components/Graphs/GlobalCharts/GlobalChartsAppDoughnut/GlobalRankAppDoughnut';
 
 // APIs
 import { GChart } from 'vue-google-charts';
@@ -11,7 +13,7 @@ export default {
   name: 'GlobalRankApp',
   components: {
     GChart,
-    GlobalChartsAppDoughnut,
+    GlobalRankAppDoughnut,
   },
   data() {
     return {
@@ -124,7 +126,7 @@ export default {
       });
 
       // Separar dados do país selecionado
-      this.$refs.attGlobalChartsAppDoughnut.attGraph(newData[0]);
+      this.$refs.attGlobalRankAppDoughnut.attGraph(newData[0]);
     },
   },
 };

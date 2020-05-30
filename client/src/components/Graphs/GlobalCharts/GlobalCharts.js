@@ -1,6 +1,7 @@
 // Componentes
 import GlobalMapApp from '@/components/Graphs/GlobalCharts/GlobalMap/GlobalMapApp.vue';
 import GlobalRankApp from '@/components/Graphs/GlobalCharts/GlobalRankApp/GlobalRankApp.vue';
+import GlobalSummary from '@/components/Graphs/GlobalCharts/GlobalSummary/GlobalSummary.vue';
 
 // Métodos
 import _date from '@/methods/changeDate/dateIdentify.js';
@@ -10,7 +11,8 @@ export default {
   name: 'GlobalCharts',
   components: {
     GlobalMapApp,
-    GlobalRankApp
+    GlobalRankApp,
+    GlobalSummary
   },
   data() {
     return {
@@ -40,6 +42,7 @@ export default {
       this.reqResult = req;
       this.$refs.attGlobalMapApp.attGlobalMap(req);
       this.$refs.attGlobalRankApp.attGlobalRank(req);
+      this.$refs.attGlobalSummaryApp.attGlobalSummary(req);
     },
   },
 };

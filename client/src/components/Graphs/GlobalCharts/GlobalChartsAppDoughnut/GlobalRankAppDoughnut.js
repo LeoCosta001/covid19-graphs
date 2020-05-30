@@ -6,7 +6,7 @@ import VueCharts from 'vue-chartjs';
 
 export default {
   extends: VueCharts.Doughnut,
-  name: 'GlobalChartsAppDoughnutForGlobalCharts',
+  name: 'GlobalRankAppDoughnutForGlobalCharts',
   data() {
     return {
       totalIndexNumber: 0,

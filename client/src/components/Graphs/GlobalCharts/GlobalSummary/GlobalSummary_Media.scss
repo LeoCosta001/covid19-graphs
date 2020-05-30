@@ -1,0 +1,16 @@
+@media (max-width: 830px) {
+  .GlobalSummaryContainer {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .GlobalSummaryContainer {
+    & .graph__doughnut__container {
+      & .graph__doughnut {
+        width: 100%;
+      }
+    }
+  }
+}

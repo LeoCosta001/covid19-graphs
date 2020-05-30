@@ -50,6 +50,12 @@
       <h3>Resumo global</h3>
       <hr />
     </article>
+        <!-- Rank dos países -->
+    <section class="content__container" v-if="reqResult.selectedValues.selectInfo.globalSummary">
+      <article class="component__GlobalSummary__container">
+        <GlobalSummary ref="attGlobalSummaryApp" />
+      </article>
+    </section>
   </div>
 </template>
 
