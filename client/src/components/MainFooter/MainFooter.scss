@@ -12,7 +12,8 @@
 
   // Todos os artigos
   & article {
-    height: 100%;
+    width: 350px !important;
+    height: 200px;
 
     & ~ article {
       margin-left: 20px;

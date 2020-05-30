@@ -20,5 +20,10 @@
   }
 }
 
-// Realinhar seletores de datas
-@include dateSelectionAlign;
+@media (max-width: 400px) {
+  .graph__doughnut {
+    & .graph__size {
+      width: 100%;
+    }
+  }
+}

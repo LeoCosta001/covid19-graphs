@@ -14,13 +14,14 @@
     display: none !important;
   }
 
-  // Alterando margem do <select> dos países
-  .aside__header {
-    padding: 0px 30px 0px 60px;
-  }
-
   // Alterando margem do botão do Menu
   .open__menu {
     padding: 0px 0px 0px 30px;
   }
+  
+  // Alterando margem do <select> dos países
+  .aside__header {
+  padding: 0px 30px 0px 60px;
+  }
+
 }

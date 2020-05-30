@@ -1,0 +1,32 @@
+@media (max-width: 1000px) {
+  .mainFooterContainer {
+    height: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    & article {
+      margin-left: 0px !important;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+    .footer__links {
+        margin: 15px 0px 40px 0px;
+    }
+  }
+
+@media (max-width: 430px) {
+  .footer__links {
+    margin-bottom: 140px;
+
+    & .footer__links__content__container {
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      & .footer__links__content__subcontainer:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

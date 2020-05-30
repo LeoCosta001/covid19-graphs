@@ -1,15 +1,40 @@
 @media (max-width: 770px) {
   .GlobalRankAppContainer {
-    flex-direction: column !important;
-    height: auto !important;
+    flex-direction: column;
+    height: auto;
 
     & .rank__list__container {
-      height: 300px !important;
-      width: 100% !important;
+      height: 300px;
+      width: 100%;
     }
 
     & .graph__doughnut__container {
-      width: 100% !important;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .GlobalRankAppContainer {
+    & .rank__list__container {
+      & .rank__item__container {
+        width: 95%;
+        // height: 105px;
+        height: auto;
+
+        & div {
+          & .rank__value {
+            position: relative;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+
+    & .graph__doughnut__container {
+      & .graph__doughnut {
+        width: 100%;
+      }
     }
   }
 }

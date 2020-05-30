@@ -1,7 +1,7 @@
 <template>
   <div class="localContainer">
     <h2 class="title__h2">Dados do COVID-19 no Mundo</h2>
-    <p>Dados atualizado de acordo com a data selecionada "{{ reqResult.selectedValues.selectDate.lastDate }}".</p>
+    <p class="global__charts__subtitle">Dados atualizado de acordo com a data selecionada "{{ reqResult.selectedValues.selectDate.lastDate }}".</p>
 
     <!-- Título -->
     <article

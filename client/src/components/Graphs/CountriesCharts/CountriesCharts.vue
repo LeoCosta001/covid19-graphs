@@ -249,6 +249,7 @@
           <CountriesChartsAppDoughnut
             ref="countriesChartsAppDoughnut"
             @resGraphDataEmit="reqGraphDataEmit"
+            class="graph__size"
           />
         </div>
       </div>
@@ -426,7 +427,6 @@
 @import "@/sass/mixin/containers/localContainerDefault";
 @import "@/sass/mixin/titles/graphTitles";
 @import "@/sass/mixin/titles/title_h2";
-@import "@/sass/mixin/mediaQueries/dateSelection";
 @import "@/sass/mixin/modifiers/unselectCountry";
 
 // SCSS deste componente
