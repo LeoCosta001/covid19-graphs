@@ -1,5 +1,5 @@
-const allCasesModelLoad = require("../models/cases-model.js");
-const dataCasesMap = require("../methods/dataCasesMap.js");
+const allCasesModelLoad = require('../models/cases-model.js');
+const dataCasesMap = require('../methods/dataCasesMap.js');
 
 async function dataLoad() {
   try {
@@ -28,25 +28,33 @@ async function dataLoad() {
     /***********************************************************************
      * Funções que retornam dados do JSON com novas chaves e novos valores *
      ***********************************************************************/
-    
-    exports.allDataMap = (countrySearch, firstDate, lastDate) => {
+
+    exports.allDataMap = (countrySearch, firstDate, lastDate, onlyDate) => {
       const allCountryName = Object.keys(allCasesModel);
 
       let dataMapResult = dataCasesMap.remapAllData({
         countryNameList: allCountryName,
         data: allCasesModel,
         reverse: true,
-        dateFormat: "DD/MM/AAAA",
+        dateFormat: 'DD/MM/AAAA',
         firstDate: firstDate ? firstDate : false,
         lastDate: lastDate ? lastDate : false,
       });
+      if (onlyDate) {
+        dataMapResult = dataMapResult.map((value) => {
+          return {
+            country: value.country,
+            casesSummary: value.casesSummary,
+            cases: value.cases.filter((i) => i.date == onlyDate),
+          };
+        });
+      }
 
       if (!countrySearch) {
         return dataMapResult;
       } else {
         return dataMapResult.filter((i) => i.country == countrySearch);
-      };
-
+      }
     };
   } catch (err) {
     console.log('Error! Server controller "/controllers/cases-controller"');

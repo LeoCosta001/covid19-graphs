@@ -189,12 +189,17 @@ module.exports = new GraphQLSchema({
             type: GraphQLString,
             description: 'Data final',
           },
+          onlyDate: {
+            type: GraphQLString,
+            description: 'Unica data',
+          },
         },
         async resolve(_, args) {
           let result = await casesController.allDataMap(
             args.country,
             args.firstDate,
-            args.lastDate
+            args.lastDate,
+            args.onlyDate
           );
           return result;
         },
