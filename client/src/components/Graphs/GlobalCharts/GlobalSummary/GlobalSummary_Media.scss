@@ -8,6 +8,7 @@
 @media (max-width: 400px) {
   .GlobalSummaryContainer {
     & .graph__doughnut__container {
+      width: 100%;
       & .graph__doughnut {
         width: 100%;
       }

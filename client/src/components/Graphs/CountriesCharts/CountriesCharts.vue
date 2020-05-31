@@ -14,9 +14,7 @@
     >
       <hr />
       <h3>Gráfico Resumido</h3>
-      <p>
-        Grafico atualizado diariamente com a soma de todos os novos registros.
-      </p>
+      <p>Grafico atualizado diariamente com a soma de todos os novos registros.</p>
       <hr />
     </article>
 
@@ -46,9 +44,7 @@
     >
       <hr />
       <h3>Taxa de Crescimento Diário</h3>
-      <p>
-        Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.
-      </p>
+      <p>Cálculo da Taxa de Crescimento relacionando sempre com o dia anterior.</p>
       <hr />
     </article>
 
@@ -65,10 +61,7 @@
       </article>
 
       <!-- Gráfico -->
-      <div
-        class="graph__container"
-        :class="{ 'unselect--country': !countryData.data }"
-      >
+      <div class="graph__container" :class="{ 'unselect--country': !countryData.data }">
         <CountriesChartsAppBar ref="countriesChartsAppBar" />
       </div>
     </section>
@@ -98,20 +91,13 @@
       </article>
 
       <!-- Gráfico Linear -->
-      <div
-        class="graph__container"
-        :class="{ 'unselect--country': !countryData.data }"
-      >
+      <div class="graph__container" :class="{ 'unselect--country': !countryData.data }">
         <CountriesChartsAppLine ref="countriesChartsAppLine" />
       </div>
     </section>
 
     <!-- Título -->
-    <article
-      class="about__graph"
-      id="summary"
-      v-if="countryData.selectedValues.selectInfo.summary"
-    >
+    <article class="about__graph" id="summary" v-if="countryData.selectedValues.selectInfo.summary">
       <hr />
       <h3>Resumo</h3>
       <p>
@@ -126,10 +112,7 @@
     </article>
 
     <!-- Gráfico de Doughnut -->
-    <section
-      class="graph__content__container"
-      v-if="countryData.selectedValues.selectInfo.summary"
-    >
+    <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.summary">
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
         <div class="select__country__msg__container">
@@ -138,110 +121,74 @@
       </article>
 
       <!-- Conteúdo -->
-      <div
-        class="graph__doughnut__container"
-        :class="{ 'unselect--country': !countryData.data }"
-      >
+      <div class="graph__doughnut__container" :class="{ 'unselect--country': !countryData.data }">
         <div class="graph__doughnut__content">
-          <!-- Tabela (Total de Novos Registros)-->
-          <table>
-            <thead>
-              <tr>
-                <th colspan="2">Total de Novos Registros</th>
-              </tr>
-            </thead>
-            <tbody class="main__tbody">
-              <tr>
-                <td>Casos Confirmados:</td>
-                <td>{{ graphDoughnutTable.confirmed }}</td>
-              </tr>
-              <tr>
-                <td>Mortos:</td>
-                <td>{{ graphDoughnutTable.deaths }}</td>
-              </tr>
-              <tr>
-                <td>Recuperados:</td>
-                <td>{{ graphDoughnutTable.recovered }}</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- Total de Novos Registros -->
+          <div class="content__title">Total de Novos Registros</div>
+          <div class="register__item__container">
+            <span class="register__title">Casos Confirmados:</span>
+            <span class="register__value">{{ graphDoughnutTable.confirmed }}</span>
+          </div>
 
-          <!-- Tabela (Taxa de Crescimento Total)-->
-          <table>
-            <thead>
-              <tr>
-                <th colspan="2">Taxa de Crescimento Total</th>
-              </tr>
-            </thead>
-            <tbody class="main__tbody">
-              <tr>
-                <td>Casos Confirmados:</td>
-                <td>
-                  <span
-                    v-if="graphDoughnutTable.growthRate.confirmed != undefined"
-                    >+{{ graphDoughnutTable.growthRate.confirmed }}%</span
-                  >
+          <div class="register__item__container">
+            <span class="register__title">Recuperados:</span>
+            <span class="register__value">{{ graphDoughnutTable.recovered }}</span>
+          </div>
 
-                  <span
-                    class="growthRate__null__information"
-                    v-if="graphDoughnutTable.growthRate.confirmed == null"
-                    v-b-tooltip.left.hover
-                    title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
-                  >
-                    <unicon
-                      class="unicon"
-                      name="exclamation-triangle"
-                      width="22.5px"
-                      height="22.5px"
-                    />
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>Mortos:</td>
-                <td>
-                  <span v-if="graphDoughnutTable.growthRate.deaths != undefined"
-                    >+{{ graphDoughnutTable.growthRate.deaths }}%</span
-                  >
-                  <span
-                    class="growthRate__null__information"
-                    v-if="graphDoughnutTable.growthRate.deaths == null"
-                    v-b-tooltip.left.hover
-                    title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
-                  >
-                    <unicon
-                      class="unicon"
-                      name="exclamation-triangle"
-                      width="22.5px"
-                      height="22.5px"
-                    />
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>Recuperados:</td>
-                <td>
-                  <span
-                    v-if="graphDoughnutTable.growthRate.recovered != undefined"
-                    >+{{ graphDoughnutTable.growthRate.recovered }}%</span
-                  >
-                  <span
-                    class="growthRate__null__information"
-                    v-if="graphDoughnutTable.growthRate.recovered == null"
-                    v-b-tooltip.left.hover
-                    title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
-                  >
-                    <unicon
-                      class="unicon"
-                      name="exclamation-triangle"
-                      width="22.5px"
-                      height="22.5px"
-                    />
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="register__item__container">
+            <span class="register__title">Mortos:</span>
+            <span class="register__value">{{ graphDoughnutTable.deaths }}</span>
+          </div>
+
+          <!-- Taxa de Crescimento Total -->
+          <div class="content__title">Taxa de Crescimento Total</div>
+          <div class="register__item__container">
+            <span class="register__title">Casos Confirmados:</span>
+            <span
+              class="register__value"
+              v-if="graphDoughnutTable.growthRate.confirmed != null"
+            >+{{ graphDoughnutTable.growthRate.confirmed }}%</span>
+            <span
+              class="register__value growthRate__null__information"
+              v-else
+              v-b-tooltip.left.hover
+              title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
+            >
+              <unicon class="unicon" name="exclamation-triangle" width="22.5px" height="22.5px" />
+            </span>
+          </div>
+
+          <div class="register__item__container">
+            <span class="register__title">Recuperados:</span>
+            <span
+              class="register__value"
+              v-if="graphDoughnutTable.growthRate.recovered != null"
+            >+{{ graphDoughnutTable.growthRate.recovered }}%</span>
+            <span
+              class="register__value growthRate__null__information"
+              v-else
+              v-b-tooltip.left.hover
+              title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
+            >
+              <unicon class="unicon" name="exclamation-triangle" width="22.5px" height="22.5px" />
+            </span>
+          </div>
+
+          <div class="register__item__container">
+            <span class="register__title">Mortos:</span>
+            <span
+              class="register__value"
+              v-if="graphDoughnutTable.growthRate.deaths != null"
+            >+{{ graphDoughnutTable.growthRate.deaths }}%</span>
+            <span
+              class="register__value growthRate__null__information"
+              v-else
+              v-b-tooltip.left.hover
+              title="Só é possivel calcular a taxa de crescimento a partir da data do primeiro resgistro."
+            >
+              <unicon class="unicon" name="exclamation-triangle" width="22.5px" height="22.5px" />
+            </span>
+          </div>
         </div>
 
         <!-- Gráfico de Doughnut -->
@@ -282,19 +229,21 @@
         </div>
       </article>
 
-      <!-- Tabela -->
-      <article :class="{ 'unselect--country': !countryData.data }">
+      <!-- Tabela: Dia com o maior registro de "Casos Confirmados" -->
+      <article
+        class="countryDataTable__container"
+        :class="{ 'unselect--country': !countryData.data }"
+      >
         <table class="countryDataTable__main">
           <tbody class="main__tbody">
-            <tr class="main__tr">
-              <td colspan="3">
-                Dia com o maior registro de "Casos Confirmados"
-              </td>
+            <tr class="main__tr" @click="countryDataTableConfirmedToggle()">
+              <td colspan="3">Dia com o maior registro de "Casos Confirmados"</td>
             </tr>
             <tr>
               <td colspan="3">
                 <table
                   class="countryDataTable__internal"
+                  :class="{ 'countryDataTable--close': !countryDataTableConfirmed }"
                   v-if="additionalInformation.highestNumberOfConfirmed"
                 >
                   <thead>
@@ -328,13 +277,25 @@
                 </table>
               </td>
             </tr>
-            <tr class="main__tr">
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Tabela: Dia com o maior registro de "Mortos" -->
+      <article
+        class="countryDataTable__container"
+        :class="{ 'unselect--country': !countryData.data }"
+      >
+        <table class="countryDataTable__main">
+          <tbody class="main__tbody">
+            <tr class="main__tr" @click="countryDataTableDeathsToggle()">
               <td colspan="3">Dia com o maior registro de "Mortos"</td>
             </tr>
             <tr>
               <td colspan="3">
                 <table
                   class="countryDataTable__internal"
+                  :class="{ 'countryDataTable--close': !countryDataTableDeaths }"
                   v-if="additionalInformation.highestNumberOfDeaths"
                 >
                   <thead>
@@ -368,13 +329,25 @@
                 </table>
               </td>
             </tr>
-            <tr class="main__tr">
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Tabela: Dia com o maior registro de "Recuperados" -->
+      <article
+        class="countryDataTable__container"
+        :class="{ 'unselect--country': !countryData.data }"
+      >
+        <table class="countryDataTable__main">
+          <tbody class="main__tbody">
+            <tr class="main__tr" @click="countryDataTableRecoveredToggle()">
               <td colspan="3">Dia com o maior registro de "Recuperados"</td>
             </tr>
             <tr>
               <td colspan="3">
                 <table
                   class="countryDataTable__internal"
+                  :class="{ 'countryDataTable--close': !countryDataTableRecovered }"
                   v-if="additionalInformation.highestNumberOfRecovered"
                 >
                   <thead>

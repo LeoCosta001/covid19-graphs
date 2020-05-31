@@ -1,24 +1,24 @@
 // APIs
-import { FunctionalCalendar } from "vue-functional-calendar";
+import { FunctionalCalendar } from 'vue-functional-calendar';
 
 // Componentes
-import CountriesChartsAppBar from "@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js";
-import CountriesChartsAppDoughnut from "@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js";
-import CountriesChartsAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js";
-import SummaryGraphAppLine from "@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js";
+import CountriesChartsAppBar from '@/components/Graphs/CountriesCharts/CountriesChartsAppBar/GraphGrouthRateApp.js';
+import CountriesChartsAppDoughnut from '@/components/Graphs/CountriesCharts/CountriesChartsAppDoughnut/GraphResumeGrouthRateApp.js';
+import CountriesChartsAppLine from '@/components/Graphs/CountriesCharts/CountriesChartsAppLine/RegisterNumbersApp.js';
+import SummaryGraphAppLine from '@/components/Graphs/CountriesCharts/CountriesChartsAppLine/SummaryGraphApp.js';
 
 // Metodos
-import _date from "@/methods/changeDate/dateIdentify.js";
+import _date from '@/methods/changeDate/dateIdentify.js';
 
 // Configurações do componente
 export default {
-  name: "CountriesCharts",
+  name: 'CountriesCharts',
   components: {
     FunctionalCalendar,
     CountriesChartsAppBar,
     CountriesChartsAppDoughnut,
     CountriesChartsAppLine,
-    SummaryGraphAppLine
+    SummaryGraphAppLine,
   },
   data() {
     return {
@@ -28,11 +28,11 @@ export default {
           selectDate: {
             firstDate: _date.calcDate(-7, false),
             lastDate: _date.calcDate(-1, false),
-            invalidStatus: false
+            invalidStatus: false,
           },
           selectCountry: {
-            countryName: "",
-            invalidStatus: true
+            countryName: '',
+            invalidStatus: true,
           },
           selectInfo: {
             summaryGraph: true,
@@ -40,9 +40,9 @@ export default {
             newRegister: true,
             summary: true,
             additionalInformation: true,
-            invalidStatus: false
-          }
-        }
+            invalidStatus: false,
+          },
+        },
       },
       graphDoughnutTable: {
         confirmed: 0,
@@ -51,31 +51,34 @@ export default {
         growthRate: {
           confirmed: 0,
           deaths: 0,
-          recovered: 0
-        }
+          recovered: 0,
+        },
       },
       additionalInformation: {
         highestNumberOfDeaths: {
-          date: "dd/mm/aaaa",
+          date: 'dd/mm/aaaa',
           value: 0,
-          totalValue: 0
+          totalValue: 0,
         },
         highestNumberOfRecovered: {
-          date: "dd/mm/aaaa",
+          date: 'dd/mm/aaaa',
           value: 0,
-          totalValue: 0
+          totalValue: 0,
         },
         highestNumberOfConfirmed: {
-          date: "dd/mm/aaaa",
+          date: 'dd/mm/aaaa',
           value: 0,
-          totalValue: 0
-        }
+          totalValue: 0,
+        },
       },
       // Controladores de display
       inputTableDataNumberInvalid: false,
       tableLineDetailStatus: undefined,
+      countryDataTableConfirmed: true,
+      countryDataTableDeaths: true,
+      countryDataTableRecovered: true,
       // Transferir dados para o componente de Gráfico
-      resForGraph: this.countryData
+      resForGraph: this.countryData,
     };
   },
   methods: {
@@ -122,7 +125,7 @@ export default {
       this.graphDoughnutTable.deaths = 0;
       this.graphDoughnutTable.recovered = 0;
 
-      data.forEach(value => {
+      data.forEach((value) => {
         this.graphDoughnutTable.confirmed += value.in24Hours.confirmed;
         this.graphDoughnutTable.deaths += value.in24Hours.deaths;
         this.graphDoughnutTable.recovered += value.in24Hours.recovered;
@@ -185,39 +188,52 @@ export default {
           .reverse();
 
         result = result
-          .filter(value => {
+          .filter((value) => {
             return value.in24Hours[valueType] == result[0].in24Hours[valueType]
               ? true
               : false;
           })
-          .map(value => {
+          .map((value) => {
             return {
               date: value.date,
               value: value.in24Hours[valueType],
-              totalValue: value[valueType]
+              totalValue: value[valueType],
             };
           });
 
         return result;
       }
 
-      let highestNumberOfConfirmedResult = highestValueSearch("confirmed");
+      let highestNumberOfConfirmedResult = highestValueSearch('confirmed');
       this.additionalInformation.highestNumberOfConfirmed =
         highestNumberOfConfirmedResult[0].value > 0
           ? highestNumberOfConfirmedResult
           : false;
 
-      let highestNumberOfDeathsResult = highestValueSearch("deaths");
+      let highestNumberOfDeathsResult = highestValueSearch('deaths');
       this.additionalInformation.highestNumberOfDeaths =
         highestNumberOfDeathsResult[0].value > 0
           ? highestNumberOfDeathsResult
           : false;
 
-      let highestNumberOfRecoveredResult = highestValueSearch("recovered");
+      let highestNumberOfRecoveredResult = highestValueSearch('recovered');
       this.additionalInformation.highestNumberOfRecovered =
         highestNumberOfRecoveredResult[0].value > 0
           ? highestNumberOfRecoveredResult
           : false;
-    }
-  }
+    },
+
+    // Abrir e fechar as tabelas de "Informações Adicionais"
+    countryDataTableConfirmedToggle() {
+      this.countryDataTableConfirmed = this.countryDataTableConfirmed ? false : true;
+    },
+
+    countryDataTableDeathsToggle() {
+      this.countryDataTableDeaths = this.countryDataTableDeaths ? false : true;
+    },
+
+    countryDataTableRecoveredToggle() {
+      this.countryDataTableRecovered = this.countryDataTableRecovered ? false : true;
+    },
+  },
 };

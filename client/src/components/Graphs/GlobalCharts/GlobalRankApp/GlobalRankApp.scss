@@ -2,6 +2,7 @@
   height: 500px;
   width: 100%;
   display: flex;
+  justify-content: center;
 }
 
 // Conteiner da lista de rank
@@ -74,7 +75,7 @@
 .graph__doughnut__container {
   background-color: $bgflatGreenSea80;
   border: solid 1px $flatGreenSea;
-  width: calc(80vw - 330px);
+  width: 450px;
   height: 100%;
   display: flex;
   align-items: center;

@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     attGraph(globalData) {
-      console.log(globalData)
       // Atualizar dados da variavel "globalDataForGraph"
       let reqGlobalData = globalData;
       // Renderização do gráfico atualizado

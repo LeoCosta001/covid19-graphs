@@ -48,6 +48,7 @@
     >
       <hr />
       <h3>Resumo global</h3>
+      <p>Soma de todos os registros até a data selecionada "{{ reqResult.selectedValues.selectDate.lastDate }}".</p>
       <hr />
     </article>
         <!-- Rank dos países -->
