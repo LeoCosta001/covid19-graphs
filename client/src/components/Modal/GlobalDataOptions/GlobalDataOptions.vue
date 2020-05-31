@@ -1,6 +1,6 @@
 <template>
   <div class="modal__data__options__container">
-      <!-- Conteiner dos botões laterais -->
+    <!-- Conteiner dos botões laterais -->
     <section class="aside__buttons__container">
       <!-- Botão lateral que abre o modal -->
       <article class="modal__data__options__button">
@@ -20,9 +20,15 @@
             <div class="aside__navbar__title">Barra de Navegação</div>
 
             <b-nav v-b-scrollspy:nav-scroller class="aside__navbar__links">
-              <b-nav-item class="aside__navbar__link" to="#global-map" active>Mapa Mundial</b-nav-item>
-              <b-nav-item class="aside__navbar__link" to="#countries-rank">Rank dos Países</b-nav-item>
-              <b-nav-item class="aside__navbar__link" to="#global-summary">Resumo Global</b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#global-map" active>
+                <unicon class="unicon" name="map" width="20px" height="20px" />Mapa Mundial
+              </b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#countries-rank">
+                <unicon class="unicon" name="list-ul" width="20px" height="20px" />Rank dos Países
+              </b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#global-summary">
+                <unicon class="unicon" name="chart-pie" width="20px" height="20px" />Resumo Global
+              </b-nav-item>
             </b-nav>
           </span>
         </div>
@@ -38,19 +44,40 @@
             <div class="aside__data__type__radios">
               <button
                 class="aside__data__type__radio"
-                :class="{ 'data--type--active': selectedValues.dataType == 'confirmed' }"
+                :class="{ 'data--type--active': selectedValues.selectDataType.dataType == 'confirmed' }"
                 @click="attGlobalData('confirmed')"
-              >Casos Confirmados</button>
+              >
+                <unicon
+                  class="unicon"
+                  name="check"
+                  width="20px"
+                  height="20px"
+                />Casos Confirmados
+              </button>
               <button
                 class="aside__data__type__radio"
-                :class="{ 'data--type--active': selectedValues.dataType == 'recovered' }"
+                :class="{ 'data--type--active': selectedValues.selectDataType.dataType == 'recovered' }"
                 @click="attGlobalData('recovered')"
-              >Recuperados</button>
+              >
+                <unicon
+                  class="unicon"
+                  name="check"
+                  width="20px"
+                  height="20px"
+                />Recuperados
+              </button>
               <button
                 class="aside__data__type__radio"
-                :class="{ 'data--type--active': selectedValues.dataType == 'deaths' }"
+                :class="{ 'data--type--active': selectedValues.selectDataType.dataType == 'deaths' }"
                 @click="attGlobalData('deaths')"
-              >Mortos</button>
+              >
+                <unicon
+                  class="unicon"
+                  name="check"
+                  width="20px"
+                  height="20px"
+                />Mortos
+              </button>
             </div>
           </span>
         </div>

@@ -5,4 +5,8 @@
 .data--type--active {
   background-color: rgba(22, 160, 132, 0) !important;
   font-weight: bold !important;
+  
+  & .unicon {
+    fill: rgba(22, 160, 132, 100) !important;
+  }
 }

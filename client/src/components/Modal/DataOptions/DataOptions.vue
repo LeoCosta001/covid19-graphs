@@ -20,14 +20,21 @@
             <div class="aside__navbar__title">Navbar</div>
 
             <b-nav v-b-scrollspy:nav-scroller class="aside__navbar__links">
-              <b-nav-item class="aside__navbar__link" to="#summary-graph" active>Gráfico Resumido</b-nav-item>
-              <b-nav-item class="aside__navbar__link" to="#growth-rate">Taxa de Crescimento</b-nav-item>
-              <b-nav-item class="aside__navbar__link" to="#new-register">Novos Registros</b-nav-item>
-              <b-nav-item class="aside__navbar__link" to="#summary">Resumo</b-nav-item>
-              <b-nav-item
-                class="aside__navbar__link"
-                to="#additional-information"
-              >Informações Adicionais</b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#summary-graph" active>
+                <unicon class="unicon" name="chart-growth" width="20px" height="20px" />Gráfico Resumido
+              </b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#growth-rate">
+                <unicon class="unicon" name="chart-bar" width="20px" height="20px" />Taxa de Crescimento
+              </b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#new-register">
+                <unicon class="unicon" name="chart-line" width="20px" height="20px" />Novos Registros
+              </b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#summary">
+                <unicon class="unicon" name="chart-pie" width="20px" height="20px" />Resumo
+              </b-nav-item>
+              <b-nav-item class="aside__navbar__link" to="#additional-information">
+                <unicon class="unicon" name="list-ul" width="20px" height="20px" />Informações Adicionais
+              </b-nav-item>
             </b-nav>
           </span>
         </div>

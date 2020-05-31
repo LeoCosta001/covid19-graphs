@@ -109,6 +109,12 @@
         margin: 1px 0px;
         transition: 0.3s;
 
+        & .unicon {
+          margin: 0px 10px 0px 0px;
+          fill: rgba(22, 160, 132, 0);
+          transition: 0.3s;
+        }
+
         & .active {
           background-color: rgba(22, 160, 132, 0);
           font-weight: bold;
@@ -133,6 +139,10 @@
 
         & .aside__navbar__links {
           height: 105px;
+
+          & .unicon {
+            fill: rgba(22, 160, 132, 100);
+          }
 
           & .nav-link {
             color: rgba(22, 160, 132, 100);
@@ -210,6 +220,12 @@
         color: rgba(22, 160, 132, 0);
         margin: 1px 0px;
         transition: 0.3s;
+
+        & .unicon {
+          margin: 0px 5px 0px -7.5px;
+          fill: rgba(22, 160, 132, 0);
+          transition: 0.3s;
+        }
       }
     }
 
