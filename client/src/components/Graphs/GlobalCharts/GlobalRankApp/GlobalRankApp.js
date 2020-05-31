@@ -40,23 +40,19 @@ export default {
         case 'confirmed':
           rankSort = req.data.sort((currentValue, nextValue) => {
             return (
-              nextValue.casesSummary.confirmed -
-              currentValue.casesSummary.confirmed
+              nextValue.cases[0].confirmed - currentValue.cases[0].confirmed
             );
           });
           break;
         case 'deaths':
           rankSort = req.data.sort((currentValue, nextValue) => {
-            return (
-              nextValue.casesSummary.deaths - currentValue.casesSummary.deaths
-            );
+            return nextValue.cases[0].deaths - currentValue.cases[0].deaths;
           });
           break;
         case 'recovered':
           rankSort = req.data.sort((currentValue, nextValue) => {
             return (
-              nextValue.casesSummary.recovered -
-              currentValue.casesSummary.recovered
+              nextValue.cases[0].recovered - currentValue.cases[0].recovered
             );
           });
           break;
@@ -70,35 +66,35 @@ export default {
       };
 
       rankSort.forEach((value) => {
-        this.totalValue.confirmed += value.casesSummary.confirmed;
-        this.totalValue.deaths += value.casesSummary.deaths;
-        this.totalValue.recovered += value.casesSummary.recovered;
+        this.totalValue.confirmed += value.cases[0].confirmed;
+        this.totalValue.deaths += value.cases[0].deaths;
+        this.totalValue.recovered += value.cases[0].recovered;
       });
 
       let result = {
         data: rankSort.map((value) => {
           return {
-            casesSummary: value.casesSummary,
+            cases: value.cases[0],
             country: value.country,
             countryTranslated: _translation.countryName(value.country),
             globalPercentage: {
               confirmed: (
-                (value.casesSummary.confirmed / this.totalValue.confirmed) *
+                (value.cases[0].confirmed / this.totalValue.confirmed) *
                 100
               ).toFixed(2),
               deaths: (
-                (value.casesSummary.deaths / this.totalValue.deaths) *
+                (value.cases[0].deaths / this.totalValue.deaths) *
                 100
               ).toFixed(2),
               recovered: (
-                (value.casesSummary.recovered / this.totalValue.recovered) *
+                (value.cases[0].recovered / this.totalValue.recovered) *
                 100
               ).toFixed(2),
             },
             valueWithPoints: {
-              confirmed: _addPoints.init(value.casesSummary.confirmed),
-              deaths: _addPoints.init(value.casesSummary.deaths),
-              recovered: _addPoints.init(value.casesSummary.recovered),
+              confirmed: _addPoints.init(value.cases[0].confirmed),
+              deaths: _addPoints.init(value.cases[0].deaths),
+              recovered: _addPoints.init(value.cases[0].recovered),
             },
           };
         }),
@@ -106,12 +102,8 @@ export default {
       };
 
       this.newGlobalRankData = result;
-
       // Atualizando o gráfico de Doughnut
-      this.attgraphDoughnut(
-        result.data[0].country,
-        result.data[0].countryTranslated
-      );
+        this.attgraphDoughnut(result.data[0].country, result.data[0].countryTranslated);
     },
 
     // Atualizar gráfico de Doughnut

@@ -82,24 +82,15 @@ export default {
       let query = gql`
         query {
           case(
-            firstDate: "${this.selectedValues.selectDate.firstDate}",
-            lastDate: "${this.selectedValues.selectDate.lastDate}"
+            onlyDate: "${this.selectedValues.selectDate.lastDate}"
           ) {
             country
-            casesSummary {
-              date {
-                lastDate
-                firstDate
-              }
+            cases {
+              date
               confirmed
               deaths
               recovered
               growthRate {
-                confirmed
-                deaths
-                recovered
-              }
-              inBetweenDays {
                 confirmed
                 deaths
                 recovered
@@ -241,7 +232,7 @@ export default {
           setTimeout(() => {
             this.controller.showGlobalDataOptions = true;
             this.controller.hideModal = false;
-          }, 2000);
+        }, 2000);
         } catch (err) {
           console.log(err);
         }
@@ -265,24 +256,15 @@ export default {
     let query = gql`
       query {
         case(
-          firstDate: "${this.selectedValues.selectDate.firstDate}",
-          lastDate: "${this.selectedValues.selectDate.lastDate}"
+          onlyDate: "${this.selectedValues.selectDate.lastDate}"
         ) {
           country
-          casesSummary {
-            date {
-              lastDate
-              firstDate
-            }
+          cases {
+            date
             confirmed
             deaths
             recovered
             growthRate {
-              confirmed
-              deaths
-              recovered
-            }
-            inBetweenDays {
               confirmed
               deaths
               recovered

@@ -144,7 +144,7 @@ export default {
     attGlobalMap(req) {
       this.newGlobalMapData = req.data.map((value) => {
         let countryRename = _renameCountryForAPI.countryName(value.country);
-        return [countryRename, value.casesSummary.confirmed];
+        return [countryRename, value.cases[0].confirmed];
       });
 
       this.newGlobalMapData.unshift(['País', 'Casos confirmados']);

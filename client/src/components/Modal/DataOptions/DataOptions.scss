@@ -279,71 +279,73 @@
 }
 
 // Conteúdo do Modal
-.modal__content__container {
-  width: 100%;
-  height: 60vh;
-  padding: 10px 0px;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-
-  & .content__title {
-    background-color: $flatGreenSea10;
+.modal__data__options__container {
+  & .modal__content__container {
     width: 100%;
-    height: 40px;
-    border-top: solid 1px $flatGreenSea;
-    border-bottom: solid 1px $flatGreenSea;
-
-    & p {
-      color: $flatGreenSea;
-      font-size: 1.6em;
-      margin-left: 5px;
-    }
-  }
-
-  & .content__invalid__value {
-    background-color: $flatYellow10;
-    width: 100%;
-    margin-top: 10px;
+    height: 60vh;
+    padding: 10px 0px;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 
-    & div {
-      margin-left: 5px;
-      display: flex;
-      align-items: center;
-
-      & .unicon {
-        fill: $flatYellow;
-      }
+    & .content__title {
+      background-color: $flatGreenSea10;
+      width: 100%;
+      height: 40px;
+      border-top: solid 1px $flatGreenSea;
+      border-bottom: solid 1px $flatGreenSea;
 
       & p {
-        color: $flatYellow;
-        font-size: 0.8em;
-        letter-spacing: 1px;
-        line-height: 1.3em;
-        margin: 5px 0px 5px 10px;
+        color: $flatGreenSea;
+        font-size: 1.6em;
+        margin-left: 5px;
       }
     }
 
-    & hr {
-      margin: 0px;
-      border: solid 0.5px $flatYellow;
-    }
-  }
-
-  & article ~ article {
-    margin-top: 35px;
-  }
-
-  & .content_body {
-    padding: 25px 10px;
-  }
-
-  & .content__date {
-    & .content_body {
+    & .content__invalid__value {
+      background-color: $flatYellow10;
+      width: 100%;
+      margin-top: 10px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+
+      & div {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+
+        & .unicon {
+          fill: $flatYellow;
+        }
+
+        & p {
+          color: $flatYellow;
+          font-size: 0.8em;
+          letter-spacing: 1px;
+          line-height: 1.3em;
+          margin: 5px 0px 5px 10px;
+        }
+      }
+
+      & hr {
+        margin: 0px;
+        border: solid 0.5px $flatYellow;
+      }
+    }
+
+    & article ~ article {
+      margin-top: 35px;
+    }
+
+    & .content_body {
+      padding: 25px 10px;
+    }
+
+    & .content__date {
+      & .content_body {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }

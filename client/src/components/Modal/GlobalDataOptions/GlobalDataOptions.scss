@@ -240,67 +240,71 @@
 }
 
 // Background que exibe o status da requisição
-.request__status__container {
-  user-select: none;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 9000;
-
-  & .popup__status {
-    height: 40px;
-    padding: 5px;
-    border-radius: 40px;
+.modal__data__options__container {
+  & .request__status__container {
+    user-select: none;
+    width: 100%;
     display: flex;
-    align-items: center;
-    position: relative;
+    justify-content: center;
+    position: fixed;
+    top: 70px;
+    z-index: 9000;
 
-    & .unicon {
-      position: absolute;
+    & .popup__status {
+      height: 40px;
+      padding: 5px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      & .unicon {
+        position: absolute;
+      }
+
+      & span {
+        font-size: 1.3em;
+        letter-spacing: 1px;
+        margin: 0px 5px 0px 35px;
+      }
     }
 
-    & span {
-      font-size: 1.3em;
-      letter-spacing: 1px;
-      margin: 0px 5px 0px 35px;
-    }
-  }
+    & .popup__status__loading {
+      background-color: $flatYellow10;
 
-  & .popup__status__loading {
-    background-color: $flatYellow10;
+      & .unicon {
+        fill: $flatYellow;
+        animation: __rotate__unicon__loading 1s linear 0s normal infinite none
+          running;
+      }
 
-    & .unicon {
-      fill: $flatYellow;
-      animation: __rotate__unicon__loading 1s linear 0s normal infinite none
-        running;
+      & span {
+        color: $flatYellow;
+      }
     }
 
-    & span {
-      color: $flatYellow;
-    }
-  }
+    & .popup__status__complete {
+      background-color: $flatGreen10;
 
-  & .popup__status__complete {
-    background-color: $flatGreen10;
+      & .unicon {
+        fill: $flatGreen;
+      }
 
-    & .unicon {
-      fill: $flatGreen;
-    }
-
-    & span {
-      color: $flatGreen;
-    }
-  }
-
-  & .popup__status__error {
-    background-color: $flatRed10;
-
-    & .unicon {
-      fill: $flatRed;
+      & span {
+        color: $flatGreen;
+      }
     }
 
-    & span {
-      color: $flatRed;
+    & .popup__status__error {
+      background-color: $flatRed10;
+
+      & .unicon {
+        fill: $flatRed;
+      }
+
+      & span {
+        color: $flatRed;
+      }
     }
   }
 }

@@ -39,9 +39,9 @@ export default {
 
       // Soma dos valores
       req.data.forEach((value) => {
-        this.totalValue.confirmed += value.casesSummary.confirmed;
-        this.totalValue.deaths += value.casesSummary.deaths;
-        this.totalValue.recovered += value.casesSummary.recovered;
+        this.totalValue.confirmed += value.cases[0].confirmed;
+        this.totalValue.deaths += value.cases[0].deaths;
+        this.totalValue.recovered += value.cases[0].recovered;
       });
 
       // Adicionando pontos a cada 3 números

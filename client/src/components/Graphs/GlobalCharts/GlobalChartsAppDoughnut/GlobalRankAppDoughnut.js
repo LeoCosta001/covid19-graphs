@@ -36,7 +36,7 @@ export default {
   methods: {
     attGraph(countryData) {
       // Atualizar dados da variavel "countryDataForGraph"
-      let reqCountryData = countryData.casesSummary;
+      let reqCountryData = countryData.cases;
       // Renderização do gráfico atualizado
       this.renderChart(
         {

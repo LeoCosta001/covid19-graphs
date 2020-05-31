@@ -2,20 +2,7 @@
   <div class="select__date__container">
     <article class="select__date">
       <div>
-        <p>De:</p>
-        <FunctionalCalendar
-          @choseDay="checkDate"
-          v-model="firstDate"
-          :placeholder="firstDatePlaceholder"
-          :is-dark="true"
-          :is-modal="true"
-          :limits="{ min: '22/01/2020', max: maxDate }"
-          :change-month-function="true"
-          :is-date-picker="true"
-        ></FunctionalCalendar>
-      </div>
-      <div>
-        <p>Até:</p>
+        <p>Selecione uma data:</p>
         <FunctionalCalendar
           @choseDay="checkDate"
           v-model="lastDate"
