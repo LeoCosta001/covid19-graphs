@@ -26,6 +26,7 @@ hr {
   }
 }
 
+// Menu lateral
 .open__menu {
   width: 450px;
   padding: 0px 60px 0px 60px;
@@ -33,6 +34,13 @@ hr {
 
   & label {
     margin: 0px;
+    position: relative;
+
+    & .unicon__sub__menu__status {
+      transform: rotate(0deg);
+      position: absolute;
+      right: 10px;
+    }
   }
 
   & .open__menu__text {
@@ -46,6 +54,18 @@ hr {
 
   & .menu__page__title {
     margin: 0px 0px 20px 30px;
+  }
+
+  & .router-link-exact-active {
+    & .unicon {
+      fill: $flatLightGreenSea !important;
+    }
+
+    & .link__title__1,
+    & .link__title__2 {
+      color: $flatLightGreenSea !important;
+      text-decoration: underline;
+    }
   }
 
   // Estilo dos elementos que estão dentro do menu
@@ -84,9 +104,7 @@ hr {
     }
   }
 
-  /*
-  * Dropdown do menu
-  */
+  // Dropdown do menu lateral
   & input {
     display: none;
   }
@@ -100,8 +118,7 @@ hr {
     transition: 0.1s;
   }
 
-  & .question__list,
-  & .graphcs__list {
+  & .question__list {
     background-color: $flatSmoke25;
     height: 0px;
     display: flex;
@@ -121,14 +138,6 @@ hr {
   /*
   * Animação para abrir e fechar os sub-menu (Keyframes)
   */
-  & #checkGraphcsList:checked ~ .graphcs__list {
-    animation: __open__graphcs__list 0.2s linear 0s normal 1 forwards running;
-  }
-
-  & #checkGraphcsList:not(:checked) ~ .graphcs__list {
-    animation: __close__graphcs__list 0.2s linear 0s normal 1 forwards running;
-  }
-
   & #checkQuestionList:checked ~ .question__list {
     animation: __open__question__list 0.2s linear 0s normal 1 forwards running;
   }

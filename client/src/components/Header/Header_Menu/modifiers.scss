@@ -3,3 +3,12 @@
     top: -52px;
   }
 }
+
+.link--group--active {
+  fill: $flatLightGreenSea !important;
+  color: $flatLightGreenSea !important;
+}
+
+.sub--link--questions--active {
+  transform: rotate(90deg) !important;
+}

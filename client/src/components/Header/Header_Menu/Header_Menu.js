@@ -11,12 +11,28 @@ export default {
   },
   data() {
     return {
+      // Link ativado
+      sublinkGroup: '',
+      questionListChecked: false,
+
       // Posição do Scrollbar
       showHeaderbar: true,
       lastScrollPosition: 0
     };
   },
   methods: {
+    // Ativar CSS dos links ativados
+    attSublinkGroup(sublinkGroupSelected) {
+      this.sublinkGroup = sublinkGroupSelected;
+
+      // Desativar os subLinks
+      if (sublinkGroupSelected == 'questions') {
+        this.questionListChecked = true;
+      } else {
+        this.questionListChecked = false;
+      }
+    },
+
     // Evento ativado quando é movido o Scrollbar
     onScroll() {
       // Posição atual do Scrollbar
