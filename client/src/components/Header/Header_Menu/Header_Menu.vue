@@ -91,7 +91,7 @@
             <span class="link__title__2">Meios de Transmissão</span>
           </router-link>
 
-          <router-link to="#" class="menu__link__2" @click.native="attSublinkGroup('questions')">
+          <router-link to="/questions/common-questions" class="menu__link__2" @click.native="attSublinkGroup('questions')">
             <unicon class="unicon" name="comment-question" width="23px" height="23px" />
             <span class="link__title__2">Perguntas Frequentes</span>
           </router-link>

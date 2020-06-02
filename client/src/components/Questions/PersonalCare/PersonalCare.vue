@@ -186,7 +186,7 @@
                 <span>8º Quando estiverem secas, suas mãos estarão seguras.</span>
               </div>
             </span>
-        </div>
+          </div>
 
           <div class="new__paragraph">
             <span class="content__title">
@@ -294,6 +294,16 @@
         </div>
       </article>
     </section>
+    <section class="questions__source">
+      <span>
+        Fonte:
+        <a
+          href="https://www.paho.org/bra/index.php?option=com_content&view=article&id=6101:covid19&Itemid=875"
+          class="questions__source__link"
+          target="_blank"
+        >OMS (Organização Mundial da Saúde) e OPAS (Organização Pan-Americana da Saúde).</a>
+      </span>
+    </section>
   </div>
 </template>
 
@@ -308,6 +318,7 @@
 @import "@/sass/mixin/texts/questionPageContent";
 @import "@/sass/mixin/titles/title_h2";
 @import "@/sass/mixin/titles/title_h3";
+@import "@/sass/mixin/linkSource/questions_source";
 
 // SCSS deste componente
 @import "./PersonalCare";

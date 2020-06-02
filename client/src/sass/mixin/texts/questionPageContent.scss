@@ -1,7 +1,7 @@
-@mixin section_content_container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+@mixin section_content_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin content_container {
@@ -29,6 +29,11 @@
         left: -25px;
         top: -2px;
       }
+    }
+
+    & .questions__link {
+      color: $flatGreenSea;
+      text-decoration: underline;
     }
 
     & .content__obs {

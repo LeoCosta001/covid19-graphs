@@ -7,6 +7,7 @@ import GlobalCharts from "../views/GlobalCharts/GlobalCharts.vue";
 import PersonalCare from "../views/PersonalCare/PersonalCare.vue";
 import Symptoms from "../views/Symptoms/Symptoms.vue";
 import ModesOfTransmission from "../views/ModesOfTransmission/ModesOfTransmission.vue";
+import CommonQuestions from "../views/CommonQuestions/CommonQuestions.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
     path: "/questions/modes-of-transmission",
     name: "ModesOfTransmission",
     component: ModesOfTransmission
+  },
+  {
+    path: "/questions/common-questions",
+    name: "CommonQuestions",
+    component: CommonQuestions
   }
 ];
 

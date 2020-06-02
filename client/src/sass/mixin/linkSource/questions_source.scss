@@ -1,0 +1,14 @@
+@mixin questions_source {
+  font-size: 0.7em;
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+
+  & .questions__source__link {
+    color: $flatGreenSea;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
