@@ -8,6 +8,8 @@ import PersonalCare from "../views/PersonalCare/PersonalCare.vue";
 import Symptoms from "../views/Symptoms/Symptoms.vue";
 import ModesOfTransmission from "../views/ModesOfTransmission/ModesOfTransmission.vue";
 import CommonQuestions from "../views/CommonQuestions/CommonQuestions.vue";
+import Emergency from "../views/Emergency/Emergency.vue";
+import AboutCovid19 from "../views/AboutCovid19/AboutCovid19.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -50,6 +52,16 @@ const routes = [
     path: "/questions/common-questions",
     name: "CommonQuestions",
     component: CommonQuestions
+  },
+  {
+    path: "/questions/emergency",
+    name: "Emergency",
+    component: Emergency
+  },
+  {
+    path: "/questions/about-covid-19",
+    name: "AboutCovid19",
+    component: AboutCovid19
   }
 ];
 
