@@ -81,14 +81,22 @@
               <unicon class="unicon" name="angle-right" width="23px" height="23px" />Como colocar, usar, retirar e descartar uma máscara cirúrgica:
             </span>
             <span class="content__paragraph">
-              <strong>1º</strong> Antes de tocar na máscara, limpe as mãos com um higienizador à base de álcool ou água e sabão.<br>
-              <strong>2º</strong> Pegue a máscara e verifique se está rasgada ou com buracos.<br>
-              <strong>3º</strong> O lado superior é onde está a tira de metal (em algumas máscaras é uma borda mais rígida).<br>
-              <strong>4º</strong> Assegure-se que o lado correto da máscara está voltado para fora.<br>
-              <strong>5º</strong> Coloque a máscara no seu rosto pressionando a tira de metal ou a borda rígida da máscara para que ela se adapte ao formato do seu nariz.<br>
-              <strong>6º</strong> Puxe a parte inferior da máscara para que ela cubra sua boca e seu queixo.<br>
-              <strong>7º</strong> Após o uso, retire a máscara; remova as presilhas elásticas por trás das orelhas, mantendo a máscara afastada do rosto e das roupas, para evitar tocar nas superfícies potencialmente contaminadas da máscara.<br>
-              <strong>8º</strong> Descarte a máscara em uma lixeira fechada imediatamente após o uso.<br>
+              <strong>1º</strong> Antes de tocar na máscara, limpe as mãos com um higienizador à base de álcool ou água e sabão.
+              <br />
+              <strong>2º</strong> Pegue a máscara e verifique se está rasgada ou com buracos.
+              <br />
+              <strong>3º</strong> O lado superior é onde está a tira de metal (em algumas máscaras é uma borda mais rígida).
+              <br />
+              <strong>4º</strong> Assegure-se que o lado correto da máscara está voltado para fora.
+              <br />
+              <strong>5º</strong> Coloque a máscara no seu rosto pressionando a tira de metal ou a borda rígida da máscara para que ela se adapte ao formato do seu nariz.
+              <br />
+              <strong>6º</strong> Puxe a parte inferior da máscara para que ela cubra sua boca e seu queixo.
+              <br />
+              <strong>7º</strong> Após o uso, retire a máscara; remova as presilhas elásticas por trás das orelhas, mantendo a máscara afastada do rosto e das roupas, para evitar tocar nas superfícies potencialmente contaminadas da máscara.
+              <br />
+              <strong>8º</strong> Descarte a máscara em uma lixeira fechada imediatamente após o uso.
+              <br />
               <strong>9º</strong> Higienize as mãos depois de tocar ou descartar a máscara – use um higienizador de mãos à base de álcool ou, se estiverem visivelmente sujas, lave as mãos com água e sabão.
             </span>
             <span
@@ -114,36 +122,172 @@
             </span>
             <span class="content__paragraph img__stap__container">
               <div class="img__stap__item item--double--width">
-                <img class="img__double__width" src="https://www.paho.org/bra/images/stories/covid-19/rub-01ab.jpg" alt />
+                <img
+                  class="img__double__width"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-01ab.jpg"
+                  alt
+                />
                 <span>1º Aplique uma quantidade suficiente de preparação alcoólica em uma mão em forma de concha para cobrir todas as superfícies das mãos.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-02.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-02.jpg"
+                  alt
+                />
                 <span>2º Friccione as palmas das mãos entre si.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-03.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-03.jpg"
+                  alt
+                />
                 <span>3º Friccione a palma direita contra o dorso da mão esquerda entrelaçando os dedos e vice-versa.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-04.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-04.jpg"
+                  alt
+                />
                 <span>4º Friccione a palma das mãos entre si com os dedos entrelaçados.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-05.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-05.jpg"
+                  alt
+                />
                 <span>5º Friccione o dorso dos dedos de uma mão com a palma da mão oposta, segurando os dedos, com movimento de vai-e-vem e vice-versa.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-06.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-06.jpg"
+                  alt
+                />
                 <span>6º Friccione o polegar esquerdo, com o auxílio da palma da mão direita, utilizando-se de movimento circular e vice-versa.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-07.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-07.jpg"
+                  alt
+                />
                 <span>7º Friccione as polpas digitais e unhas da mão direita contra a palma da mão esquerda, fazendo um movimento circular e vice-versa.</span>
               </div>
               <div class="img__stap__item">
-                <img class="img__normal__size" src="https://www.paho.org/bra/images/stories/covid-19/rub-08.jpg" alt />
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/rub-08.jpg"
+                  alt
+                />
                 <span>8º Quando estiverem secas, suas mãos estarão seguras.</span>
+              </div>
+            </span>
+        </div>
+
+          <div class="new__paragraph">
+            <span class="content__title">
+              <unicon class="unicon" name="angle-right" width="23px" height="23px" />Como higienizar as mãos com água e sabonete:
+            </span>
+            <span class="content__paragraph img__stap__container">
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-00.jpg"
+                  alt
+                />
+                <span>0º Molhe as mãos com água.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-01.jpg"
+                  alt
+                />
+                <span>1º Aplique na palma da mão quantidade suficiente de sabonete líquido para cobrir todas as superficies das mãos.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-02.jpg"
+                  alt
+                />
+                <span>2º Ensaboe as palmas das mãos friccionando-as entre si.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-03.jpg"
+                  alt
+                />
+                <span>3º Esfregue a palma da mão direita contra o dorso da mão esquerda entrelaçando os dedos e vice-versa.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-04.jpg"
+                  alt
+                />
+                <span>4º Entrelace os dedos e friccione os espaços interdigitais.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-05.jpg"
+                  alt
+                />
+                <span>5º Esfregue o dorso dos dedos de uma mão com a palma da mão oposta, segurando os dedos, com movimento de vai-e-vem e vice-versa.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-06.jpg"
+                  alt
+                />
+                <span>6º Esfregue o polegar esquerdo, com o auxílio da palma da mão direita, utilizando-se de movimento circular e vice-versa.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-07.jpg"
+                  alt
+                />
+                <span>7º Friccione as polpas digitais e unhas da mão direita contra a palma da mão esquerda, fazendo movimento circular e vice-versa.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-08.jpg"
+                  alt
+                />
+                <span>8º Enxágue bem as mãos com água.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-09.jpg"
+                  alt
+                />
+                <span>9º Seque as mãos com papel toalha descartável.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-10.jpg"
+                  alt
+                />
+                <span>10º No caso de torneiras com contato manual para fechamento, sempre utilize papel toalha.</span>
+              </div>
+              <div class="img__stap__item">
+                <img
+                  class="img__normal__size"
+                  src="https://www.paho.org/bra/images/stories/covid-19/wash-11.jpg"
+                  alt
+                />
+                <span>11º Agora suas mãos estão seguras.</span>
               </div>
             </span>
           </div>
