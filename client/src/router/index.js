@@ -5,6 +5,7 @@ import DataTable from "../views/DataTable/DataTable.vue";
 import CountriesCharts from "../views/CountriesCharts/CountriesCharts.vue";
 import GlobalCharts from "../views/GlobalCharts/GlobalCharts.vue";
 import PersonalCare from "../views/PersonalCare/PersonalCare.vue";
+import Symptoms from "../views/Symptoms/Symptoms.vue";
 import ModesOfTransmission from "../views/ModesOfTransmission/ModesOfTransmission.vue";
 
 Vue.use(VueRouter);
@@ -33,6 +34,11 @@ const routes = [
     path: "/questions/personal-care",
     name: "PersonalCare",
     component: PersonalCare
+  },
+  {
+    path: "/questions/symptoms",
+    name: "Symptoms",
+    component: Symptoms
   },
   {
     path: "/questions/modes-of-transmission",

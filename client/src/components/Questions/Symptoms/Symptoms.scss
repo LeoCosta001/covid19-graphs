@@ -1,0 +1,22 @@
+.localContainer {
+  @include localContainerDefault;
+}
+
+// Titulo
+.title__h2 {
+  @include title_h2;
+}
+
+.title__h3 {
+  @include title_h3;
+}
+
+// Container da seção
+.section__content__container {
+  @include section_content_container;
+}
+
+// Container do conteúdo
+.content__container {
+  @include content_container;
+}
