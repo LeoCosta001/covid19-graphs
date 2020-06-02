@@ -64,7 +64,7 @@
 
         <!-- Sublinks de Dúvidas -->
         <span class="question__list">
-          <router-link to="#" class="menu__link__2" @click.native="attSublinkGroup('questions')">
+          <router-link to="/questions/personal-care" class="menu__link__2" @click.native="attSublinkGroup('questions')">
             <unicon class="unicon" name="heart" width="23px" height="23px" />
             <span class="link__title__2">Cuidados Pessoais</span>
           </router-link>

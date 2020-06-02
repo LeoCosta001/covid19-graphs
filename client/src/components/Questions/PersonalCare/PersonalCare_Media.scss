@@ -1,0 +1,9 @@
+@media (max-width: 540px) {
+  .item--double--width {
+    width: 330px !important;
+
+    & .img__double__width {
+      width: 100% !important;
+    }
+  }
+}

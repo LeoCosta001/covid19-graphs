@@ -4,6 +4,7 @@ import Home from "../views/Home/Home.vue";
 import DataTable from "../views/DataTable/DataTable.vue";
 import CountriesCharts from "../views/CountriesCharts/CountriesCharts.vue";
 import GlobalCharts from "../views/GlobalCharts/GlobalCharts.vue";
+import PersonalCare from "../views/PersonalCare/PersonalCare.vue";
 import ModesOfTransmission from "../views/ModesOfTransmission/ModesOfTransmission.vue";
 
 Vue.use(VueRouter);
@@ -27,6 +28,11 @@ const routes = [
     path: "/graphs/global-charts",
     name: "GlobalCharts",
     component: GlobalCharts
+  },
+  {
+    path: "/questions/personal-care",
+    name: "PersonalCare",
+    component: PersonalCare
   },
   {
     path: "/questions/modes-of-transmission",
