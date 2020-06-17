@@ -4,8 +4,8 @@
     <div class="open__menu">
       <Slide>
         <!-- Titulo Principal -->
-        <span class="menu__page__title">
-          <span class="page__title">COVID-19</span>
+        <span class="menu__page__title__container">
+          <span class="menu__page__title">COVID-19</span>
         </span>
         <hr />
 
@@ -91,17 +91,29 @@
             <span class="link__title__2">Meios de Transmissão</span>
           </router-link>
 
-          <router-link to="/questions/common-questions" class="menu__link__2" @click.native="attSublinkGroup('questions')">
+          <router-link
+            to="/questions/common-questions"
+            class="menu__link__2"
+            @click.native="attSublinkGroup('questions')"
+          >
             <unicon class="unicon" name="comment-question" width="23px" height="23px" />
             <span class="link__title__2">Perguntas Frequentes</span>
           </router-link>
 
-          <router-link to="/questions/emergency" class="menu__link__2" @click.native="attSublinkGroup('questions')">
+          <router-link
+            to="/questions/emergency"
+            class="menu__link__2"
+            @click.native="attSublinkGroup('questions')"
+          >
             <unicon class="unicon" name="ambulance" width="23px" height="23px" />
             <span class="link__title__2">Emergência</span>
           </router-link>
 
-          <router-link to="/questions/about-covid-19" class="menu__link__2" @click.native="attSublinkGroup('questions')">
+          <router-link
+            to="/questions/about-covid-19"
+            class="menu__link__2"
+            @click.native="attSublinkGroup('questions')"
+          >
             <unicon class="unicon" name="cell" width="23px" height="23px" />
             <span class="link__title__2">Sobre o COVID-19</span>
           </router-link>
@@ -113,7 +125,25 @@
 
     <!-- Titulo principal da página -->
     <div class="page__title">COVID-19</div>
-    <div class="aside__header">Aqui vai mais botões...</div>
+    <div class="aside__header">
+      <a
+        href="https://github.com/LeoCosta001/covid19-graphs"
+        class="footer__social__content"
+        target="_blank"
+      >
+        <unicon class="unicon" name="github" width="35px" height="35px" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/leocosta001"
+        class="footer__social__content"
+        target="_blank"
+      >
+        <unicon class="unicon" name="linkedin" width="35px" height="35px" />
+      </a>
+      <a href="https://twitter.com/LeoCostaBlack" class="footer__social__content" target="_blank">
+        <unicon class="unicon" name="twitter" width="35px" height="35px" />
+      </a>
+    </div>
   </div>
 </template>
 

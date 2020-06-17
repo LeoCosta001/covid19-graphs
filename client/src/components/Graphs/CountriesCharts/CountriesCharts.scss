@@ -126,6 +126,7 @@
 
 // Informações Adicionais
 .graph__content__container {
+  width: 90vw;
   & .content__title {
     color: $flatLightGreenSea;
     font-size: 1.2em;
@@ -174,6 +175,7 @@
   border: solid 1px $flatGreenSea;
   border-radius: 0px 10px 0px;
   margin-top: 20px;
+  margin: 20px auto;
   width: 90vw;
 
   // Tabela externa

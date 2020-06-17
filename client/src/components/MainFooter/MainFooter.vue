@@ -10,8 +10,8 @@
 
       <div class="footer__subtitle">COVID-19</div>
       <div class="footer__about__content">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit corrupti
-        obcaecati dignissimos voluptatum nobis distinctio commodi accusantium!
+        A importância da conscientização e prevenção no combate ao novo vírus que desestabilizou
+        o planeta.
       </div>
     </article>
 
@@ -60,11 +60,11 @@
         <!-- Links de Dúvidas -->
         <div class="footer__links__content__subcontainer">
           <div class="footer__subtitle">Dúvidas</div>
-          <router-link to="#" class="footer__links__content">
+          <router-link to="/questions/personal-care" class="footer__links__content">
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Cuidados Pessoais
           </router-link>
 
-          <router-link to="#" class="footer__links__content">
+          <router-link to="/questions/symptoms" class="footer__links__content">
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Sintomas
           </router-link>
 
@@ -72,15 +72,15 @@
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Meios de Transmissão
           </router-link>
 
-          <router-link to="#" class="footer__links__content">
+          <router-link to="/questions/common-questions" class="footer__links__content">
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Perguntas Frequentes
           </router-link>
 
-          <router-link to="#" class="footer__links__content">
+          <router-link to="/questions/emergency" class="footer__links__content">
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Emergência
           </router-link>
 
-          <router-link to="#" class="footer__links__content">
+          <router-link to="/questions/about-covid-19" class="footer__links__content">
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Sobre o COVID-19
           </router-link>
         </div>
@@ -88,16 +88,12 @@
         <!-- Links de Dados -->
         <div class="footer__links__content__subcontainer">
           <div class="footer__subtitle">Dados</div>
-          <router-link to="/data-table" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Tabela de Dados
-          </router-link>
-
           <router-link to="/graphs/countries-charts" class="footer__links__content">
             <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos dos Países
           </router-link>
 
-          <router-link to="#" class="footer__links__content">
-            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos Mundiais
+          <router-link to="/graphs/global-charts" class="footer__links__content">
+            <unicon class="unicon" name="angle-right" width="20px" height="20px" />Gráficos Globais
           </router-link>
         </div>
       </div>
@@ -113,10 +109,8 @@
 
       <div class="footer__help__content">
         Ajude a conscientizar as pessoas para que cada um faça a sua parte nesta
-        luta contra o COVID-19! Compartilhe estas imagens.
+        luta contra o COVID-19!
       </div>
-
-      <div class="footer__subtitle">Imagens</div>
     </article>
   </div>
 </template>
