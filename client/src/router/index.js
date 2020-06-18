@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home/Home.vue";
-import DataTable from "../views/DataTable/DataTable.vue";
 import CountriesCharts from "../views/CountriesCharts/CountriesCharts.vue";
 import GlobalCharts from "../views/GlobalCharts/GlobalCharts.vue";
 import PersonalCare from "../views/PersonalCare/PersonalCare.vue";
@@ -17,11 +16,6 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
-  },
-  {
-    path: "/data-table",
-    name: "DataTable",
-    component: DataTable
   },
   {
     path: "/graphs/countries-charts",

@@ -2,7 +2,7 @@
   <div class="GlobalMapAppContainer">
     <!-- Mapa global -->
     <section id="globalMapContainer" class="globalmap__container" >
-      <GChart type="GeoChart" :data="chartData" :options="chartOptions" />
+      <GChart type="GeoChart" :data="chartData" :options="chartOptions" :settings="{packages: ['geochart'], mapsApiKey: 'AIzaSyAOU_B-vboM6gPUGO2BI0g6YcRzqRNRQ68'}" />
     </section>
 
     <!-- Botões laterais -->
