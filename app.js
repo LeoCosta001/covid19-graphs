@@ -25,6 +25,9 @@ const graphqlSchema = require('./models/graphql-schema');
       graphiql: true
     }));
 
+// Arquivos estáticos
+// app.use('/dist', express.static(path.join(__dirname, 'dist')));
+
 // Porta
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`);

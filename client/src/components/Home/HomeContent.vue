@@ -67,7 +67,7 @@
     <!-- Sobre: Apresentação do site -->
     <section class="section__container light--background">
       <article class="about__content__container">
-        <div class="about__image">
+        <div class="about__image media--display--about--image1">
           <img
             src="../../../public/assets/locawebStyle/images/icons/grafico-dos-paises.png"
             alt
@@ -75,7 +75,18 @@
           />
         </div>
         <div class="about__content">
-          <router-link to="/graphs/countries-charts" class="about__title title__left">Gráfico dos países</router-link>
+          <router-link
+            to="/graphs/countries-charts"
+            class="about__title title__left"
+          >Gráfico dos países</router-link>
+          <div class="about__image media--display--about--image2">
+            <!-- Imagem interna -->
+            <img
+              src="../../../public/assets/locawebStyle/images/icons/grafico-dos-paises.png"
+              alt="Imagem de um gáficoem linhas"
+              srcset
+            />
+          </div>
           <div class="about__msg msg__left">
             Visualize gráficos com informações atualizadas de mais de 180 países.
             <br />Dados separados em soma total, taxa de crescimento, quantidade de novos registros diários, dias com as maiores taxas de crescimento e muito mais.
@@ -85,11 +96,19 @@
       <article class="about__content__container">
         <div class="about__content">
           <router-link to="/graphs/global-charts" class="about__title title__right">Gráfico mundial</router-link>
+          <div class="about__image media--display--about--image2">
+            <!-- Imagem interna -->
+            <img
+              src="../../../public/assets/locawebStyle/images/icons/grafico-mundial.png"
+              alt="Imagem de um gráfico mundial"
+              srcset
+            />
+          </div>
           <div
             class="about__msg msg__right"
           >Faça uma análise comparando os registros dos países simultaneamente, podendo escolher uma data específica, visualizar um mapa-múndi, ter uma lista de rank dos países baseados na totalidade de cada registro (casos confirmados, mortos e recuperados).</div>
         </div>
-        <div class="about__image">
+        <div class="about__image media--display--about--image1">
           <img
             src="../../../public/assets/locawebStyle/images/icons/grafico-mundial.png"
             alt

@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <GlobalDataOptions @GlobalDataOptions_return="globalDataOptionsReturn" />>
+    <GlobalDataOptions @GlobalDataOptions_return="globalDataOptionsReturn" />
     <GlobalCharts ref="attGlobalCharts" />
   </div>
 </template>

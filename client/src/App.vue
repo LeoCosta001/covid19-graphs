@@ -3,7 +3,7 @@
     <MainHeader />
     <!-- fix-bm-overlay escurece a tela ao abrir o menu, ele é editado em @/sass/global/externalComponents/sideBar_vueBurgerMenu -->
     <div class="fix-bm-overlay"></div>
-    <router-view />
+    <router-view class="router__view" />
     <MainFooter class="MainFooter" />
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   name: "App",
   components: {
     MainHeader,
-    MainFooter,
+    MainFooter
   }
 };
 </script>
@@ -36,6 +36,7 @@ export default {
 body {
   display: flex;
   justify-content: center;
+  min-height: 100%;
 }
 
 #app {
@@ -43,5 +44,21 @@ body {
   color: $flatLightGrey;
   font-family: "Open Sans";
   width: 100%;
+}
+
+.router__view {
+  min-height: calc(100vh - 275px);
+}
+
+@media (max-width: 1000px) {
+  .router__view {
+    min-height: calc(100% - 460px);
+  }
+}
+
+@media (max-width: 780px) {
+  .router__view {
+    min-height: calc(100% - 915px);
+  }
 }
 </style>

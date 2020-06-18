@@ -1,6 +1,6 @@
 <template>
   <div class="localContainer">
-    <DataOptions @DataOptions_return="dataOptionsReturn" />>
+    <DataOptions @DataOptions_return="dataOptionsReturn" />
     <CountriesCharts ref="attGraphData" :country-data="dataOptions" />
   </div>
 </template>
