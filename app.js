@@ -31,7 +31,7 @@ const graphqlSchema = require('./models/graphql-schema');
 // // Arquivos estáticos
 app.use(express.static(path.join(__dirname + "/client/dist")));
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/dist/index.html');
+  res.sendFile(__dirname + '/client/dist/index.html');
 })
 
 // Porta
