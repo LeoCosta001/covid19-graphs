@@ -1,6 +1,9 @@
 const PORT = 3000;
+const hostName = "localhost";
 const express = require("express");
 const app = express();
+const serveStatic = require('serve-static');
+const path = require('path');
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
@@ -26,8 +29,9 @@ const graphqlSchema = require('./models/graphql-schema');
     }));
 
 // Arquivos estáticos
-// app.use('/dist', express.static(path.join(__dirname, 'dist')));
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
+app.use(serveStatic(__dirname + "/client/dist"));
 // Porta
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`);
