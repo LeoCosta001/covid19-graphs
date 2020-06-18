@@ -25,7 +25,7 @@
     >
       <!-- Mensagem de país não selecionado -->
       <div v-if="!countryData.data">
-        <div class="select__country__msg__container">
+        <div class="select__country__msg__container" @click="openModalDataOption">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </div>
@@ -55,7 +55,7 @@
     >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
-        <div class="select__country__msg__container">
+        <div class="select__country__msg__container" @click="openModalDataOption">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
@@ -85,7 +85,7 @@
     >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
-        <div class="select__country__msg__container">
+        <div class="select__country__msg__container" @click="openModalDataOption">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
@@ -115,7 +115,7 @@
     <section class="graph__content__container" v-if="countryData.selectedValues.selectInfo.summary">
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
-        <div class="select__country__msg__container">
+        <div class="select__country__msg__container" @click="openModalDataOption">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>
@@ -224,7 +224,7 @@
     >
       <!-- Mensagem de país não selecionado -->
       <article v-if="!countryData.data">
-        <div class="select__country__msg__container">
+        <div class="select__country__msg__container" @click="openModalDataOption">
           <span class="select__country__msg">Selecione um País...</span>
         </div>
       </article>

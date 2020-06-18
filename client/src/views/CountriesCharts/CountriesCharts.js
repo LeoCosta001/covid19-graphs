@@ -18,6 +18,11 @@ export default {
     // Recebe novos valores no componente "DataOptions" e os envia para o componente "CountriesCharts"
     dataOptionsReturn(req) {
       this.$refs.attGraphData.attTableData(req);
+    },
+
+    // Abre o modal
+    showModalDataOption() {
+      this.$refs.modalDataOption.modalOpenButton()
     }
   }
 };

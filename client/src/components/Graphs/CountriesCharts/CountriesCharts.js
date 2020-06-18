@@ -235,5 +235,10 @@ export default {
     countryDataTableRecoveredToggle() {
       this.countryDataTableRecovered = this.countryDataTableRecovered ? false : true;
     },
+
+    // Abrir modal DataOption ao clicar na mensaem de país não selecionado
+    openModalDataOption() {
+      this.$emit('OpenModalDataOption');
+    }
   },
 };

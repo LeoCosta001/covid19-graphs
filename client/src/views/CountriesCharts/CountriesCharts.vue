@@ -1,7 +1,7 @@
 <template>
   <div class="localContainer">
-    <DataOptions @DataOptions_return="dataOptionsReturn" />
-    <CountriesCharts ref="attGraphData" :country-data="dataOptions" />
+    <DataOptions ref="modalDataOption" @DataOptions_return="dataOptionsReturn" />
+    <CountriesCharts ref="attGraphData" @OpenModalDataOption="showModalDataOption" :country-data="dataOptions" />
   </div>
 </template>
 
