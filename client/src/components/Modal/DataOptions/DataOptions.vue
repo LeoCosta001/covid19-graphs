@@ -157,6 +157,7 @@
 
 // SCSS deste componente
 @import "./DataOptions";
+@import "./DataOptions_Media";
 @import "./modifiers";
 @import "./keyframes";
 </style>

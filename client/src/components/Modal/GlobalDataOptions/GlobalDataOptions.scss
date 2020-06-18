@@ -475,6 +475,7 @@
 
     & div {
       user-select: none;
+      cursor: pointer;
       font-size: 11pt;
       letter-spacing: 2px;
       font-weight: lighter;
@@ -484,7 +485,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
     }
   }
 
@@ -504,7 +504,6 @@
 
   & .modal__button__cancel {
     width: 120px;
-    justify-content: left;
 
     & div {
       background-color: $flatRed50;
@@ -518,7 +517,6 @@
 
   & .modal__button__apply {
     width: 120px;
-    justify-content: left;
 
     & div {
       background-color: $flatGreen50;

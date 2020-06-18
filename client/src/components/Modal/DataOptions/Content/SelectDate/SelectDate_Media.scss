@@ -1,0 +1,10 @@
+@media (max-width: 440px) {
+  .select__date__container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    .select__date {
+      width: 90%;
+    }
+  }
+}

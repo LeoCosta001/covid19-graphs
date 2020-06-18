@@ -206,6 +206,7 @@
 
 // SCSS deste componente
 @import "./GlobalDataOptions";
+@import "./GlobalDataOptions_Media";
 @import "./modifiers";
 @import "./keyframes";
 </style>

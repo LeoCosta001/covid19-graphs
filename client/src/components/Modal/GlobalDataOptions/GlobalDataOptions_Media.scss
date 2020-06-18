@@ -1,0 +1,24 @@
+@media (max-width: 510px) {
+  .modal__container {
+    width: 95vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal__footer {
+      justify-content: space-around;
+
+    & .modal__button__reset {
+      flex: none;
+      width: 100px;
+      padding-left: 5px;
+    }
+    & .modal__button__cancel {
+      width: 100px;
+    }
+    & .modal__button__apply {
+      width: 100px;
+      padding-right: 5px;
+    }
+  }
+}

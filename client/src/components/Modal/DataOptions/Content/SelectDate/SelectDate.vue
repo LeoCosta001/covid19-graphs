@@ -39,4 +39,5 @@
 
 // SCSS deste componente
 @import "./SelectDate";
+@import "./SelectDate_Media";
 </style>
