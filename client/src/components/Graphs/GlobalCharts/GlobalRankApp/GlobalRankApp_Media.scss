@@ -1,4 +1,4 @@
-@media (max-width: 830px) {
+@media (max-width: 900px) {
   .GlobalRankAppContainer {
     flex-direction: column;
     height: auto;
@@ -21,7 +21,7 @@
       & .rank__item__container {
         width: 95%;
         // height: 105px;
-        height: auto;
+        min-height: auto;
 
         & div {
           & .rank__value {

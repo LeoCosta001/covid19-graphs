@@ -42,7 +42,7 @@ export default {
       // Renderização do gráfico atualizado
       this.renderChart(
         {
-          labels: ["Casos Confirmados", "Mortos", "Recurados"],
+          labels: ["Casos Confirmados", "Mortos", "Recuperados"],
           datasets: [
             {
               label: "Casos Confirmados",
