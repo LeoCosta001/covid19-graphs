@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "client-install": "cd client && npm install",
-    "client-start": "cd client && npm run serve",
+    "client-dev": "cd client && npm run serve",
     "client-build": "cd client && npm run build",
     "client-lint": "cd client && npm run lint",
-    "dev": "nodemon",
+    "client-lint-fix": "cd client && npm run lint --fix",
+    "server-dev": "nodemon",
     "start": "node app.js"
   },
   "keywords": [],
