@@ -14,7 +14,7 @@
   - **Dia com o maior número de registros** (entre a "data inicial e a data final").
   - **Mapa global** (destacando por cores os países com base na sua quantidade de registros em uma data especifica).
   - **Rank dos países** (com base na quantidade de registros de uma data especifica).
-   - **Resumo global** (soma de todos os registros de todos os países até uma data especifica).
+  - **Resumo global** (soma de todos os registros de todos os países até uma data especifica).
 
 - Este projeto não visa somente informar dados, mas também instruir os usuários como agir durante a pandemia por meio dos anúncios oficiais da OMS, e por fim conscientizar as pessoas de que cada um deva fazer a sua parte.
 
@@ -31,6 +31,8 @@
 **Linter:** ESlint-airbnb (Usado no Front-end).
 
 **Status:** Em andamento (87.3% para v1.0).
+
+**Link:** [http://devontheroad-net.umbler.net/](http://devontheroad-net.umbler.net/).
 
 ## Como rodar
 **Requisitos:**
