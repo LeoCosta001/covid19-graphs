@@ -4,7 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "cd client && npm install",
+    "client-start": "cd client && npm run serve",
+    "client-build": "cd client && npm run build",
+    "client-lint": "cd client && npm run lint",
     "dev": "nodemon",
     "start": "node app.js"
   },
