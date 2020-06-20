@@ -11,6 +11,7 @@
     >
       <hr />
       <h3>Mapa Mundial</h3>
+      <p>Informações baseadas no tipo de dado selecionado "{{ reqResult.selectedValues.selectDataType.dataTypeTranslated }}".</p>
       <hr />
     </article>
 

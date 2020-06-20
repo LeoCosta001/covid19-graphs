@@ -142,12 +142,15 @@ export default {
 
     // Atualizar dados do mapa global
     attGlobalMap(req) {
+      let selectedDataType = req.selectedValues.selectDataType.dataType;
+      let selectedDataTypeTranslated = req.selectedValues.selectDataType.dataTypeTranslated;
+
       this.newGlobalMapData = req.data.map((value) => {
         let countryRename = _renameCountryForAPI.countryName(value.country);
-        return [countryRename, value.cases[0].confirmed];
+        return [countryRename, value.cases[0][selectedDataType]];
       });
 
-      this.newGlobalMapData.unshift(['País', 'Casos confirmados']);
+      this.newGlobalMapData.unshift(['País', selectedDataTypeTranslated]);
       this.attMap;
     },
   },
