@@ -1,6 +1,8 @@
 // Classe usada para formatar a aparência de todos os elementos quando não houver nenhum país selecionado
 @mixin unselect--country {
   .unselect--country {
+    border-color: $flatLightMidnightBlue !important;
+
     & *,
     & *:hover {
       color: $flatLightMidnightBlue !important;

@@ -1,16 +1,17 @@
 @mixin unselectCountry {
+  background-color: $flatSmoke25;
   cursor: pointer;
-  position: absolute;
-  top: 100px;
-  left: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: auto;
   width: 70vw;
   border: solid 1px $flatLightSmoke;
-  background-color: $flatSmoke25;
   border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 100px;
+  left: 10vw;
 
   & .select__country__msg {
     user-select: none;

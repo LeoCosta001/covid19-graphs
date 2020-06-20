@@ -89,7 +89,8 @@
           </div>
           <div class="about__msg msg__left">
             Visualize gráficos com informações atualizadas de mais de 180 países.
-            <br />Dados separados em soma total, taxa de crescimento, quantidade de novos registros diários, dias com as maiores taxas de crescimento e muito mais.
+            <br />Dados separados em soma total, taxa de crescimento, quantidade de novos
+            registros diários, dias com as maiores taxas de crescimento e muito mais.
           </div>
         </div>
       </article>
@@ -106,7 +107,9 @@
           </div>
           <div
             class="about__msg msg__right"
-          >Faça uma análise comparando os registros dos países simultaneamente, podendo escolher uma data específica, visualizar um mapa-múndi, ter uma lista de rank dos países baseados na totalidade de cada registro (casos confirmados, mortos e recuperados).</div>
+          >Faça uma análise comparando os registros dos países simultaneamente, podendo escolher
+          uma data específica, visualizar um mapa-múndi, ter uma lista de rank dos países
+          baseados na totalidade de cada registro (casos confirmados, mortos e recuperados).</div>
         </div>
         <div class="about__image media--display--about--image1">
           <img

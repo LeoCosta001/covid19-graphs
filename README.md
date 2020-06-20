@@ -57,4 +57,4 @@ OBS: Para esta etapa é necessário já ter feito o build do Front-end com o com
 
 ## Observações
 **Eslint**
-- Caso o o Eslit apresente algum erro na hora de fazer o Build ou no momento de rodar o Front-end no **modo "Desenvolvedor"** basta usar o comando `npm run client-lint-fix` para que o Eslint concerte os problemas encontrados.
+- Caso o Eslit apresente algum erro na hora de fazer o Build ou no momento de rodar o Front-end no **modo "Desenvolvedor"** basta usar o comando `npm run client-lint-fix` para que o Eslint concerte os problemas encontrados.
