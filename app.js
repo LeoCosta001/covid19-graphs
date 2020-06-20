@@ -3,6 +3,7 @@ const hostName = "localhost";
 const express = require("express");
 const app = express();
 const serveStatic = require('serve-static');
+const history = require('connect-history-api-fallback');
 const path = require('path');
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -27,9 +28,15 @@ const graphqlSchema = require('./models/graphql-schema');
       schema: graphqlSchema,
       graphiql: true
     }));
+    
+    // Redirecionamento de rota para arquivo estático
+    // (OBS: Este middleware tem que ser executado antes dos arquivos estáticos)
+    app.use(history());
 
-// // Arquivos estáticos
-app.use(express.static(path.join(__dirname + "/client/dist")));
+    // Arquivos estáticos
+    app.use(express.static(path.join(__dirname + "/client/dist")));
+
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/dist/index.html');
 })
