@@ -1,4 +1,4 @@
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const hostName = "localhost";
 const express = require("express");
 const app = express();
@@ -42,6 +42,6 @@ app.get('/', (req, res) => {
 })
 
 // Porta
-app.listen(process.env.PORT || port, () => {
+app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`);
 });
