@@ -30,9 +30,9 @@
 
 **Linter:** ESlint-airbnb (Usado no Front-end).
 
-**Status:** Em andamento (87.3% para v1.0).
+**Status:** Em andamento (99% para v1.0).
 
-**Link:** [http://devontheroad-net.umbler.net/](http://devontheroad-net.umbler.net/).
+**Link:** [https://web-app-covid-19.herokuapp.com/](https://web-app-covid-19.herokuapp.com/).
 
 ## Como rodar
 **Requisitos:**
