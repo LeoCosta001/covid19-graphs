@@ -20,7 +20,7 @@
     "core-js": "^3.6.4",
     "graphql-client": "^2.0.1",
     "graphql-tag": "^2.10.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "vue": "^2.6.11",
     "vue-burger-menu": "^2.0.5",
     "vue-chartjs": "^3.5.0",
